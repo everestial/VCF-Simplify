@@ -2,7 +2,8 @@
 A python parser to simplify the vcf file into table like format.
 
 Basically this tool takes in sorted vcf file simplifies the vcf to a table like output by representing fields of interest from `INFO` and `FORMAT` field for each `SAMPLE` of interest.
-By default all the `INFO`, `FORMAT` for all the `SAMPLE` are simplified
+By default all the `INFO`, `FORMAT` for all the `SAMPLE` are simplified.
+This output is more useful to load into R and use with tidyr, dplyr where different columns can be accessed by matching `names` or `pre, suf - fixes`.
 
 
 # Prerequisites:
@@ -32,5 +33,6 @@ Python packages and modules
   - write the table back to a VCF file
   
   
-  Citation: Giri, 2018; vcf_simplify - a vcf simpification tool.
+  **Citation:** ***Giri, B.K, (2018). vcf_simplify - a vcf simpification tool.***
+
 
