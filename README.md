@@ -29,3 +29,5 @@ Python packages and modules
 ## Upcoming features:
   - ability to add `genotype bases` to the output table
   - write the table back to vcf file
+  
+```diff````
