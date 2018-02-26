@@ -28,6 +28,9 @@ Python packages and modules
     
 ## ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Upcoming features:
   - ability to add `genotype bases` to the output table
-  - write the table back to ```vcf``` file
+  - ability to futher simplify complex fields
+  - write the table back to a VCF file
   
+  
+  Citation: Giri, 2018; vcf_simplify - a vcf simpification tool.
 
