@@ -27,7 +27,7 @@ Python packages and modules
     python3 vcf_simplify-v1.py --vcf input_test.vcf --out simplified_vcf.txt
     
 ## ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Upcoming features:
-  - ability to add `genotype bases` to the output table
-  - write the table back to ```vcf``` file
+   - ability to add `genotype bases` to the output table
+   - write the table back to ```vcf``` file
   
 
