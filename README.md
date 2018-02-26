@@ -33,6 +33,6 @@ Python packages and modules
   - write the table back to a VCF file
   
   
-  **Citation:** ***Giri, B.K, (2018). vcf_simplify - a vcf simpification tool.***
+  **Citation:** ***Giri, B.K, (2018). vcf_simplify-v1: a vcf simpification tool.***
 
 
