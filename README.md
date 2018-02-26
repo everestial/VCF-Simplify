@@ -28,9 +28,7 @@ Python packages and modules
     
 ## Upcoming features:
   - ability to add `genotype bases` to the output table
-  - write the table back to vcf file
+  - write the table back to ```vcf``` file
   
 
-```diff````
-
-´´´´Deprecated´´´´
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
