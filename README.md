@@ -1,4 +1,4 @@
-# vcf_simplify-version01
+# vcf_simplify-v1
 A python parser to simplify the vcf file into table like format.
 
 Basically this tool takes in sorted vcf file simplifies the vcf to a table like output by representing fields of interest from `INFO` and `FORMAT` field for each `SAMPLE` of interest.
@@ -23,6 +23,6 @@ Python packages and modules
     2	15881106  ...........
     
     
-   ### if no options are provided then all the INFO, FORMAT field are represented from all the SAMPLE
+   ### if no options are provided then all the INFO, FORMAT fields are represented from all the SAMPLE
     python3 vcf_simplify-v1.py --vcf input_test.vcf --out simplified_vcf.txt
     
