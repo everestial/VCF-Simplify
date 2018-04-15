@@ -259,7 +259,7 @@ def process_info(info_fields, variant):
 def process_format(variant, my_sample_idx, format_ids_values, write_block):
 
     format_ids_in_variant = str(variant).split('\t')[8].split(':')
-    sample_data_in_variant = str(variant).split('\t')[9::]
+    sample_data_in_variant = str(variant).rstrip('\n').split('\t')[9::]
 
 
     for nth in my_sample_idx:
