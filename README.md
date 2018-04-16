@@ -43,7 +43,7 @@ CHROM	POS	REF	ALT	FILTER	AF	AN	BaseQRankSum	ClippingRankSum	MA605_PI	MA605_GT	MA
 
 
    ### Report simiplified output (all available fields) for sample MA605,ms01e 
-python3 vcf_simplify-v2.py --vcf F1.phased_variants.Final02.vcf --out simplified_vcf.txt --samples MA605,ms01e
+    python3 vcf_simplify-v2.py --vcf F1.phased_variants.Final02.vcf --out simplified_vcf.txt --samples MA605,ms01e
 
    ### Expected output
 ```
@@ -55,7 +55,7 @@ CHROM	POS	ID	REF	ALT	QUAL	FILTER	AF	BaseQRankSum	ClippingRankSum	DP	DS	END	Exces
 <br>
 
    ### Report simplified output in "long" format
-python3 vcf_simplify-v2.py --vcf F1.phased_variants.Final02.vcf --out simplified_vcf.txt --infos AF,AN,BaseQRankSum,ClippingRankSum --formats PI,GT,PG --pre_header CHROM,POS,REF,ALT,FILTER --mode long --samples MA605,ms01e
+    python3 vcf_simplify-v2.py --vcf F1.phased_variants.Final02.vcf --out simplified_vcf.txt --infos AF,AN,BaseQRankSum,ClippingRankSum --formats PI,GT,PG --pre_header CHROM,POS,REF,ALT,FILTER --mode long --samples MA605,ms01e
      
    ### Expected output
 ```
