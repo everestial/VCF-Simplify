@@ -1,15 +1,15 @@
 # VCF-simplify.v2
 A python parser to simplify the vcf file into table like format.
 
-There are lots of tools to mainpulate and alter VCF file. But, a simple and comprehensive tool that could produce a most simple output required by emperical biologist and was still amiss.
+There are several tools available to mainpulate and alter VCF file. But, a simple and comprehensive tool that can produce a most simple output required by emperical biologist is still amiss.
 
-This tool takes in sorted vcf file and reports a simplified table output for `INFO` and `FORMAT` field for each `SAMPLE` of interest. With default state (minimal code) all the `INFO`, `FORMAT` for all the `SAMPLE` are simplified. Fields can be further narrowed down using very convenient and comprehensive scripts. See the given examples.
+This tool takes in sorted vcf file and reports a simplified table output for `INFO` and `FORMAT` field for each `SAMPLE` of interest. With default state (minimal code) all the `INFO`, `FORMAT` for all the `SAMPLE` are simplified. Fields can be further narrowed down using very convenient and comprehensive scripts. **See the examples given below.**
 
-The output table can be created in both "long" and "wide" format, which makes it suitable for **mining data by samples vs position** quite simple. The output can be further filtered downstream with awk and can be loaded onto R and used with tidyr, dplyr where different columns can be accessed by matching `names` or `pre, suf - fixes`.
+The output table can be created in both "long" and "wide" format, which makes it suitable for **mining data by samples vs position** quite simple. The output can be further filtered downstream with awk and can be loaded onto R and used with tidyr, dplyr where different columns can be accessed by matching `names` or `pre,suf - fixes`.
 
 
 # Prerequisites:
-Python packages and modules
+Python packages and modules:
 - argparse (https://docs.python.org/3/library/argparse.html)
 - cyvcf2 (https://github.com/brentp/cyvcf2/)
 - Python3 (https://www.python.org/)
