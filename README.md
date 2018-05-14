@@ -1,4 +1,4 @@
-# VCF-simplify.v2
+# VCF-Simplify &ensp;&ensp;&ensp; v2.1
 A python parser to simplify the vcf file into table like format.
 There are several tools available to mainpulate and alter VCF file.
 But, a simple and comprehensive tool that can produce a most simple
