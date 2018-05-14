@@ -26,6 +26,7 @@ and comprehensive scripts.
     It is also possible to convert the TABLE file into VCF. Controlled,
     workflows are included.
 
+<br>
 
 ## Prerequisites :
 Required Python packages and modules
@@ -34,7 +35,7 @@ Required Python packages and modules
 - [cyvcf2](https://github.com/brentp/cyvcf2/)
 - [numpy](http://www.numpy.org/)
 
-
+<br>
 
 ## Usage :
 
@@ -179,7 +180,8 @@ CHROM	POS	ID	REF	ALT	QUAL	FILTER	AF	AN	BaseQRankSum	ClippingRankSum	SAMPLE	PI	GT
 
 <br>
 
-**Include "-keepHeader " to store meta header of the VCF as separate file.**
+**Include "-keepHeader " to store meta header of the VCF as separate file.**\
+*Output not shown
 
     python3 VCF-Simplify.py SimplifyVCF -to table -inVCF input_test.vcf -out simple_table.txt -keepHeader yes
 
