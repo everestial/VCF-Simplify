@@ -244,7 +244,6 @@ CHROM	POS	all-alleles	ms01e:PI	ms01e:PG_al	ms02g:PI	ms02g:PG_al	ms03g:PI	ms03g:P
 
 <br>
 
-
 ## BuildVCF
 
 <pre>$ python3 VCF-Simplify.py BuildVCF -h
