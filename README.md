@@ -57,7 +57,6 @@ $ python3 VCF-Simplify.py -h
 </pre>
 
 <br>
-<br>
 
 **You can see that there are two options available for conversion:**
   - **SimplifyVCF :** to convert from VCF ----> to TABLE and/or Haplotype file
@@ -171,12 +170,12 @@ CHROM	POS	ID	REF	ALT	QUAL	FILTER	AF	AN	BaseQRankSum	ClippingRankSum	SAMPLE	PI	GT
 <br>
 
 **Use minimal script for full term simplification:**\
-(*Output not shown)
+*Output not shown
 
     python3 VCF-Simplify.py SimplifyVCF -to table -inVCF input_test.vcf -out simple_table.txt -keepHeader yes
 
-- Simplified data for all the infos, formats for all the sample
-- will output in wide format
+- Simplified data for all the infos, formats for all the sample.
+- Will output in wide format by default.
 
 <br>
 
@@ -283,8 +282,8 @@ Additional flags for &quot;Table To VCF&quot;:
 
 ### Example 03 (TABLE to VCF):
 *Note:
-- requires "vcf header" from other VCF or custom VCF, with no `#CHROM` line.
-- the type of the data in "GT" should be indicated.
+- requires "VCF header" from other VCF or custom VCF, with no `#CHROM` line.
+- the type of the data in ***"GT"*** should be indicated.
 
 <pre>
 python3 VCF-Simplify.py BuildVCF -fromType table -inFile simple_table.txt -vcfHeader vcf_header.txt -outVCF table_toVCF.vcf -GTbase numeric
@@ -303,17 +302,15 @@ python3 VCF-Simplify.py BuildVCF -fromType haplotype -inFile simple_haplotype.tx
 <br>
 
 ## ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Upcoming features:
-  - Ability to add `genotype bases` for fields other than "GT".
-  - Ability to handle symbolic alleles.
+  - Ability to add `genotype bases` for fields other than ***"GT"*** .
+  - Ability to handle ***symbolic alleles***.
   - Ability to :
     - prepare custom diploid genome.
     - prepare custom GTF, GFF files.
   - Extract gene sequence using ref genome and VCF files for phylogenetic analyses.
 
-<br>
-<br>
-  
-  **Citation:**\
+
+### Citation:
   &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
 
 
