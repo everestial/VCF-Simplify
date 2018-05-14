@@ -17,7 +17,7 @@ and comprehensive scripts.
 
 <br>
 
-**Exclusively for phase-Stitcher and phase-Extender.**
+**Exclusively for [phase-Stitcher](https://github.com/everestial/pHASE-Stitcher) and [phase-Extender](https://github.com/everestial/phase-Extender).**
   - **Convert VCF to Haplotype**\
     It is also possible to convert the TABLE file into VCF. Controlled,
     workflows are included.
