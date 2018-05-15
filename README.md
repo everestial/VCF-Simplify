@@ -88,7 +88,7 @@ optional arguments:
                         Write the HEADER data to a separate output
                         file.Options: &apos;yes&apos; or &apos;no&apos;
 
-VCF To Haplotype:
+Flags for &quot;VCF To Haplotype&quot;:
   -PG PG                FORMAT tag containing the phased genotype of the
                         SAMPLE. Only applicable on &apos;haplotype file output&apos;.
   -PI PI                FORMAT tag representing the unique index of RBphased
@@ -98,11 +98,10 @@ VCF To Haplotype:
   -unphased UNPHASED    include unphased variants in the output. Aavailable
                         options: yes, no
 
-VCF To Table:
+Flags for &quot;VCF To Table&quot;:
   -samples SAMPLES      SAMPLE of interest; write as comma separated names,
                         for e.g: &apos;sampleA,sampleB&apos; or &apos;all&apos;.
-  -preHeader PREHEADER
-                        Comma separated pre-header fields before the &apos;INFO&apos;
+  -preHeader PREHEADER  Comma separated pre-header fields before the &apos;INFO&apos;
                         field in the input VCF file. Write as comma separated
                         fields, for e.g: &apos;CHR,POS,ID&apos; or &apos;all&apos;. Default:
                         &apos;all&apos;.

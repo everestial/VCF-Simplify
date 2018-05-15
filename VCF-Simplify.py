@@ -39,7 +39,7 @@ def main():
                              "Options: 'yes' or 'no' ")
 
     '''Part A (01) : From VCF to Haplotype '''
-    vcf_to_haplotype = parser_a.add_argument_group('Additional flags for "VCF To Haplotype"')
+    vcf_to_haplotype = parser_a.add_argument_group('Flags for "VCF To Haplotype"')
 
     vcf_to_haplotype.add_argument("-PG", required=False, default='PG',
                         help="FORMAT tag containing the phased genotype of the SAMPLE. "
@@ -54,7 +54,7 @@ def main():
 
 
     '''Part A (02) : From VCF to Table'''
-    vcf_to_table = parser_a.add_argument_group('Additional flags for "VCF To Table"')
+    vcf_to_table = parser_a.add_argument_group('Flags for "VCF To Table"')
 
     vcf_to_table.add_argument("-samples",
                         help="SAMPLE of interest; write as comma separated names, "
@@ -103,7 +103,7 @@ def main():
 
     '''Part B (01) : Only From Table To VCF. '''
     """ Additional argument parser only to use if "-fromType" is "table" """
-    table_to_vcf_parser = parser_b.add_argument_group('Additional flags for "Table To VCF"')
+    table_to_vcf_parser = parser_b.add_argument_group('Flags for "Table To VCF"')
 
     table_to_vcf_parser.add_argument("-GTbase", help="Representation of the GT base is : numeric, IUPAC ",
                                      required=False)
