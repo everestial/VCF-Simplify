@@ -19,14 +19,19 @@ state may be extracted as well.'''
 
 def main():
 
+    print('VCF-Simplify: A tool to convert VCF to TABLE and/or HAPLOTYPE file. ')
+    print()
+
+    ''' Step 01: Assigning and preparing arguments. '''
+
     # define argument variables
     main_parser = argparse.ArgumentParser(prog="VCF-Simplify")
 
-    # Create sub_parsers (one for SimplifyVCF, other for BuildVCF)
+    # Create sub_parsers for tasks (Task-A: for SimplifyVCF, Task-B: for BuildVCF)
     subparsers = main_parser.add_subparsers(help='Choose one of the following method.')
 
 
-    '''Part A: Sub parser for SimplifyVCF - to create simplified table from VCF file. '''
+    '''Task-A: Sub parser for SimplifyVCF - to create simplified table from VCF file. '''
     parser_a = subparsers.add_parser('SimplifyVCF',
                                      help='Simplify VCF : to a haplotype or a table file.')
 
@@ -38,7 +43,8 @@ def main():
                         help="Write the HEADER data to a separate output file."
                              "Options: 'yes' or 'no' ")
 
-    '''Part A (01) : From VCF to Haplotype '''
+    # route the "SimplifyVCF" task to prepare a "HAPLOTYPE" file
+    '''Task-A (01) : From VCF to Haplotype '''
     vcf_to_haplotype = parser_a.add_argument_group('Flags for "VCF To Haplotype"')
 
     vcf_to_haplotype.add_argument("-PG", required=False, default='PG',
@@ -52,8 +58,8 @@ def main():
                         help="include unphased variants in the output. "
                              "Aavailable options: yes, no")
 
-
-    '''Part A (02) : From VCF to Table'''
+    # route the "SimplifyVCF" task to prepare a "TABLE" file
+    '''Task-A (02) : From VCF to Table'''
     vcf_to_table = parser_a.add_argument_group('Flags for "VCF To Table"')
 
     vcf_to_table.add_argument("-samples",
@@ -80,12 +86,12 @@ def main():
 
 
 
-    '''Part B: Sub parser for "BuildVCF". To create VCF from simple Table like format. '''
+    '''Task-B: Sub parser for "BuildVCF". To create VCF from simple Table like format. '''
     parser_b = subparsers.add_parser('BuildVCF',
                                      help='Create VCF : from a haplotype or a table file. ')
 
     # upper level parser within BuildVCF
-
+    ''' Task - B(01) : From Haplotype To VCF - only require these arguments. '''
     parser_b.add_argument("-fromType", required=True,
                         help="Type of the input file the VCF is being prepared from. "
                                       "Options: haplotype, table ")
@@ -101,12 +107,12 @@ def main():
                              "The VCF header should not contain the line with #CHROM .... ")
 
 
-    '''Part B (01) : Only From Table To VCF. '''
+    '''Task - B(02) : From Table To VCF. - this task requires above arguments plus these ones. '''
     """ Additional argument parser only to use if "-fromType" is "table" """
     table_to_vcf_parser = parser_b.add_argument_group('Flags for "Table To VCF"')
 
-    table_to_vcf_parser.add_argument("-GTbase", help="Representation of the GT base is : numeric, IUPAC ",
-                                     required=False)
+    table_to_vcf_parser.add_argument("-GTbase", help="Representation of the GT base is : numeric (0), IUPAC (1) ",
+                                     required=False, default=0)
 
     table_to_vcf_parser.add_argument("-samples",
                                      help="Name of the samples -> "
@@ -131,10 +137,11 @@ def main():
 
 
 
-    """ Step 02: Based on positional arugments and task go to specific function """
+    """ Step 02: Based on positional arugments and then sub-arguments go to a specific assigned task """
 
+    ''' Find main task: SimplifyVCF vs. BuildVCF '''
     try :
-        print('Using option "%s"' %sys.argv[1])
+        print('Task assignment : "%s"' %sys.argv[1])
     except IndexError:
         print('Provide one of the positional arguments: SimplifyVCF or BuildVCF ')
         print()
@@ -142,32 +149,37 @@ def main():
 
     if sys.argv[1] == 'SimplifyVCF':
         if args.toType == 'haplotype':
-            '''Go to " 03 (A) : VCF to Haplotype or Table" function if following conditions are true. '''
-            print('Converting VCF To Haplotype.')
-            fnc_vcf_to_haplotype()
+            '''Go to " Task-A (01) : VCF to Haplotype or Table" function if following conditions are true. '''
+
+            print('Sub Task : Convert VCF To HAPLOTYPE')
+            fnc_vcf_to_haplotype(vcf_file=args.inVCF, pi_tag=args.PI, pg_tag=args.PG,
+                                 keepheader=args.keepHeader, include_unphased=args.unphased,
+                                 outfile=args.out)
 
         elif args.toType == 'table':
-            '''Go to " 03 (B) : VCF to Table" function if following conditions are true. '''
-            print('Converting VCF To Table')
-            fnc_vcf_to_table()
-        else:
-            print('toType is not indicated.')
+            '''Go to " Go to " Task-A (02) : VCF to Table" function if following conditions are true. '''
+            print('Sub Task : Convert VCF To Table')
+            fnc_vcf_to_table(vcf_file=args.inVCF, outfile=args.out,
+                             pre_header=args.preHeader, info_of_interest = args.infos,
+                             sample_of_interest = args.samples, format_of_interest = args.formats,
+                             keep_header = args.keepHeader, mode = args.mode, gtbase=args.gtbase)
+        else: print('toType is not indicated.')
 
 
     elif sys.argv[1] == 'BuildVCF':
-
         if args.fromType == 'haplotype':
-            '''Go from " 03 (C) Haplotype to VCF" if following conditions are true. '''
-            print('Converting Haplotype file to VCF')
-            fnc_haplotype_to_vcf()
+            '''Go to Task-B (01) : Haplotype to VCF" if following conditions are true. '''
+            print('Sub Task : Convert HAPLOTYPE file to VCF')
+            fnc_haplotype_to_vcf(infile = args.inFile, meta_header = args.vcfHeader, outfile = args.outVCF)
 
         elif args.fromType == 'table':
-            '''Go from " 03 (D) Table to VCF" if following conditions are true. '''
-            print('Converting Table to VCF')
-            fnc_table_to_vcf()
-
-        else:
-            print('fromType is not indicated.')
+            '''Go to Task-B (02) Table to VCF" if following conditions are true. '''
+            print('Sub Task : Convert TABLE file to VCF')
+            fnc_table_to_vcf(genotype_is = args.GTbase, infile = args.inFile,
+                             meta_header = args.vcfHeader, outfile = args.outVCF,
+                             samples = args.samples, formats = args.formats,
+                             infos = args.infos)
+        else: print('fromType is not indicated.')
 
     else:
         print('Provide one of the positional arguments: SimplifyVCF or BuildVCF ')
@@ -176,20 +188,16 @@ def main():
 
 
 
-
-
-
-
-'''Step 03 (A): Function for VCF To Haplotype '''
-def fnc_vcf_to_haplotype():
+'''Task A-01 : Function for VCF To Haplotype '''
+def fnc_vcf_to_haplotype(vcf_file, pi_tag, pg_tag, keepheader, include_unphased, outfile):
 
     print('Creating Haplotype file from VCF file')
     start_time01 = time.time()
-    pi_tag = args.PI
-    pg_tag = args.PG
 
-    with open(args.out, 'w') as write_block:
-        vcf_file = VCF(args.inVCF)
+    print('Reading the input vcf file %s' % str(vcf_file))
+
+    with open(outfile, 'w') as write_block:
+        vcf_file = VCF(vcf_file)
         sample_ids = vcf_file.samples
 
         print('%i samples found' %len(sample_ids))
@@ -200,7 +208,7 @@ def fnc_vcf_to_haplotype():
         # add argument to keep or discard header while writing output file
         header = vcf_file.raw_header.rstrip('\n').split('\n')
 
-        if args.keepHeader == 'yes':
+        if keepheader == 'yes':
             print("Writing the header to a separate output file.")
             with open('vcf_header.txt', 'w') as vcfheader:
                 vcfheader.write(vcf_file.raw_header)
@@ -223,8 +231,7 @@ def fnc_vcf_to_haplotype():
         chr_on_process = ''
 
         ''' now, start parsing the VCF file using pyVCF '''
-        print('reading the input vcf file %s' % str(args.inVCF))
-        print()
+        print('Reading lines in input VCF file.')
         for variant in vcf_file:
             contig = str(variant.CHROM)
             pos = str(variant.POS)
@@ -253,20 +260,36 @@ def fnc_vcf_to_haplotype():
             # this outputs a list of PI and PG for all available sample in the VCF file
 
 
-            ## ** update this part with args.PI, args.PG
-            if pi_tag == 'CHROM':
-                pi_values = np.repeat(contig, len(sample_ids), axis=0)
-            else:
-                pi_values = variant.format(pi_tag)
+            ## mine phase index and phased genotype values from mentioned FORMAT tags
+            try:
+                if pi_tag == 'CHROM':
+                    pi_values = np.repeat(contig, len(sample_ids), axis=0)
+                else:
+                    pi_values = variant.format(pi_tag)
+            except KeyError:
+                print('Assign proper FORMAT tag to indicate ReadBackPhased Block Index.\n'
+                      'Exiting .... ')
+                sys.exit()
 
-            if pg_tag == 'GT':
-                gts = variant.genotypes
-                
-                # use class (Genotype()) to further update the pg_values. 
-                # ** prolly deprecate in future if cyvcf2 updates
-                pg_values = [Genotype(li) for li in gts]
-            else:
-                pg_values = variant.format(pg_tag)
+
+            ## mine the alleles from phased genotype from mentioned FORMAT tags
+            # alleles are extracted as IUPAC bases
+            try:
+                if pg_tag == 'GT':
+                    gts = variant.genotypes
+
+                    # use class (Genotype()) to further update the pg_values.
+                    # ** prolly deprecate in future if cyvcf2 updates
+                    pg_values = [Genotype(li) for li in gts]
+                else:
+                    pg_values = variant.format(pg_tag)
+
+            except KeyError:
+                print('Assign proper FORMAT tag to indicate Phased Genotype.\n'
+                      'Exiting .... ')
+                sys.exit()
+
+
 
             # incase the "PI" and "PG" tags are missing in the VCF file
             # seems like "bcftools" merged variants are missing some of the PI and PG tags.
@@ -277,7 +300,7 @@ def fnc_vcf_to_haplotype():
                 pg_values = np.repeat('.', len(sample_ids), axis=0)
 
 
-            ''' now, start extracting sample level information '''
+            ''' now, start extracting PI and PG for each sample level information '''
             for ith, pi_value in enumerate(pi_values):
                 pg_val = str(pg_values[ith])
 
@@ -286,7 +309,7 @@ def fnc_vcf_to_haplotype():
 
                 elif '/' in pg_val:
                     # if unphased variants are not of interest we return them as '.'
-                    if args.unphased == 'no':
+                    if include_unphased == 'no':
                         pg_allele = '.'
 
                     else:
@@ -318,8 +341,7 @@ def fnc_vcf_to_haplotype():
         print()
 
 
-
-'''Class to extract the genotype (numeric bases) when "PG" is set as "GT" '''
+'''Part of Task A-01 : Class to extract the genotype (numeric bases) when "PG" is set as "GT" '''
 class Genotype(object):
     __slots__ = ('alleles', 'phased')
 
@@ -332,34 +354,33 @@ class Genotype(object):
         return sep.join("0123."[a] for a in self.alleles)
     __repr__ = __str__
 
+############  Task A-01 ends ##################
 
 
-'''Step 03 (B) : Function for VCF To Table.'''
-def fnc_vcf_to_table():
-    global gtbase
+
+'''Task A-02 : Function for VCF To Table.'''
+def fnc_vcf_to_table(vcf_file, outfile, pre_header, info_of_interest,
+                     sample_of_interest, format_of_interest, keep_header, mode, gtbase):
+    #global gtbase
 
     # Step 02: Now, pipe the "input arguments" to a variable
-    pre_header = args.preHeader
-    info_of_interest = args.infos
-    sample_of_interest = args.samples
-    format_of_interest = args.formats
-    keep_header = args.keepHeader
 
-    if args.mode == '1' or args.mode == 'long':
+    if mode == '1' or mode == 'long':
         mode = 'long'
     else:
         mode = 'wide'
 
-    if args.gtbase == '1' or args.gtbase == 'yes':
+    if gtbase == '1' or gtbase == 'yes':
         gtbase = 'yes'
     else:
         gtbase = 'no'
 
     # Step 03: Read vcf file using cyvcf2 and start mining the data
     start_time01 = time.time()
-    # with open("simplified_vcf.txt", 'w') as write_block:
-    with open(args.out, 'w') as write_block:
-        vcf_file = VCF(args.inVCF)
+    print('Reading the input vcf file %s' % str(vcf_file))
+
+    with open(outfile, 'w') as write_block:
+        vcf_file = VCF(vcf_file)
         sample_ids = vcf_file.samples
         print(sample_ids)
         print('- %i samples found.' % len(sample_ids))
@@ -482,10 +503,11 @@ def fnc_vcf_to_table():
             # so, we need to use both format_fields and sample_names together
             # and pass it to a defined function
             if mode == 'wide':
-                process_format_wide(variant, my_sample_idx, format_ids_values, write_block, line_to_write)
+                process_format_wide(variant, my_sample_idx, format_ids_values, write_block, line_to_write, gtbase)
 
             elif mode == 'long':
-                process_format_long(variant, my_sample_idx, format_ids_values, write_block, line_to_write, sample_ids)
+                process_format_long(variant, my_sample_idx, format_ids_values, write_block,
+                                    line_to_write, sample_ids, gtbase)
 
             # write_block.write('\n')
 
@@ -495,6 +517,7 @@ def fnc_vcf_to_table():
     # mine fields-TAGS that are of interest (INFO, FORMAT and SAMPLE)
 
 
+''' Part of Task A-02 '''
 def process_fields_of_interest(header, sample_of_interest, info_of_interest, format_of_interest, all_samples):
     print('## Extracting the following fields of interest:')
     print()
@@ -541,6 +564,7 @@ def process_fields_of_interest(header, sample_of_interest, info_of_interest, for
     # function to compute values from INFO's field of interest
 
 
+''' Part of Task A-02 '''
 def process_info(info_fields, variant):
     infos_to_write = []
     for field in info_fields:
@@ -562,7 +586,9 @@ def process_info(info_fields, variant):
     # now, for each SAMPLE compute and write the FORMAT's field of interest
 
 
-def process_format_wide(variant, my_sample_idx, format_ids_values, write_block, line_to_write):
+''' Part of Task A-02 '''
+def process_format_wide(variant, my_sample_idx, format_ids_values,
+                        write_block, line_to_write, gtbase):
     # write the data before the "FORMAT" field begins
     write_block.write(line_to_write)
 
@@ -594,7 +620,9 @@ def process_format_wide(variant, my_sample_idx, format_ids_values, write_block, 
     write_block.write('\n')
 
 
-def process_format_long(variant, my_sample_idx, format_ids_values, write_block, line_to_write, sample_ids):
+''' Part of Task A-02 '''
+def process_format_long(variant, my_sample_idx, format_ids_values, write_block,
+                        line_to_write, sample_ids, gtbase):
     # all available FORMAT tags
     format_ids_in_variant = str(variant).split('\t')[8].split(':')
 
@@ -624,17 +652,14 @@ def process_format_long(variant, my_sample_idx, format_ids_values, write_block, 
 
         write_block.write('\n')
 
+##################### Task A-02  Ends ########################
 
 
-'''Step 03 (C): Function for Haplotype To VCF'''
-def fnc_haplotype_to_vcf():
-    print('converting Haplotype file to VCF')
+
+'''Task B-01 : Function for Haplotype To VCF'''
+def fnc_haplotype_to_vcf(infile, meta_header, outfile):
+    print('Converting HAPLOTYPE file "%s" to VCF file "%s"' %(infile, outfile))
     begin_time = time.time()
-
-    '''Assign some input variables. '''
-    infile = args.inFile
-    meta_header = args.vcfHeader
-    outfile = args.outVCF
 
     with open(infile) as hapfile, \
             open(meta_header) as meta_header, \
@@ -644,31 +669,31 @@ def fnc_haplotype_to_vcf():
         for line in hapfile:
             if line.startswith('CHROM') \
                     or line.startswith('#CHROM'):
-                header_line = line.rstrip('\n').split('\t')
+                header_line_htv = line.rstrip('\n').split('\t')
 
-                if 'CHROM' in header_line:
-                    contig_idx = header_line.index('CHROM')
-                elif '#CHROM' in header_line:
-                    contig_idx = header_line.index('#CHROM')
+                if 'CHROM' in header_line_htv:
+                    contig_idx = header_line_htv.index('CHROM')
+                elif '#CHROM' in header_line_htv:
+                    contig_idx = header_line_htv.index('#CHROM')
                 else:
                     print('CHROM field does not exit. Update your file')
                     break
 
-                if 'POS' in header_line:
-                    pos_idx = header_line.index('POS')
+                if 'POS' in header_line_htv:
+                    pos_idx = header_line_htv.index('POS')
                 else:
                     print('POS field does not exit. Update your file')
                     break
 
-                if 'all-alleles' in header_line:
-                    all_alleles_idx = header_line.index('all-alleles')
+                if 'all-alleles' in header_line_htv:
+                    all_alleles_idx = header_line_htv.index('all-alleles')
                 else:
                     print('"all-alleles" field not available in input file. Update your file')
                     break
 
                 '''Finally find available SAMPLE names and it's FORMAT tags'''
                 sample_namex = []
-                for itemx in header_line:
+                for itemx in header_line_htv:
                     if ':' in itemx:
                         sample_namex.append(itemx.split(':')[0])
                 sample_namex = list(set(sample_namex))
@@ -700,7 +725,7 @@ def fnc_haplotype_to_vcf():
 
             '''' Now, extract the required data from each of the remaining lines add to output VCF. '''
             updated_line = haplotype_to_vcf(
-                line, header_line, all_alleles_idx, sample_namex, format_tagx)
+                line, header_line_htv, all_alleles_idx, sample_namex, format_tagx)
             vcf_out.write(updated_line)
             vcf_out.write('\n')
 
@@ -708,9 +733,8 @@ def fnc_haplotype_to_vcf():
 
 
 
-''' Part B: Function part of Haplotype To VCF '''
-
-def haplotype_to_vcf(line, header_line, all_alleles_idx, sample_namex, format_tagx):
+''' Part of Task B-01 : Function part of Haplotype To VCF '''
+def haplotype_to_vcf(line, header_line_htv, all_alleles_idx, sample_namex, format_tagx):
 
     line = line.rstrip('\n').split('\t')
 
@@ -721,6 +745,9 @@ def haplotype_to_vcf(line, header_line, all_alleles_idx, sample_namex, format_ta
     all_alleles = line[all_alleles_idx].split(',')
     ref = all_alleles[0]
     alt = ','.join(all_alleles[1:])
+    if alt == '':  # some sites may have not "ALT" alleles
+        alt = '.'
+
     qual = '.'
     filter_ = '.'
     info_ = '.'
@@ -734,10 +761,10 @@ def haplotype_to_vcf(line, header_line, all_alleles_idx, sample_namex, format_ta
     format_sample_values = []
     for namex in sample_namex:
         sample_PG_al = namex + ':PG_al'
-        sample_PG_al_idx = header_line.index(sample_PG_al)
+        sample_PG_al_idx = header_line_htv.index(sample_PG_al)
         sample_PG_al_value = line[sample_PG_al_idx]
 
-        sample_PI_idx = header_line.index(namex + ':PI')
+        sample_PI_idx = header_line_htv.index(namex + ':PI')
         sample_PI_value = line[sample_PI_idx]
 
         # to store the values for GT and PG tags
@@ -770,44 +797,18 @@ def haplotype_to_vcf(line, header_line, all_alleles_idx, sample_namex, format_ta
 
     return line_out
 
+##################### Task B-01 Ends ########################
 
 
-##########################################
 
-'''Step 03 (D): Function for Table To VCF'''
-def fnc_table_to_vcf():
-    print('converting Table file to VCF')
-
-    ## declare globals
-    global genotype_is
-    global begin_time
-    global contig_idx
-    global pos_idx
-    global id_idx
-    global ref_idx
-    global alt_idx
-    global qual_idx
-    global filter_idx
-
-    # INFO, FORMAT and SAMPLE don't have index but tags
-    global info_tags
-    global infos_idx
-    global format_tags
-    global reduced_format_tags
-    global sample_names
-    global header_line
-
+'''Task B-02 : Function for Table To VCF'''
+def fnc_table_to_vcf(genotype_is, infile, meta_header, outfile,
+                     samples, formats, infos):
+    print('Converting TABLE to VCF')
     begin_time = time.time()
 
-    '''Assign some input variables. '''
-    genotype_is = args.GTbase
-    infile = args.inFile
-    meta_header = args.vcfHeader
-    outfile = args.outVCF
-    samples = args.samples
-    formats = args.formats
-    infos = args.infos
-
+    print('Reading TABLE file "%s" to VCF file "%s" ' %(infile, outfile))
+    print()
 
     with open(infile) as hapfile, \
         open(meta_header) as meta_header,\
@@ -890,6 +891,7 @@ def fnc_table_to_vcf():
                 used_header += ['FILTER']
 
 
+                # INFO, FORMAT and SAMPLE don't have index but tags
                 '''SAMPLE names and FORMAT tags are identified using ":" delimiter in the column names. '''
                 if samples != 'all':
                     sample_names = samples.split(',')
@@ -953,7 +955,7 @@ def fnc_table_to_vcf():
                     meta_info = meta_header.read()
                 else:
                     print('Header with meta information is not provided')
-                    break
+                    sys.exit()
 
                 # add meta header to the output VCF file
                 meta_info += '\t'.join(['#CHROM', 'POS', 'ID', 'REF', 'ALT',
@@ -971,7 +973,9 @@ def fnc_table_to_vcf():
 
 
             '''' Now, extract the required data from each of the remaining lines add to output VCF. '''
-            updated_line = table_to_vcf(line)
+            updated_line = table_to_vcf(line, contig_idx, pos_idx, id_idx, ref_idx, alt_idx,
+                                        qual_idx, filter_idx, info_tags, infos_idx, format_tags,
+                                        sample_names, header_line, genotype_is)
             vcf_out.write(updated_line)
             vcf_out.write('\n')
 
@@ -979,8 +983,10 @@ def fnc_table_to_vcf():
 
 
 
-'''Function part of Table to VCF '''
-def table_to_vcf(line_in):
+'''Part of Task B-02 '''
+def table_to_vcf(line_in, contig_idx, pos_idx, id_idx, ref_idx, alt_idx,
+                 qual_idx, filter_idx, info_tags, infos_idx, format_tags,
+                 sample_names, header_line, genotype_is):
 
     line = line_in.rstrip('\n').split('\t')
     chrom = line[contig_idx]
@@ -1023,13 +1029,15 @@ def table_to_vcf(line_in):
 
     # Further update the SAMPLE-to-FORMAT values
     # pass the line to another function
-    format_to_sample_vals = update_sample_format(line, ref, alt)
+    format_to_sample_vals = update_sample_format(line, ref, alt, format_tags,
+                                                 sample_names, header_line, genotype_is)
     line_out = line_out + format_to_sample_vals
 
     return line_out
 
-''' Function part of Table to VCF '''
-def update_sample_format(line, ref, alt):
+'''Part of Task B-02 '''
+def update_sample_format(line, ref, alt, format_tags, sample_names,
+                         header_line, genotype_is):
 
     # The "line" variable is passed into this function.
     # The global variables are "genotype_is", "sample_names" and "format_tags"
@@ -1047,27 +1055,41 @@ def update_sample_format(line, ref, alt):
             sample_format_val = line[sample_format_idx]
 
             ''' further update the sample:format value if GT in table is as IUPAC base '''
-            if tagx == 'GT' and genotype_is == 'IUPAC':
+            if tagx == 'GT' and (genotype_is == 'IUPAC' or genotype_is == '1'):
                 if sample_format_val == '.' or \
                         sample_format_val == './.' or \
                         sample_format_val == '.|.':
                     continue
 
                 elif '/' in sample_format_val:
-                    sample_format_val = sample_format_val.split('/')
+                    try:
+                        sample_format_val = sample_format_val.split('/')
 
-                    sample_format_val = [all_alleles.index(sample_format_val[0]),
-                                         all_alleles.index(sample_format_val[1])]
+                        sample_format_val = [all_alleles.index(sample_format_val[0]),
+                                             all_alleles.index(sample_format_val[1])]
 
-                    sample_format_val = '/'.join(str(xth) for xth in sample_format_val)
+                        sample_format_val = '/'.join(str(xth) for xth in sample_format_val)
+                    except ValueError:
+                        print('Error : Looks like the GT base in TABLE file is numeric, not IUPAC code.')
+                        print('        Exiting .... \n'
+                              '        Rerun with proper type assignment of GT-values.')
+                        sys.exit()
+
 
                 elif '|' in sample_format_val:
-                    sample_format_val = sample_format_val.split('|')
+                    try:
+                        sample_format_val = sample_format_val.split('|')
 
-                    sample_format_val = [all_alleles.index(sample_format_val[0]),
-                                         all_alleles.index(sample_format_val[1])]
+                        sample_format_val = [all_alleles.index(sample_format_val[0]),
+                                             all_alleles.index(sample_format_val[1])]
 
-                    sample_format_val = '|'.join(str(xth) for xth in sample_format_val)
+                        sample_format_val = '|'.join(str(xth) for xth in sample_format_val)
+
+                    except ValueError:
+                        print('Error : Looks like the GT base in TABLE file is numeric, not IUPAC code.')
+                        print('        Exiting .... \n'
+                              '        Rerun with proper type assignment of GT-values.')
+                        sys.exit()
 
             namex_vals.append(sample_format_val)
 
@@ -1078,13 +1100,7 @@ def update_sample_format(line, ref, alt):
     return sample_format_final
 
 
-
-
-####################################
-
-
-
-
+########## Task B-02 ends #######################
 
 
 
