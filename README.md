@@ -43,18 +43,21 @@ Required Python packages and modules
 
 <pre>
 $ python3 VCF-Simplify.py -h
-  Checking required modules
 
-  usage: VCF-Simplify [-h] {SimplifyVCF,BuildVCF} ...
+Checking required modules
 
-  positional arguments:
-    {SimplifyVCF,BuildVCF}
-                          Choose one of the following method.
-      SimplifyVCF         Simplify VCF : to a haplotype or a table file.
-      BuildVCF            Create VCF : from a haplotype or a table file.
+VCF-Simplify: A tool to convert VCF to TABLE and/or HAPLOTYPE file and vice-versa.
 
-  optional arguments:
-    -h, --help            show this help message and exit
+usage: VCF-Simplify [-h] {SimplifyVCF,BuildVCF} ...
+
+positional arguments:
+  {SimplifyVCF,BuildVCF}
+                        Choose one of the following method.
+    SimplifyVCF         Simplify VCF : to a haplotype or a table file.
+    BuildVCF            Create VCF : from a haplotype or a table file.
+
+optional arguments:
+  -h, --help            show this help message and exit
 </pre>
 
 <br>
@@ -72,6 +75,8 @@ $ python3 VCF-Simplify.py SimplifyVCF -h
 
 Checking required modules
 
+VCF-Simplify: A tool to convert VCF to TABLE and/or HAPLOTYPE file and vice-versa.
+
 usage: VCF-Simplify SimplifyVCF [-h] -toType TOTYPE -inVCF INVCF -out OUT
                                 [-keepHeader KEEPHEADER] [-PG PG] [-PI PI]
                                 [-unphased UNPHASED] [-samples SAMPLES]
@@ -88,7 +93,7 @@ optional arguments:
                         Write the HEADER data to a separate output
                         file.Options: &apos;yes&apos; or &apos;no&apos;
 
-Flags for &quot;VCF To Haplotype&quot;:
+Additional flags for &quot;VCF To Haplotype&quot;:
   -PG PG                FORMAT tag containing the phased genotype of the
                         SAMPLE. Only applicable on &apos;haplotype file output&apos;.
   -PI PI                FORMAT tag representing the unique index of RBphased
@@ -98,7 +103,7 @@ Flags for &quot;VCF To Haplotype&quot;:
   -unphased UNPHASED    include unphased variants in the output. Aavailable
                         options: yes, no
 
-Flags for &quot;VCF To Table&quot;:
+Additional flags for &quot;VCF To Table&quot;:
   -samples SAMPLES      SAMPLE of interest; write as comma separated names,
                         for e.g: &apos;sampleA,sampleB&apos; or &apos;all&apos;.
   -preHeader PREHEADER  Comma separated pre-header fields before the &apos;INFO&apos;
@@ -245,9 +250,12 @@ CHROM	POS	all-alleles	ms01e:PI	ms01e:PG_al	ms02g:PI	ms02g:PG_al	ms03g:PI	ms03g:P
 
 ## BuildVCF
 
-<pre>$ python3 VCF-Simplify.py BuildVCF -h
+<pre>
+$ python3 VCF-Simplify.py BuildVCF -h
 
 Checking required modules
+
+VCF-Simplify: A tool to convert VCF to TABLE and/or HAPLOTYPE file and vice-versa.
 
 usage: VCF-Simplify BuildVCF [-h] -fromType FROMTYPE -inFile INFILE -outVCF
                              OUTVCF -vcfHeader VCFHEADER [-GTbase GTBASE]
@@ -268,7 +276,8 @@ optional arguments:
                         header should not contain the line with #CHROM ....
 
 Additional flags for &quot;Table To VCF&quot;:
-  -GTbase GTBASE        Representation of the GT base is : numeric, IUPAC
+  -GTbase GTBASE        Representation of the GT base is : numeric (0), IUPAC
+                        (1)
   -samples SAMPLES      Name of the samples -&gt; comma separated name of the
                         samples that needs to be converted to VCF format
   -formats FORMATS      Name of the FORMAT tags to write -&gt; comma separated
@@ -276,7 +285,6 @@ Additional flags for &quot;Table To VCF&quot;:
   -infos INFOS          Name of the INFO tags to write -&gt; comma separated INFO
                         tags name.
 </pre>
-
 
 <br>
 
@@ -312,5 +320,4 @@ python3 VCF-Simplify.py BuildVCF -fromType haplotype -inFile simple_haplotype.tx
 
 ### Citation:
   &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
-
 

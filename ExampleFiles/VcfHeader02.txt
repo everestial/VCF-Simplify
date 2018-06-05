@@ -1,0 +1,17 @@
+##fileformat=VCFv4.2
+##ALT=<ID=NON_REF,Description="Represents any possible alternative allele at this location">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="phASER Local Genotype">
+##FORMAT=<ID=PG_al,Number=1,Type=String,Description="phased Local Genotype as IUPAC base">
+##FORMAT=<ID=PI,Number=1,Type=String,Description="phASER Local Block Index (unique for each block)">
+##contig=<ID=2,length=19320864>
+##contig=<ID=5,length=21221946>
+##contig=<ID=8,length=22951293>
+##contig=<ID=4,length=23328337>
+##contig=<ID=3,length=24464547>
+##contig=<ID=7,length=24649197>
+##contig=<ID=6,length=25113588>
+##contig=<ID=1,length=33132539>
+##reference=file:///home/everestial007/PycharmProjects/stitcher/lyrata_genome.fa
+##source=VCF-Simplify
+
