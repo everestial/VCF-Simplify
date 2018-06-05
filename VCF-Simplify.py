@@ -651,7 +651,6 @@ def process_format_long(variant, my_sample_idx, format_ids_values, write_block,
 
 '''Task B-01 : Function for Haplotype To VCF'''
 
-
 def fnc_haplotype_to_vcf(infile, meta_header, outfile):
     print('Converting HAPLOTYPE file "%s" to VCF file "%s"' % (infile, outfile))
     begin_time = time.time()
@@ -661,6 +660,8 @@ def fnc_haplotype_to_vcf(infile, meta_header, outfile):
             open(outfile, 'w+') as vcf_out:
 
         '''Start reading the haplotype file as generator. This saves memory. '''
+        contig_onwork = ''  # to identify the conting that is on process
+
         for line in hapfile:
             if line.startswith('CHROM') \
                     or line.startswith('#CHROM'):
@@ -689,15 +690,15 @@ def fnc_haplotype_to_vcf(infile, meta_header, outfile):
                 '''Finally find available SAMPLE names and it's FORMAT tags'''
                 sample_namex = []
                 for itemx in header_line_htv:
-                    if ':' in itemx:
+                    if ':PI' in itemx:
                         sample_namex.append(itemx.split(':')[0])
-                sample_namex = list(set(sample_namex))
+
 
                 # assign FORMAT tags - keeping it fixed
                 format_tagx = ['GT', 'PI', 'PG', 'PG_al']
 
                 ''' Now, Read the meta header and add it to the output VCF file. '''
-                print('\nReading meta header from file "%s" ' % (meta_header.name))
+                print('\nReading meta header from file "%s" \n' % (meta_header.name))
                 if meta_header != None:
                     meta_info = meta_header.read().rstrip('\n')
                     meta_info += '\n'
@@ -719,12 +720,18 @@ def fnc_haplotype_to_vcf(infile, meta_header, outfile):
                 continue
 
             '''' Now, extract the required data from each of the remaining lines add to output VCF. '''
+            if contig_onwork != line.split('\t')[0]:
+                contig_onwork = line.split('\t')[0]
+                print('working on contig "%s"' %contig_onwork)
+
+            # Now, pipe the line to a function to convert it to a VCF line format
             updated_line = haplotype_to_vcf(
                 line, header_line_htv, all_alleles_idx, sample_namex, format_tagx)
             vcf_out.write(updated_line)
             vcf_out.write('\n')
 
-        print('Elapsed time : "%s".' % (time.time() - begin_time))
+        print('Elapsed time : "%s" seconds.' % (time.time() - begin_time))
+        print()
 
 
 ''' Part of Task B-01 : Function part of Haplotype To VCF '''
