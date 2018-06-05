@@ -652,7 +652,7 @@ def process_format_long(variant, my_sample_idx, format_ids_values, write_block,
 '''Task B-01 : Function for Haplotype To VCF'''
 
 def fnc_haplotype_to_vcf(infile, meta_header, outfile):
-    print('Converting HAPLOTYPE file "%s" to VCF file "%s"' % (infile, outfile))
+    print('Converting HAPLOTYPE file "%s" to a VCF file "%s"' % (infile, outfile))
     begin_time = time.time()
 
     with open(infile) as hapfile, \
