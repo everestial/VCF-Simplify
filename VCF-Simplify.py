@@ -141,14 +141,14 @@ def main():
         if args.toType == 'haplotype':
             '''Go to " Task-A (01) : VCF to Haplotype or Table" function if following conditions are true. '''
 
-            print('Sub Task : Convert VCF To HAPLOTYPE')
+            print('  - Sub Task : Convert VCF To HAPLOTYPE')
             fnc_vcf_to_haplotype(vcf_file=args.inVCF, pi_tag=args.PI, pg_tag=args.PG,
                                  keepheader=args.keepHeader, include_unphased=args.unphased,
                                  outfile=args.out)
 
         elif args.toType == 'table':
             '''Go to " Go to " Task-A (02) : VCF to Table" function if following conditions are true. '''
-            print('Sub Task : Convert VCF To Table')
+            print('  - Sub Task : Convert VCF To Table')
             fnc_vcf_to_table(vcf_file=args.inVCF, outfile=args.out,
                              pre_header=args.preHeader, info_of_interest=args.infos,
                              sample_of_interest=args.samples, format_of_interest=args.formats,
@@ -161,12 +161,12 @@ def main():
     elif sys.argv[1] == 'BuildVCF':
         if args.fromType == 'haplotype':
             '''Go to Task-B (01) : Haplotype to VCF" if following conditions are true. '''
-            print('Sub Task : Convert HAPLOTYPE file to VCF')
+            print('  - Sub Task : Convert HAPLOTYPE file to VCF')
             fnc_haplotype_to_vcf(infile=args.inFile, meta_header=args.vcfHeader, outfile=args.outVCF)
 
         elif args.fromType == 'table':
             '''Go to Task-B (02) Table to VCF" if following conditions are true. '''
-            print('Sub Task : Convert TABLE file to VCF')
+            print('  - Sub Task : Convert TABLE file to VCF')
             fnc_table_to_vcf(genotype_is=args.GTbase, infile=args.inFile,
                              meta_header=args.vcfHeader, outfile=args.outVCF,
                              samples=args.samples, formats=args.formats,
