@@ -1,11 +1,11 @@
 # VCF-Simplify &ensp;&ensp;&ensp; v2.1
-A python parser to simplify the vcf file into table like format.
-There are several tools available to mainpulate and alter VCF file.
-But, a simple and comprehensive tool that can produce a most simple
-output required by emperical biologist is still amiss.
+A python parser to simplify the vcf file into a (pseudo-)tabular format.
+There are several tools available to mainpulate and alter VCF files. 
+But, a simple but expansive tool that can produce most simple
+output is required by empirical biologist is still amiss.
 
   - **Convert VCF to TABLE**\
-    This tool takes in sorted vcf file and reports a simplified table output
+    This tool takes in a sorted vcf file and reports a simplified tabular output
 for `INFO` and `FORMAT` field for each `SAMPLE` of interest. With default
 state (minimal code) all the `INFO`, `FORMAT` for all the `SAMPLE` are
 simplified. Fields can be further narrowed down using very convenient
@@ -17,15 +17,10 @@ and comprehensive scripts.
 
 <br>
 
-**Exclusively for [phase-Stitcher](https://github.com/everestial/pHASE-Stitcher) and [phase-Extender](https://github.com/everestial/phase-Extender).**
+**Exclusively for [phase-Stitcher](https://github.com/everestial/pHASE-Stitcher) and [phase-Extender](https://github.com/everestial/phase-Extender).** Controlled workflows are included.
   - **Convert VCF to Haplotype**\
-    It is also possible to convert the TABLE file into VCF. Controlled,
-    workflows are included.
-
   - **Convert Haplotype to VCF**\
-    It is also possible to convert the TABLE file into VCF. Controlled,
-    workflows are included.
-
+ 
 <br>
 
 ## Prerequisites :
@@ -95,12 +90,12 @@ optional arguments:
 
 Additional flags for &quot;VCF To Haplotype&quot;:
   -PG PG                FORMAT tag containing the phased genotype of the
-                        SAMPLE. Only applicable on &apos;haplotype file output&apos;.
+                        SAMPLE. Only applicable for &apos;haplotype file output&apos;.
   -PI PI                FORMAT tag representing the unique index of RBphased
-                        haplotype block in the SAMPLE. Only applicable on
+                        haplotype block in the SAMPLE. Only applicable for
                         &apos;haplotype file output&apos;. Note: &apos;CHROM&apos; can also be
                         used as PI if VCF is phased chromosome-wide.
-  -unphased UNPHASED    include unphased variants in the output. Aavailable
+  -unphased UNPHASED    include unphased variants in the output. Available
                         options: yes, no
 
 Additional flags for &quot;VCF To Table&quot;:
@@ -264,10 +259,10 @@ usage: VCF-Simplify BuildVCF [-h] -fromType FROMTYPE -inFile INFILE -outVCF
 
 optional arguments:
   -h, --help            show this help message and exit
-  -fromType FROMTYPE    Type of the input file the VCF is being prepared from.
+  -fromType FROMTYPE    Type of the input file to prepare the VCF from.
                         Options: haplotype, table
-  -inFile INFILE        Sorted table or haplotype file.This haplotype file
-                        should be obtained from phase-Stitcher, phase-
+  -inFile INFILE        Sorted table or haplotype file. This haplotype file
+                        can be obtained from phase-Stitcher or phase-
                         Extender. The table file should be in the format
                         output by &apos;VCF-Simplify&apos;; only long format table is
                         supported for now.

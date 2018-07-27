@@ -81,20 +81,20 @@ def main():
                                               "Options: no(0), yes(1). Default: 0 .",
                               required=False, default=0)
 
-    '''Task-B: Sub parser for "BuildVCF". To create VCF from simple Table like format. '''
+    '''Task-B: Sub parser for "BuildVCF". To create VCF from a tabular format. '''
     parser_b = subparsers.add_parser('BuildVCF',
                                      help='Create VCF : from a haplotype or a table file. ')
 
     # upper level parser within BuildVCF
     ''' Task - B(01) : From Haplotype To VCF - only require these arguments. '''
     parser_b.add_argument("-fromType", required=True,
-                          help="Type of the input file the VCF is being prepared from. "
+                          help="Type of the input file to prepare the VCF. "
                                "Options: haplotype, table ")
     parser_b.add_argument("-inFile", required=True,
                           help="Sorted table or haplotype file."
-                               "This haplotype file should be obtained from phase-Stitcher, "
+                               "This haplotype file can be obtained from phase-Stitcher or "
                                "phase-Extender. The table file should be in the format "
-                               "output by 'VCF-Simplify'; only long format table is supported for now.")
+                               "output by 'VCF-Simplify'; only long format table is currently supported.")
 
     parser_b.add_argument("-outVCF", help="Name of the output VCF file.", required=True)
     parser_b.add_argument("-vcfHeader", required=True,
