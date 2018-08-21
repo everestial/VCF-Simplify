@@ -28,6 +28,11 @@ and comprehensive scripts.
 
 <br>
 
+### Citation:
+  &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
+  
+<br>
+
 ## Prerequisites :
 Required Python packages and modules
 - [python3.x](https://www.python.org/)
@@ -316,8 +321,4 @@ python3 VCF-Simplify.py BuildVCF -fromType haplotype -inFile simple_haplotype.tx
     - prepare custom diploid genome.
     - prepare custom GTF, GFF files.
   - Extract gene sequence using ref genome and VCF files for phylogenetic analyses.
-
-
-### Citation:
-  &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
 
