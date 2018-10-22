@@ -1,8 +1,12 @@
 # VCF-Simplify &ensp;&ensp;&ensp; v2.1
-A python parser to simplify the vcf file into table like format.
+A python parser to simplify the vcf file into tabular format.
 There are several tools available to mainpulate and alter VCF file.
 But, a simple and comprehensive tool that can produce a most simple
 output required by emperical biologist is still amiss.
+
+This tools serves the purpose of both converting and building a VCF file. The functions are available as a flag. 
+Each function again has sub-flag which will determine if the VCF is to be converted into a TABLE or HAPLOTYPE file. 
+The conversion of VCF to/from HAPLOTYPE is mainly useful for haplotype phasing purposes.
 
   - **Convert VCF to TABLE**\
     This tool takes in sorted vcf file and reports a simplified table output
