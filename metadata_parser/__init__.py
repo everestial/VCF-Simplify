@@ -1,0 +1,1 @@
+__application__ = "VCF Simplify"
