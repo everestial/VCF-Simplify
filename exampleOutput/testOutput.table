@@ -1,0 +1,795 @@
+##VCFspec
+#fileformat	GVCF
+VCFv4.2	True
+
+
+##FORMAT
+#ID	Number	Type	Description
+AD	R	Integer	Allelic depths for the ref and alt alleles in the order listed
+DP	1	Integer	Approximate read depth (reads with MQ=255 or with bad mates are filtered)
+GQ	1	Integer	Genotype Quality
+GT	1	String	Genotype
+MIN_DP	1	Integer	Minimum DP observed within the GVCF block
+PGT	1	String	Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another
+PID	1	String	Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group
+PL	G	Integer	Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification
+RGQ	1	Integer	Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)
+SB	4	Integer	Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.
+PG	1	String	phASER Local Genotype
+PB	1	String	phASER Local Block
+PI	1	String	phASER Local Block Index (unique for each block)
+PM	1	String	phASER Local Block Maximum Variant MAF
+PW	1	String	phASER Genome Wide Genotype
+PC	1	String	phASER Genome Wide Confidence
+
+
+##INFO
+#ID	Number	Type	Description
+AF	A	Float	Allele Frequency, for each ALT allele, in the same order as listed
+BaseQRankSum	1	Float	Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities
+ClippingRankSum	1	Float	Z-score From Wilcoxon rank sum test of Alt vs. Ref number of hard clipped bases
+DP	1	Integer	Approximate read depth; some reads may have been filtered
+DS	0	Flag	Were any of the samples downsampled?
+END	1	Integer	Stop position of the interval
+ExcessHet	1	Float	Phred-scaled p-value for exact test of excess heterozygosity
+FS	1	Float	Phred-scaled p-value using Fisher's exact test to detect strand bias
+HaplotypeScore	1	Float	Consistency of the site with at most two segregating haplotypes
+InbreedingCoeff	1	Float	Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation
+MLEAC	A	Integer	Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed
+MLEAF	A	Float	Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed
+MQ	1	Float	RMS Mapping Quality
+MQRankSum	1	Float	Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities
+QD	1	Float	Variant Confidence/Quality by Depth
+RAW_MQ	1	Float	Raw data for RMS Mapping Quality
+ReadPosRankSum	1	Float	Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias
+SOR	1	Float	Symmetric Odds Ratio of 2x2 contingency table to detect strand bias
+set	1	String	Source VCF for the merged record in CombineVariants
+SF	.	String	Source File (index to sourceFiles, f when filtered)
+AC	.	Integer	Allele count in genotypes
+AN	1	Integer	Total number of alleles in called genotypes
+TS	Test	Allele count in genotypes
+
+
+##FILTER
+#ID	Description
+LowQual	Low quality
+my_indel_filter	QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0
+my_snp_filter	QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0
+
+
+##contig
+#ID	length
+scaffold_1118	1005
+scaffold_1117	1017
+scaffold_1116	1032
+scaffold_1113	1037
+scaffold_1112	1047
+scaffold_1111	1078
+scaffold_1109	1083
+scaffold_1106	1174
+scaffold_1105	1194
+scaffold_1102	1249
+scaffold_1099	1362
+scaffold_1096	1413
+scaffold_1095	1425
+scaffold_1094	1447
+scaffold_1091	1567
+scaffold_1090	1576
+scaffold_1089	1632
+scaffold_1086	1720
+scaffold_1084	1840
+scaffold_1080	1964
+scaffold_1044	2691
+scaffold_1021	3008
+scaffold_1034	3146
+scaffold_1072	3249
+scaffold_999	3250
+scaffold_1097	3259
+scaffold_1085	3303
+scaffold_1069	3355
+scaffold_1025	3368
+scaffold_1032	3379
+scaffold_1087	3400
+scaffold_1074	3416
+scaffold_983	3426
+scaffold_1082	3428
+scaffold_982	3429
+scaffold_998	3458
+scaffold_1017	3499
+scaffold_1012	3507
+scaffold_1056	3510
+scaffold_1057	3517
+scaffold_1070	3525
+scaffold_960	3538
+scaffold_975	3568
+scaffold_1064	3571
+scaffold_955	3571
+scaffold_954	3584
+scaffold_1058	3585
+scaffold_1078	3595
+scaffold_1041	3612
+scaffold_946	3616
+scaffold_945	3617
+scaffold_1043	3621
+scaffold_1054	3622
+scaffold_939	3631
+scaffold_993	3636
+scaffold_1052	3641
+scaffold_936	3647
+scaffold_991	3657
+scaffold_1033	3660
+scaffold_1022	3679
+scaffold_928	3697
+scaffold_924	3704
+scaffold_941	3726
+scaffold_919	3737
+scaffold_1040	3746
+scaffold_918	3747
+scaffold_915	3754
+scaffold_1029	3768
+scaffold_996	3769
+scaffold_912	3771
+scaffold_938	3779
+scaffold_1046	3782
+scaffold_965	3785
+scaffold_979	3792
+scaffold_1003	3794
+scaffold_1000	3807
+scaffold_896	3846
+scaffold_1061	3854
+scaffold_1010	3854
+scaffold_894	3855
+scaffold_1008	3858
+scaffold_1031	3861
+scaffold_1014	3862
+scaffold_893	3862
+scaffold_992	3872
+scaffold_1006	3877
+scaffold_1001	3881
+scaffold_964	3891
+scaffold_1007	3901
+scaffold_883	3909
+scaffold_881	3916
+scaffold_1020	3919
+scaffold_879	3924
+scaffold_1048	3927
+scaffold_1005	3927
+scaffold_878	3930
+scaffold_1015	3932
+scaffold_940	3938
+scaffold_875	3940
+scaffold_963	3949
+scaffold_984	3958
+scaffold_872	3968
+scaffold_891	4007
+scaffold_866	4016
+scaffold_880	4021
+scaffold_908	4028
+scaffold_968	4042
+scaffold_1019	4049
+scaffold_976	4054
+scaffold_989	4061
+scaffold_858	4066
+scaffold_971	4079
+scaffold_853	4089
+scaffold_852	4092
+scaffold_851	4097
+scaffold_911	4098
+scaffold_849	4099
+scaffold_848	4102
+scaffold_1053	4104
+scaffold_986	4114
+scaffold_920	4123
+scaffold_895	4136
+scaffold_861	4139
+scaffold_962	4142
+scaffold_900	4145
+scaffold_987	4148
+scaffold_970	4154
+scaffold_835	4174
+scaffold_834	4178
+scaffold_868	4182
+scaffold_832	4187
+scaffold_830	4194
+scaffold_981	4203
+scaffold_828	4207
+scaffold_958	4209
+scaffold_994	4210
+scaffold_977	4214
+scaffold_825	4247
+scaffold_890	4249
+scaffold_905	4260
+scaffold_978	4265
+scaffold_823	4267
+scaffold_887	4269
+scaffold_950	4273
+scaffold_843	4275
+scaffold_871	4285
+scaffold_817	4298
+scaffold_815	4310
+scaffold_1076	4311
+scaffold_882	4320
+scaffold_813	4331
+scaffold_937	4338
+scaffold_831	4344
+scaffold_829	4347
+scaffold_901	4359
+scaffold_877	4368
+scaffold_805	4370
+scaffold_804	4377
+scaffold_802	4396
+scaffold_903	4408
+scaffold_798	4415
+scaffold_797	4423
+scaffold_796	4429
+scaffold_884	4431
+scaffold_855	4439
+scaffold_793	4441
+scaffold_792	4443
+scaffold_788	4458
+scaffold_819	4465
+scaffold_784	4474
+scaffold_783	4478
+scaffold_865	4494
+scaffold_781	4495
+scaffold_990	4503
+scaffold_801	4509
+scaffold_845	4512
+scaffold_812	4514
+scaffold_864	4516
+scaffold_779	4521
+scaffold_838	4523
+scaffold_777	4536
+scaffold_814	4539
+scaffold_790	4554
+scaffold_811	4562
+scaffold_787	4568
+scaffold_773	4573
+scaffold_862	4575
+scaffold_772	4582
+scaffold_771	4584
+scaffold_782	4595
+scaffold_786	4606
+scaffold_766	4606
+scaffold_763	4616
+scaffold_762	4621
+scaffold_837	4626
+scaffold_759	4630
+scaffold_756	4643
+scaffold_755	4645
+scaffold_753	4660
+scaffold_752	4661
+scaffold_780	4662
+scaffold_747	4673
+scaffold_746	4685
+scaffold_769	4691
+scaffold_744	4703
+scaffold_741	4712
+scaffold_740	4713
+scaffold_739	4724
+scaffold_738	4726
+scaffold_736	4732
+scaffold_735	4737
+scaffold_734	4745
+scaffold_733	4746
+scaffold_729	4780
+scaffold_728	4797
+scaffold_727	4814
+scaffold_723	4825
+scaffold_721	4834
+scaffold_961	4838
+scaffold_716	4853
+scaffold_715	4861
+scaffold_713	4863
+scaffold_711	4872
+scaffold_710	4912
+scaffold_707	4917
+scaffold_702	4958
+scaffold_701	4959
+scaffold_776	4960
+scaffold_700	4965
+scaffold_697	4979
+scaffold_693	4983
+scaffold_902	5000
+scaffold_688	5023
+scaffold_686	5026
+scaffold_867	5049
+scaffold_761	5050
+scaffold_682	5054
+scaffold_679	5059
+scaffold_795	5066
+scaffold_699	5067
+scaffold_678	5083
+scaffold_904	5088
+scaffold_674	5112
+scaffold_694	5113
+scaffold_671	5118
+scaffold_670	5121
+scaffold_669	5128
+scaffold_668	5132
+scaffold_667	5140
+scaffold_683	5141
+scaffold_664	5148
+scaffold_663	5148
+scaffold_662	5156
+scaffold_661	5160
+scaffold_695	5175
+scaffold_658	5205
+scaffold_681	5213
+scaffold_655	5225
+scaffold_680	5240
+scaffold_666	5241
+scaffold_717	5243
+scaffold_653	5252
+scaffold_651	5261
+scaffold_731	5275
+scaffold_649	5283
+scaffold_719	5313
+scaffold_659	5359
+scaffold_705	5366
+scaffold_638	5368
+scaffold_636	5373
+scaffold_726	5424
+scaffold_631	5424
+scaffold_629	5457
+scaffold_628	5459
+scaffold_627	5482
+scaffold_626	5482
+scaffold_625	5482
+scaffold_672	5491
+scaffold_646	5493
+scaffold_685	5534
+scaffold_616	5563
+scaffold_615	5574
+scaffold_614	5576
+scaffold_630	5629
+scaffold_608	5644
+scaffold_810	5651
+scaffold_748	5666
+scaffold_604	5673
+scaffold_603	5688
+scaffold_591	5806
+scaffold_639	5820
+scaffold_665	5827
+scaffold_840	5829
+scaffold_637	5829
+scaffold_684	5838
+scaffold_589	5841
+scaffold_587	5857
+scaffold_677	5864
+scaffold_584	5890
+scaffold_582	5927
+scaffold_580	5936
+scaffold_579	5937
+scaffold_575	5959
+scaffold_573	5973
+scaffold_569	5983
+scaffold_565	6009
+scaffold_562	6014
+scaffold_642	6019
+scaffold_597	6031
+scaffold_594	6032
+scaffold_947	6058
+scaffold_557	6061
+scaffold_552	6083
+scaffold_564	6109
+scaffold_602	6162
+scaffold_592	6190
+scaffold_576	6219
+scaffold_770	6232
+scaffold_532	6269
+scaffold_554	6283
+scaffold_704	6290
+scaffold_612	6294
+scaffold_610	6315
+scaffold_525	6326
+scaffold_520	6360
+scaffold_519	6361
+scaffold_531	6372
+scaffold_516	6382
+scaffold_512	6411
+scaffold_645	6504
+scaffold_507	6505
+scaffold_617	6537
+scaffold_607	6542
+scaffold_510	6553
+scaffold_501	6594
+scaffold_500	6608
+scaffold_496	6643
+scaffold_585	6689
+scaffold_595	6717
+scaffold_558	6765
+scaffold_491	6784
+scaffold_486	6821
+scaffold_675	6837
+scaffold_635	6847
+scaffold_807	6854
+scaffold_481	6892
+scaffold_509	6900
+scaffold_706	7009
+scaffold_469	7057
+scaffold_549	7074
+scaffold_468	7083
+scaffold_488	7089
+scaffold_480	7093
+scaffold_487	7116
+scaffold_535	7120
+scaffold_485	7120
+scaffold_463	7147
+scaffold_540	7151
+scaffold_470	7167
+scaffold_461	7174
+scaffold_482	7203
+scaffold_472	7204
+scaffold_493	7252
+scaffold_505	7365
+scaffold_475	7365
+scaffold_551	7366
+scaffold_504	7398
+scaffold_460	7398
+scaffold_449	7416
+scaffold_489	7466
+scaffold_447	7466
+scaffold_446	7466
+scaffold_492	7480
+scaffold_451	7539
+scaffold_527	7565
+scaffold_443	7567
+scaffold_467	7598
+scaffold_439	7615
+scaffold_588	7625
+scaffold_462	7632
+scaffold_435	7656
+scaffold_429	7683
+scaffold_453	7712
+scaffold_428	7726
+scaffold_427	7728
+scaffold_436	7748
+scaffold_433	7762
+scaffold_484	7775
+scaffold_548	7813
+scaffold_457	7818
+scaffold_471	7831
+scaffold_426	7840
+scaffold_474	7843
+scaffold_413	8084
+scaffold_416	8111
+scaffold_450	8167
+scaffold_455	8208
+scaffold_412	8224
+scaffold_464	8265
+scaffold_415	8283
+scaffold_477	8359
+scaffold_403	8363
+scaffold_419	8366
+scaffold_401	8402
+scaffold_431	8404
+scaffold_398	8508
+scaffold_397	8535
+scaffold_408	8592
+scaffold_441	8626
+scaffold_390	8733
+scaffold_396	8738
+scaffold_384	8774
+scaffold_383	8774
+scaffold_381	8802
+scaffold_380	8802
+scaffold_379	8803
+scaffold_378	8822
+scaffold_375	8855
+scaffold_386	8868
+scaffold_385	8873
+scaffold_566	8876
+scaffold_372	8876
+scaffold_624	8921
+scaffold_402	8929
+scaffold_409	8939
+scaffold_366	8942
+scaffold_365	8943
+scaffold_368	9003
+scaffold_361	9014
+scaffold_371	9041
+scaffold_358	9041
+scaffold_363	9090
+scaffold_355	9149
+scaffold_354	9157
+scaffold_352	9205
+scaffold_350	9246
+scaffold_349	9250
+scaffold_348	9251
+scaffold_346	9256
+scaffold_376	9273
+scaffold_344	9289
+scaffold_343	9298
+scaffold_340	9319
+scaffold_339	9323
+scaffold_337	9326
+scaffold_335	9336
+scaffold_351	9344
+scaffold_334	9371
+scaffold_341	9405
+scaffold_332	9416
+scaffold_330	9444
+scaffold_342	9505
+scaffold_400	9516
+scaffold_364	9531
+scaffold_325	9588
+scaffold_322	9656
+scaffold_320	9724
+scaffold_319	9767
+scaffold_388	9797
+scaffold_310	9954
+scaffold_307	10021
+scaffold_357	10030
+scaffold_304	10091
+scaffold_303	10106
+scaffold_327	10118
+scaffold_345	10120
+scaffold_300	10133
+scaffold_305	10182
+scaffold_298	10202
+scaffold_302	10227
+scaffold_293	10266
+scaffold_299	10268
+scaffold_292	10276
+scaffold_295	10362
+scaffold_294	10363
+scaffold_285	10478
+scaffold_284	10500
+scaffold_287	10534
+scaffold_283	10573
+scaffold_290	10597
+scaffold_281	10755
+scaffold_315	10914
+scaffold_288	10982
+scaffold_417	11063
+scaffold_311	11111
+scaffold_268	11135
+scaffold_277	11163
+scaffold_266	11173
+scaffold_265	11173
+scaffold_269	11233
+scaffold_262	11236
+scaffold_267	11253
+scaffold_261	11263
+scaffold_347	11265
+scaffold_264	11275
+scaffold_286	11290
+scaffold_275	11334
+scaffold_258	11345
+scaffold_279	11393
+scaffold_251	11483
+scaffold_271	11518
+scaffold_289	11519
+scaffold_270	11521
+scaffold_249	11536
+scaffold_248	11543
+scaffold_253	11547
+scaffold_252	11573
+scaffold_259	11642
+scaffold_250	11642
+scaffold_247	11656
+scaffold_278	11661
+scaffold_246	11661
+scaffold_241	11720
+scaffold_240	11761
+scaffold_239	11778
+scaffold_243	11791
+scaffold_374	11842
+scaffold_244	11945
+scaffold_233	11955
+scaffold_236	11975
+scaffold_231	12023
+scaffold_255	12066
+scaffold_228	12137
+scaffold_230	12195
+scaffold_223	12436
+scaffold_221	12465
+scaffold_242	12482
+scaffold_219	12503
+scaffold_220	12567
+scaffold_213	12589
+scaffold_212	12623
+scaffold_216	12667
+scaffold_215	12671
+scaffold_208	12734
+scaffold_207	12741
+scaffold_235	12746
+scaffold_206	12758
+scaffold_225	12774
+scaffold_210	12820
+scaffold_214	12939
+scaffold_203	12995
+scaffold_205	13037
+scaffold_234	13216
+scaffold_323	13369
+scaffold_211	13490
+scaffold_197	13548
+scaffold_209	13614
+scaffold_301	13661
+scaffold_193	13678
+scaffold_188	14062
+scaffold_189	14063
+scaffold_229	14132
+scaffold_201	14150
+scaffold_226	14339
+scaffold_181	14397
+scaffold_199	14456
+scaffold_195	14542
+scaffold_179	14583
+scaffold_190	14608
+scaffold_191	14737
+scaffold_177	14777
+scaffold_196	14784
+scaffold_176	14793
+scaffold_180	14826
+scaffold_184	14860
+scaffold_222	14935
+scaffold_172	15141
+scaffold_173	15208
+scaffold_170	15673
+scaffold_165	15836
+scaffold_164	15851
+scaffold_178	15941
+scaffold_163	15971
+scaffold_166	16014
+scaffold_158	16071
+scaffold_159	16148
+scaffold_160	16358
+scaffold_169	16599
+scaffold_149	16847
+scaffold_151	17353
+scaffold_143	17394
+scaffold_141	17526
+scaffold_142	17620
+scaffold_139	17624
+scaffold_138	17628
+scaffold_161	17702
+scaffold_146	17905
+scaffold_137	18049
+scaffold_136	18177
+scaffold_132	18203
+scaffold_129	18393
+scaffold_125	18511
+scaffold_121	18658
+scaffold_122	18722
+scaffold_130	18728
+scaffold_128	18776
+scaffold_133	18967
+scaffold_126	19147
+scaffold_135	19286
+scaffold_120	19368
+scaffold_115	19382
+scaffold_152	19386
+scaffold_114	19422
+scaffold_113	19435
+scaffold_112	19564
+scaffold_123	19715
+scaffold_118	19913
+scaffold_106	20070
+scaffold_103	20430
+scaffold_108	20787
+scaffold_110	20827
+scaffold_100	20959
+scaffold_98	20962
+scaffold_99	21256
+scaffold_96	21493
+scaffold_117	21951
+scaffold_91	22377
+scaffold_90	22400
+scaffold_97	22403
+scaffold_89	22846
+scaffold_85	24006
+scaffold_88	24147
+scaffold_83	24864
+scaffold_76	26132
+scaffold_73	26592
+scaffold_77	26910
+scaffold_72	27939
+scaffold_71	28414
+scaffold_66	28436
+scaffold_74	30081
+scaffold_63	30383
+scaffold_70	30586
+scaffold_57	35077
+scaffold_61	37089
+scaffold_387	38674
+scaffold_92	41166
+scaffold_185	41385
+scaffold_144	42461
+scaffold_53	42563
+scaffold_68	42762
+scaffold_109	42950
+scaffold_80	44312
+scaffold_86	47099
+scaffold_84	47761
+scaffold_65	48666
+scaffold_167	49487
+scaffold_47	50189
+scaffold_87	50767
+scaffold_37	50885
+scaffold_64	51199
+scaffold_38	54598
+scaffold_60	54680
+scaffold_36	55443
+scaffold_39	56741
+scaffold_52	57915
+scaffold_58	58233
+scaffold_43	58977
+scaffold_54	59709
+scaffold_59	60404
+scaffold_51	60900
+scaffold_32	67898
+scaffold_24	72324
+scaffold_25	76307
+scaffold_22	77967
+scaffold_29	77981
+scaffold_27	79363
+scaffold_48	82330
+scaffold_28	82702
+scaffold_34	82892
+scaffold_41	83393
+scaffold_35	85588
+scaffold_23	95112
+scaffold_20	100232
+scaffold_31	104288
+scaffold_33	127197
+scaffold_19	129820
+scaffold_21	154816
+scaffold_18	163736
+scaffold_16	170080
+scaffold_17	170241
+scaffold_26	171326
+scaffold_15	269926
+scaffold_13	274490
+scaffold_14	361337
+scaffold_11	440609
+scaffold_10	461865
+scaffold_9	1906741
+2	19320864
+5	21221946
+8	22951293
+4	23328337
+3	24464547
+7	24649197
+6	25113588
+1	33132539
+
+
+##reference
+#reference
+file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa
+file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa
+
+
+##GATKCommandLine
+#ID	CommandLineOptions	Date	Epoch	Version
+CombineVariants	analysis_type=CombineVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=[(RodBindingCollection [(RodBinding name=HignConfSNPs source=HighConf_Variants.asPASSED.AllSamples.vcf)]), (RodBindingCollection [(RodBinding name=SNPs source=DNA_Samples.Passed.SNPs_allHetsRemoved.vcf)]), (RodBindingCollection [(RodBinding name=InDels source=DNA_Samples.Passed.InDels_allHetsRemoved.vcf)])] out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_Variants.vcf genotypemergeoption=UNSORTED filteredrecordsmergetype=KEEP_IF_ANY_UNFILTERED multipleallelesmergetype=BY_TYPE rod_priority_list=null printComplexMerges=false filteredAreUncalled=false minimalVCF=false excludeNonVariants=false setKey=set assumeIdenticalSamples=false minimumN=1 suppressCommandLineHeader=false mergeInfoWithMaxAC=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:56:42 EST 2017	1513918602988	3.7-0-gcfedb67
+GenotypeGVCFs	analysis_type=GenotypeGVCFs input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=[(RodBindingCollection [(RodBinding name=variant source=MA605.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant2 source=MA611.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant3 source=MA622.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant4 source=MA625.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant5 source=MA629.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant6 source=Ncm8.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant7 source=Sp3.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant8 source=Sp21.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant9 source=Sp76.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant10 source=Sp154.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant11 source=Sp164.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant12 source=SpNor33.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant13 source=ms01e.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant14 source=ms02g.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant15 source=ms03g.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant16 source=ms04h.raw.snps.indels.g.vcf)])] out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes/raw_variants.AllSamples.MySpF1.vcf includeNonVariantSites=false uniquifySamples=false annotateNDA=false useNewAFCalculator=false heterozygosity=0.001 indel_heterozygosity=1.25E-4 heterozygosity_stdev=0.01 standard_min_confidence_threshold_for_calling=10.0 standard_min_confidence_threshold_for_emitting=30.0 max_alternate_alleles=6 max_genotype_count=1024 max_num_PL_values=100 input_prior=[] sample_ploidy=2 annotation=[] group=[StandardAnnotation] dbsnp=(RodBinding name= source=UNBOUND) filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Sat Dec 16 20:17:48 EST 2017	1513473468011	3.8-0-ge9d806836
+HaplotypeCaller	analysis_type=HaplotypeCaller input_file=[good_Coverage.mapQ20.sorted.MA611.bam] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=[2:15881000-15902000, 3:12165000-12174000] excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=/home/bkgiri/apps/RefGenomeN_index/lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=500 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false likelihoodCalculationEngine=PairHMM heterogeneousKmerSizeResolution=COMBO_MIN dbsnp=(RodBinding name= source=UNBOUND) dontTrimActiveRegions=false maxDiscARExtension=25 maxGGAARExtension=300 paddingAroundIndels=150 paddingAroundSNPs=20 comp=[] annotation=[StrandBiasBySample] excludeAnnotation=[ChromosomeCounts, FisherStrand, StrandOddsRatio, QualByDepth] group=[StandardAnnotation, StandardHCAnnotation] debug=false useFilteredReadsForAnnotations=false emitRefConfidence=GVCF bamOutput=null bamWriterType=CALLED_HAPLOTYPES emitDroppedReads=false disableOptimizations=false annotateNDA=false useNewAFCalculator=false heterozygosity=0.001 indel_heterozygosity=1.25E-4 heterozygosity_stdev=0.01 standard_min_confidence_threshold_for_calling=-0.0 standard_min_confidence_threshold_for_emitting=30.0 max_alternate_alleles=6 max_genotype_count=1024 max_num_PL_values=100 input_prior=[] sample_ploidy=2 genotyping_mode=DISCOVERY alleles=(RodBinding name= source=UNBOUND) contamination_fraction_to_filter=0.0 contamination_fraction_per_sample_file=null p_nonref_model=null exactcallslog=null output_mode=EMIT_VARIANTS_ONLY allSitePLs=true gcpHMM=10 pair_hmm_implementation=FASTEST_AVAILABLE phredScaledGlobalReadMismappingRate=45 noFpga=false nativePairHmmThreads=1 useDoublePrecision=false sample_name=null kmerSize=[10, 25] dontIncreaseKmerSizesForCycles=false allowNonUniqueKmersInRef=false numPruningSamples=1 recoverDanglingHeads=false doNotRecoverDanglingBranches=false minDanglingBranchLength=4 consensus=false maxNumHaplotypesInPopulation=128 errorCorrectKmers=false minPruning=2 debugGraphTransformations=false allowCyclesInKmerGraphToGeneratePaths=false graphOutput=null kmerLengthForReadErrorCorrection=25 minObservationsForKmerToBeSolid=20 GVCFGQBands=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 70, 80, 90, 99] indelSizeToEliminateInRefModel=10 min_base_quality_score=10 includeUmappedReads=false useAllelesTrigger=false doNotRunPhysicalPhasing=false keepRG=null justDetermineActiveRegions=false dontGenotype=false dontUseSoftClippedBases=false captureAssemblyFailureBAM=false errorCorrectReads=false pcr_indel_model=CONSERVATIVE maxReadsInRegionPerSample=10000 minReadsPerAlignmentStart=10 mergeVariantsViaLD=false activityProfileOut=null activeRegionOut=null activeRegionIn=null activeRegionExtension=null forceActive=false activeRegionMaxSize=null bandPassSigma=null maxReadsInMemoryPerSample=30000 maxTotalReadsInMemory=10000000 maxProbPropagationDistance=50 activeProbabilityThreshold=0.002 min_mapping_quality_score=20 filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Fri Dec 15 18:29:51 EST 2017	1513380591593	3.8-0-ge9d806836
+SelectVariants	analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=Remaining.Variants.AllSamples.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.raw_SNPs.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[ms01e, ms02g, ms03g, ms04h] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.getCalledChrCount() == 0] invertselect=true excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=true restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[SNP] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:18:22 EST 2017	1513916302870	3.8-0-ge9d806836
+SelectVariants	analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.Filtered_SNPs.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_SNPs.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.isNotFiltered()] invertselect=false excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:20:01 EST 2017	1513916401173	3.7-0-gcfedb67
+SelectVariants	analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.Passed_SNPs.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed.SNPs_allHetsRemoved.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.getHetCount() == vc.getCalledChrCount()/2] invertselect=true excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:20:23 EST 2017	1513916423031	3.7-0-gcfedb67
+SelectVariants	analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=raw_variants.AllSamples.MySpF1.vcf) discordance=(RodBinding name=discordance source=Detlef.Variants.asPASSED.vcf) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/Remaining.Variants.AllSamples.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[] invertselect=false excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:10:31 EST 2017	1513915831133	3.8-0-ge9d806836
+VariantFiltration	analysis_type=VariantFiltration input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.raw_SNPs.vcf) mask=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Filtered_SNPs.vcf filterExpression=[QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0] filterName=[my_snp_filter] genotypeFilterExpression=[] genotypeFilterName=[] clusterSize=3 clusterWindowSize=0 maskExtension=0 maskName=Mask filterNotInMask=false missingValuesInExpressionsShouldEvaluateAsFailing=false invalidatePreviousFilters=false invertFilterExpression=false invertGenotypeFilterExpression=false setFilteredGtToNocall=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false	Thu Dec 21 23:19:58 EST 2017	1513916398266	3.7-0-gcfedb67
+
+
+##GVCFBlock
+#minGQ	maxGQ	Block
+55(inclusive)	56(exclusive)	55-56
+56(inclusive)	57(exclusive)	56-57
+57(inclusive)	58(exclusive)	57-58
+58(inclusive)	59(exclusive)	58-59
+
+
+##samples
+#name	position
+ms01e	10
+ms02g	11
+ms03g	12
+ms04h	13
+MA611	14
+MA605	15
+MA622	16
+
+

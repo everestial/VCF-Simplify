@@ -1,0 +1,28 @@
+
+    ## VCF Simplify ## : Python application for parsing VCF files.
+    Author: Bishwa K. Giri
+    Contact: bkgiri@uncg.edu, kirannbishwa01@gmail.com
+
+Using the following arguments: 
+Namespace(inVCF='exampleInput/input_test.vcf', metadata=['VCFspec', 'samples'], outFile='exampleOutput/testOutput', outType=None)
+
+Using option "ViewVCF"
+  Extracting metadata from the VCF header ...
+
+Displaying requested metadata ['VCFspec', 'samples']
+
+##VCFspec
+#fileformat	GVCF
+VCFv4.2	True
+
+##samples
+#name	position
+ms01e	10
+ms02g	11
+ms03g	12
+ms04h	13
+MA611	14
+MA605	15
+MA622	16
+
+ViewVCF run time =  0.0560 seconds.

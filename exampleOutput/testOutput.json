@@ -1,0 +1,3159 @@
+{
+    "VCFspec": [
+        {
+            "fileformat": "VCFv4.2",
+            "GVCF": true
+        }
+    ],
+    "FORMAT": [
+        {
+            "ID": "AD",
+            "Number": "R",
+            "Type": "Integer",
+            "Description": "Allelic depths for the ref and alt alleles in the order listed"
+        },
+        {
+            "ID": "DP",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Approximate read depth (reads with MQ=255 or with bad mates are filtered)"
+        },
+        {
+            "ID": "GQ",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Genotype Quality"
+        },
+        {
+            "ID": "GT",
+            "Number": "1",
+            "Type": "String",
+            "Description": "Genotype"
+        },
+        {
+            "ID": "MIN_DP",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Minimum DP observed within the GVCF block"
+        },
+        {
+            "ID": "PGT",
+            "Number": "1",
+            "Type": "String",
+            "Description": "Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another"
+        },
+        {
+            "ID": "PID",
+            "Number": "1",
+            "Type": "String",
+            "Description": "Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group"
+        },
+        {
+            "ID": "PL",
+            "Number": "G",
+            "Type": "Integer",
+            "Description": "Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification"
+        },
+        {
+            "ID": "RGQ",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)"
+        },
+        {
+            "ID": "SB",
+            "Number": "4",
+            "Type": "Integer",
+            "Description": "Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias."
+        },
+        {
+            "ID": "PG",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Local Genotype"
+        },
+        {
+            "ID": "PB",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Local Block"
+        },
+        {
+            "ID": "PI",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Local Block Index (unique for each block)"
+        },
+        {
+            "ID": "PM",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Local Block Maximum Variant MAF"
+        },
+        {
+            "ID": "PW",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Genome Wide Genotype"
+        },
+        {
+            "ID": "PC",
+            "Number": "1",
+            "Type": "String",
+            "Description": "phASER Genome Wide Confidence"
+        }
+    ],
+    "INFO": [
+        {
+            "ID": "AF",
+            "Number": "A",
+            "Type": "Float",
+            "Description": "Allele Frequency, for each ALT allele, in the same order as listed"
+        },
+        {
+            "ID": "BaseQRankSum",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities"
+        },
+        {
+            "ID": "ClippingRankSum",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Z-score From Wilcoxon rank sum test of Alt vs. Ref number of hard clipped bases"
+        },
+        {
+            "ID": "DP",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Approximate read depth; some reads may have been filtered"
+        },
+        {
+            "ID": "DS",
+            "Number": "0",
+            "Type": "Flag",
+            "Description": "Were any of the samples downsampled?"
+        },
+        {
+            "ID": "END",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Stop position of the interval"
+        },
+        {
+            "ID": "ExcessHet",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Phred-scaled p-value for exact test of excess heterozygosity"
+        },
+        {
+            "ID": "FS",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Phred-scaled p-value using Fisher's exact test to detect strand bias"
+        },
+        {
+            "ID": "HaplotypeScore",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Consistency of the site with at most two segregating haplotypes"
+        },
+        {
+            "ID": "InbreedingCoeff",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation"
+        },
+        {
+            "ID": "MLEAC",
+            "Number": "A",
+            "Type": "Integer",
+            "Description": "Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed"
+        },
+        {
+            "ID": "MLEAF",
+            "Number": "A",
+            "Type": "Float",
+            "Description": "Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed"
+        },
+        {
+            "ID": "MQ",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "RMS Mapping Quality"
+        },
+        {
+            "ID": "MQRankSum",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities"
+        },
+        {
+            "ID": "QD",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Variant Confidence/Quality by Depth"
+        },
+        {
+            "ID": "RAW_MQ",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Raw data for RMS Mapping Quality"
+        },
+        {
+            "ID": "ReadPosRankSum",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias"
+        },
+        {
+            "ID": "SOR",
+            "Number": "1",
+            "Type": "Float",
+            "Description": "Symmetric Odds Ratio of 2x2 contingency table to detect strand bias"
+        },
+        {
+            "ID": "set",
+            "Number": "1",
+            "Type": "String",
+            "Description": "Source VCF for the merged record in CombineVariants"
+        },
+        {
+            "ID": "SF",
+            "Number": ".",
+            "Type": "String",
+            "Description": "Source File (index to sourceFiles, f when filtered)"
+        },
+        {
+            "ID": "AC",
+            "Number": ".",
+            "Type": "Integer",
+            "Description": "Allele count in genotypes"
+        },
+        {
+            "ID": "AN",
+            "Number": "1",
+            "Type": "Integer",
+            "Description": "Total number of alleles in called genotypes"
+        },
+        {
+            "ID": "TS",
+            "Type": "Test",
+            "Description": "Allele count in genotypes"
+        }
+    ],
+    "FILTER": [
+        {
+            "ID": "LowQual",
+            "Description": "Low quality"
+        },
+        {
+            "ID": "my_indel_filter",
+            "Description": "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0"
+        },
+        {
+            "ID": "my_snp_filter",
+            "Description": "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0"
+        }
+    ],
+    "contig": [
+        {
+            "ID": "scaffold_1118",
+            "length": "1005"
+        },
+        {
+            "ID": "scaffold_1117",
+            "length": "1017"
+        },
+        {
+            "ID": "scaffold_1116",
+            "length": "1032"
+        },
+        {
+            "ID": "scaffold_1113",
+            "length": "1037"
+        },
+        {
+            "ID": "scaffold_1112",
+            "length": "1047"
+        },
+        {
+            "ID": "scaffold_1111",
+            "length": "1078"
+        },
+        {
+            "ID": "scaffold_1109",
+            "length": "1083"
+        },
+        {
+            "ID": "scaffold_1106",
+            "length": "1174"
+        },
+        {
+            "ID": "scaffold_1105",
+            "length": "1194"
+        },
+        {
+            "ID": "scaffold_1102",
+            "length": "1249"
+        },
+        {
+            "ID": "scaffold_1099",
+            "length": "1362"
+        },
+        {
+            "ID": "scaffold_1096",
+            "length": "1413"
+        },
+        {
+            "ID": "scaffold_1095",
+            "length": "1425"
+        },
+        {
+            "ID": "scaffold_1094",
+            "length": "1447"
+        },
+        {
+            "ID": "scaffold_1091",
+            "length": "1567"
+        },
+        {
+            "ID": "scaffold_1090",
+            "length": "1576"
+        },
+        {
+            "ID": "scaffold_1089",
+            "length": "1632"
+        },
+        {
+            "ID": "scaffold_1086",
+            "length": "1720"
+        },
+        {
+            "ID": "scaffold_1084",
+            "length": "1840"
+        },
+        {
+            "ID": "scaffold_1080",
+            "length": "1964"
+        },
+        {
+            "ID": "scaffold_1044",
+            "length": "2691"
+        },
+        {
+            "ID": "scaffold_1021",
+            "length": "3008"
+        },
+        {
+            "ID": "scaffold_1034",
+            "length": "3146"
+        },
+        {
+            "ID": "scaffold_1072",
+            "length": "3249"
+        },
+        {
+            "ID": "scaffold_999",
+            "length": "3250"
+        },
+        {
+            "ID": "scaffold_1097",
+            "length": "3259"
+        },
+        {
+            "ID": "scaffold_1085",
+            "length": "3303"
+        },
+        {
+            "ID": "scaffold_1069",
+            "length": "3355"
+        },
+        {
+            "ID": "scaffold_1025",
+            "length": "3368"
+        },
+        {
+            "ID": "scaffold_1032",
+            "length": "3379"
+        },
+        {
+            "ID": "scaffold_1087",
+            "length": "3400"
+        },
+        {
+            "ID": "scaffold_1074",
+            "length": "3416"
+        },
+        {
+            "ID": "scaffold_983",
+            "length": "3426"
+        },
+        {
+            "ID": "scaffold_1082",
+            "length": "3428"
+        },
+        {
+            "ID": "scaffold_982",
+            "length": "3429"
+        },
+        {
+            "ID": "scaffold_998",
+            "length": "3458"
+        },
+        {
+            "ID": "scaffold_1017",
+            "length": "3499"
+        },
+        {
+            "ID": "scaffold_1012",
+            "length": "3507"
+        },
+        {
+            "ID": "scaffold_1056",
+            "length": "3510"
+        },
+        {
+            "ID": "scaffold_1057",
+            "length": "3517"
+        },
+        {
+            "ID": "scaffold_1070",
+            "length": "3525"
+        },
+        {
+            "ID": "scaffold_960",
+            "length": "3538"
+        },
+        {
+            "ID": "scaffold_975",
+            "length": "3568"
+        },
+        {
+            "ID": "scaffold_1064",
+            "length": "3571"
+        },
+        {
+            "ID": "scaffold_955",
+            "length": "3571"
+        },
+        {
+            "ID": "scaffold_954",
+            "length": "3584"
+        },
+        {
+            "ID": "scaffold_1058",
+            "length": "3585"
+        },
+        {
+            "ID": "scaffold_1078",
+            "length": "3595"
+        },
+        {
+            "ID": "scaffold_1041",
+            "length": "3612"
+        },
+        {
+            "ID": "scaffold_946",
+            "length": "3616"
+        },
+        {
+            "ID": "scaffold_945",
+            "length": "3617"
+        },
+        {
+            "ID": "scaffold_1043",
+            "length": "3621"
+        },
+        {
+            "ID": "scaffold_1054",
+            "length": "3622"
+        },
+        {
+            "ID": "scaffold_939",
+            "length": "3631"
+        },
+        {
+            "ID": "scaffold_993",
+            "length": "3636"
+        },
+        {
+            "ID": "scaffold_1052",
+            "length": "3641"
+        },
+        {
+            "ID": "scaffold_936",
+            "length": "3647"
+        },
+        {
+            "ID": "scaffold_991",
+            "length": "3657"
+        },
+        {
+            "ID": "scaffold_1033",
+            "length": "3660"
+        },
+        {
+            "ID": "scaffold_1022",
+            "length": "3679"
+        },
+        {
+            "ID": "scaffold_928",
+            "length": "3697"
+        },
+        {
+            "ID": "scaffold_924",
+            "length": "3704"
+        },
+        {
+            "ID": "scaffold_941",
+            "length": "3726"
+        },
+        {
+            "ID": "scaffold_919",
+            "length": "3737"
+        },
+        {
+            "ID": "scaffold_1040",
+            "length": "3746"
+        },
+        {
+            "ID": "scaffold_918",
+            "length": "3747"
+        },
+        {
+            "ID": "scaffold_915",
+            "length": "3754"
+        },
+        {
+            "ID": "scaffold_1029",
+            "length": "3768"
+        },
+        {
+            "ID": "scaffold_996",
+            "length": "3769"
+        },
+        {
+            "ID": "scaffold_912",
+            "length": "3771"
+        },
+        {
+            "ID": "scaffold_938",
+            "length": "3779"
+        },
+        {
+            "ID": "scaffold_1046",
+            "length": "3782"
+        },
+        {
+            "ID": "scaffold_965",
+            "length": "3785"
+        },
+        {
+            "ID": "scaffold_979",
+            "length": "3792"
+        },
+        {
+            "ID": "scaffold_1003",
+            "length": "3794"
+        },
+        {
+            "ID": "scaffold_1000",
+            "length": "3807"
+        },
+        {
+            "ID": "scaffold_896",
+            "length": "3846"
+        },
+        {
+            "ID": "scaffold_1061",
+            "length": "3854"
+        },
+        {
+            "ID": "scaffold_1010",
+            "length": "3854"
+        },
+        {
+            "ID": "scaffold_894",
+            "length": "3855"
+        },
+        {
+            "ID": "scaffold_1008",
+            "length": "3858"
+        },
+        {
+            "ID": "scaffold_1031",
+            "length": "3861"
+        },
+        {
+            "ID": "scaffold_1014",
+            "length": "3862"
+        },
+        {
+            "ID": "scaffold_893",
+            "length": "3862"
+        },
+        {
+            "ID": "scaffold_992",
+            "length": "3872"
+        },
+        {
+            "ID": "scaffold_1006",
+            "length": "3877"
+        },
+        {
+            "ID": "scaffold_1001",
+            "length": "3881"
+        },
+        {
+            "ID": "scaffold_964",
+            "length": "3891"
+        },
+        {
+            "ID": "scaffold_1007",
+            "length": "3901"
+        },
+        {
+            "ID": "scaffold_883",
+            "length": "3909"
+        },
+        {
+            "ID": "scaffold_881",
+            "length": "3916"
+        },
+        {
+            "ID": "scaffold_1020",
+            "length": "3919"
+        },
+        {
+            "ID": "scaffold_879",
+            "length": "3924"
+        },
+        {
+            "ID": "scaffold_1048",
+            "length": "3927"
+        },
+        {
+            "ID": "scaffold_1005",
+            "length": "3927"
+        },
+        {
+            "ID": "scaffold_878",
+            "length": "3930"
+        },
+        {
+            "ID": "scaffold_1015",
+            "length": "3932"
+        },
+        {
+            "ID": "scaffold_940",
+            "length": "3938"
+        },
+        {
+            "ID": "scaffold_875",
+            "length": "3940"
+        },
+        {
+            "ID": "scaffold_963",
+            "length": "3949"
+        },
+        {
+            "ID": "scaffold_984",
+            "length": "3958"
+        },
+        {
+            "ID": "scaffold_872",
+            "length": "3968"
+        },
+        {
+            "ID": "scaffold_891",
+            "length": "4007"
+        },
+        {
+            "ID": "scaffold_866",
+            "length": "4016"
+        },
+        {
+            "ID": "scaffold_880",
+            "length": "4021"
+        },
+        {
+            "ID": "scaffold_908",
+            "length": "4028"
+        },
+        {
+            "ID": "scaffold_968",
+            "length": "4042"
+        },
+        {
+            "ID": "scaffold_1019",
+            "length": "4049"
+        },
+        {
+            "ID": "scaffold_976",
+            "length": "4054"
+        },
+        {
+            "ID": "scaffold_989",
+            "length": "4061"
+        },
+        {
+            "ID": "scaffold_858",
+            "length": "4066"
+        },
+        {
+            "ID": "scaffold_971",
+            "length": "4079"
+        },
+        {
+            "ID": "scaffold_853",
+            "length": "4089"
+        },
+        {
+            "ID": "scaffold_852",
+            "length": "4092"
+        },
+        {
+            "ID": "scaffold_851",
+            "length": "4097"
+        },
+        {
+            "ID": "scaffold_911",
+            "length": "4098"
+        },
+        {
+            "ID": "scaffold_849",
+            "length": "4099"
+        },
+        {
+            "ID": "scaffold_848",
+            "length": "4102"
+        },
+        {
+            "ID": "scaffold_1053",
+            "length": "4104"
+        },
+        {
+            "ID": "scaffold_986",
+            "length": "4114"
+        },
+        {
+            "ID": "scaffold_920",
+            "length": "4123"
+        },
+        {
+            "ID": "scaffold_895",
+            "length": "4136"
+        },
+        {
+            "ID": "scaffold_861",
+            "length": "4139"
+        },
+        {
+            "ID": "scaffold_962",
+            "length": "4142"
+        },
+        {
+            "ID": "scaffold_900",
+            "length": "4145"
+        },
+        {
+            "ID": "scaffold_987",
+            "length": "4148"
+        },
+        {
+            "ID": "scaffold_970",
+            "length": "4154"
+        },
+        {
+            "ID": "scaffold_835",
+            "length": "4174"
+        },
+        {
+            "ID": "scaffold_834",
+            "length": "4178"
+        },
+        {
+            "ID": "scaffold_868",
+            "length": "4182"
+        },
+        {
+            "ID": "scaffold_832",
+            "length": "4187"
+        },
+        {
+            "ID": "scaffold_830",
+            "length": "4194"
+        },
+        {
+            "ID": "scaffold_981",
+            "length": "4203"
+        },
+        {
+            "ID": "scaffold_828",
+            "length": "4207"
+        },
+        {
+            "ID": "scaffold_958",
+            "length": "4209"
+        },
+        {
+            "ID": "scaffold_994",
+            "length": "4210"
+        },
+        {
+            "ID": "scaffold_977",
+            "length": "4214"
+        },
+        {
+            "ID": "scaffold_825",
+            "length": "4247"
+        },
+        {
+            "ID": "scaffold_890",
+            "length": "4249"
+        },
+        {
+            "ID": "scaffold_905",
+            "length": "4260"
+        },
+        {
+            "ID": "scaffold_978",
+            "length": "4265"
+        },
+        {
+            "ID": "scaffold_823",
+            "length": "4267"
+        },
+        {
+            "ID": "scaffold_887",
+            "length": "4269"
+        },
+        {
+            "ID": "scaffold_950",
+            "length": "4273"
+        },
+        {
+            "ID": "scaffold_843",
+            "length": "4275"
+        },
+        {
+            "ID": "scaffold_871",
+            "length": "4285"
+        },
+        {
+            "ID": "scaffold_817",
+            "length": "4298"
+        },
+        {
+            "ID": "scaffold_815",
+            "length": "4310"
+        },
+        {
+            "ID": "scaffold_1076",
+            "length": "4311"
+        },
+        {
+            "ID": "scaffold_882",
+            "length": "4320"
+        },
+        {
+            "ID": "scaffold_813",
+            "length": "4331"
+        },
+        {
+            "ID": "scaffold_937",
+            "length": "4338"
+        },
+        {
+            "ID": "scaffold_831",
+            "length": "4344"
+        },
+        {
+            "ID": "scaffold_829",
+            "length": "4347"
+        },
+        {
+            "ID": "scaffold_901",
+            "length": "4359"
+        },
+        {
+            "ID": "scaffold_877",
+            "length": "4368"
+        },
+        {
+            "ID": "scaffold_805",
+            "length": "4370"
+        },
+        {
+            "ID": "scaffold_804",
+            "length": "4377"
+        },
+        {
+            "ID": "scaffold_802",
+            "length": "4396"
+        },
+        {
+            "ID": "scaffold_903",
+            "length": "4408"
+        },
+        {
+            "ID": "scaffold_798",
+            "length": "4415"
+        },
+        {
+            "ID": "scaffold_797",
+            "length": "4423"
+        },
+        {
+            "ID": "scaffold_796",
+            "length": "4429"
+        },
+        {
+            "ID": "scaffold_884",
+            "length": "4431"
+        },
+        {
+            "ID": "scaffold_855",
+            "length": "4439"
+        },
+        {
+            "ID": "scaffold_793",
+            "length": "4441"
+        },
+        {
+            "ID": "scaffold_792",
+            "length": "4443"
+        },
+        {
+            "ID": "scaffold_788",
+            "length": "4458"
+        },
+        {
+            "ID": "scaffold_819",
+            "length": "4465"
+        },
+        {
+            "ID": "scaffold_784",
+            "length": "4474"
+        },
+        {
+            "ID": "scaffold_783",
+            "length": "4478"
+        },
+        {
+            "ID": "scaffold_865",
+            "length": "4494"
+        },
+        {
+            "ID": "scaffold_781",
+            "length": "4495"
+        },
+        {
+            "ID": "scaffold_990",
+            "length": "4503"
+        },
+        {
+            "ID": "scaffold_801",
+            "length": "4509"
+        },
+        {
+            "ID": "scaffold_845",
+            "length": "4512"
+        },
+        {
+            "ID": "scaffold_812",
+            "length": "4514"
+        },
+        {
+            "ID": "scaffold_864",
+            "length": "4516"
+        },
+        {
+            "ID": "scaffold_779",
+            "length": "4521"
+        },
+        {
+            "ID": "scaffold_838",
+            "length": "4523"
+        },
+        {
+            "ID": "scaffold_777",
+            "length": "4536"
+        },
+        {
+            "ID": "scaffold_814",
+            "length": "4539"
+        },
+        {
+            "ID": "scaffold_790",
+            "length": "4554"
+        },
+        {
+            "ID": "scaffold_811",
+            "length": "4562"
+        },
+        {
+            "ID": "scaffold_787",
+            "length": "4568"
+        },
+        {
+            "ID": "scaffold_773",
+            "length": "4573"
+        },
+        {
+            "ID": "scaffold_862",
+            "length": "4575"
+        },
+        {
+            "ID": "scaffold_772",
+            "length": "4582"
+        },
+        {
+            "ID": "scaffold_771",
+            "length": "4584"
+        },
+        {
+            "ID": "scaffold_782",
+            "length": "4595"
+        },
+        {
+            "ID": "scaffold_786",
+            "length": "4606"
+        },
+        {
+            "ID": "scaffold_766",
+            "length": "4606"
+        },
+        {
+            "ID": "scaffold_763",
+            "length": "4616"
+        },
+        {
+            "ID": "scaffold_762",
+            "length": "4621"
+        },
+        {
+            "ID": "scaffold_837",
+            "length": "4626"
+        },
+        {
+            "ID": "scaffold_759",
+            "length": "4630"
+        },
+        {
+            "ID": "scaffold_756",
+            "length": "4643"
+        },
+        {
+            "ID": "scaffold_755",
+            "length": "4645"
+        },
+        {
+            "ID": "scaffold_753",
+            "length": "4660"
+        },
+        {
+            "ID": "scaffold_752",
+            "length": "4661"
+        },
+        {
+            "ID": "scaffold_780",
+            "length": "4662"
+        },
+        {
+            "ID": "scaffold_747",
+            "length": "4673"
+        },
+        {
+            "ID": "scaffold_746",
+            "length": "4685"
+        },
+        {
+            "ID": "scaffold_769",
+            "length": "4691"
+        },
+        {
+            "ID": "scaffold_744",
+            "length": "4703"
+        },
+        {
+            "ID": "scaffold_741",
+            "length": "4712"
+        },
+        {
+            "ID": "scaffold_740",
+            "length": "4713"
+        },
+        {
+            "ID": "scaffold_739",
+            "length": "4724"
+        },
+        {
+            "ID": "scaffold_738",
+            "length": "4726"
+        },
+        {
+            "ID": "scaffold_736",
+            "length": "4732"
+        },
+        {
+            "ID": "scaffold_735",
+            "length": "4737"
+        },
+        {
+            "ID": "scaffold_734",
+            "length": "4745"
+        },
+        {
+            "ID": "scaffold_733",
+            "length": "4746"
+        },
+        {
+            "ID": "scaffold_729",
+            "length": "4780"
+        },
+        {
+            "ID": "scaffold_728",
+            "length": "4797"
+        },
+        {
+            "ID": "scaffold_727",
+            "length": "4814"
+        },
+        {
+            "ID": "scaffold_723",
+            "length": "4825"
+        },
+        {
+            "ID": "scaffold_721",
+            "length": "4834"
+        },
+        {
+            "ID": "scaffold_961",
+            "length": "4838"
+        },
+        {
+            "ID": "scaffold_716",
+            "length": "4853"
+        },
+        {
+            "ID": "scaffold_715",
+            "length": "4861"
+        },
+        {
+            "ID": "scaffold_713",
+            "length": "4863"
+        },
+        {
+            "ID": "scaffold_711",
+            "length": "4872"
+        },
+        {
+            "ID": "scaffold_710",
+            "length": "4912"
+        },
+        {
+            "ID": "scaffold_707",
+            "length": "4917"
+        },
+        {
+            "ID": "scaffold_702",
+            "length": "4958"
+        },
+        {
+            "ID": "scaffold_701",
+            "length": "4959"
+        },
+        {
+            "ID": "scaffold_776",
+            "length": "4960"
+        },
+        {
+            "ID": "scaffold_700",
+            "length": "4965"
+        },
+        {
+            "ID": "scaffold_697",
+            "length": "4979"
+        },
+        {
+            "ID": "scaffold_693",
+            "length": "4983"
+        },
+        {
+            "ID": "scaffold_902",
+            "length": "5000"
+        },
+        {
+            "ID": "scaffold_688",
+            "length": "5023"
+        },
+        {
+            "ID": "scaffold_686",
+            "length": "5026"
+        },
+        {
+            "ID": "scaffold_867",
+            "length": "5049"
+        },
+        {
+            "ID": "scaffold_761",
+            "length": "5050"
+        },
+        {
+            "ID": "scaffold_682",
+            "length": "5054"
+        },
+        {
+            "ID": "scaffold_679",
+            "length": "5059"
+        },
+        {
+            "ID": "scaffold_795",
+            "length": "5066"
+        },
+        {
+            "ID": "scaffold_699",
+            "length": "5067"
+        },
+        {
+            "ID": "scaffold_678",
+            "length": "5083"
+        },
+        {
+            "ID": "scaffold_904",
+            "length": "5088"
+        },
+        {
+            "ID": "scaffold_674",
+            "length": "5112"
+        },
+        {
+            "ID": "scaffold_694",
+            "length": "5113"
+        },
+        {
+            "ID": "scaffold_671",
+            "length": "5118"
+        },
+        {
+            "ID": "scaffold_670",
+            "length": "5121"
+        },
+        {
+            "ID": "scaffold_669",
+            "length": "5128"
+        },
+        {
+            "ID": "scaffold_668",
+            "length": "5132"
+        },
+        {
+            "ID": "scaffold_667",
+            "length": "5140"
+        },
+        {
+            "ID": "scaffold_683",
+            "length": "5141"
+        },
+        {
+            "ID": "scaffold_664",
+            "length": "5148"
+        },
+        {
+            "ID": "scaffold_663",
+            "length": "5148"
+        },
+        {
+            "ID": "scaffold_662",
+            "length": "5156"
+        },
+        {
+            "ID": "scaffold_661",
+            "length": "5160"
+        },
+        {
+            "ID": "scaffold_695",
+            "length": "5175"
+        },
+        {
+            "ID": "scaffold_658",
+            "length": "5205"
+        },
+        {
+            "ID": "scaffold_681",
+            "length": "5213"
+        },
+        {
+            "ID": "scaffold_655",
+            "length": "5225"
+        },
+        {
+            "ID": "scaffold_680",
+            "length": "5240"
+        },
+        {
+            "ID": "scaffold_666",
+            "length": "5241"
+        },
+        {
+            "ID": "scaffold_717",
+            "length": "5243"
+        },
+        {
+            "ID": "scaffold_653",
+            "length": "5252"
+        },
+        {
+            "ID": "scaffold_651",
+            "length": "5261"
+        },
+        {
+            "ID": "scaffold_731",
+            "length": "5275"
+        },
+        {
+            "ID": "scaffold_649",
+            "length": "5283"
+        },
+        {
+            "ID": "scaffold_719",
+            "length": "5313"
+        },
+        {
+            "ID": "scaffold_659",
+            "length": "5359"
+        },
+        {
+            "ID": "scaffold_705",
+            "length": "5366"
+        },
+        {
+            "ID": "scaffold_638",
+            "length": "5368"
+        },
+        {
+            "ID": "scaffold_636",
+            "length": "5373"
+        },
+        {
+            "ID": "scaffold_726",
+            "length": "5424"
+        },
+        {
+            "ID": "scaffold_631",
+            "length": "5424"
+        },
+        {
+            "ID": "scaffold_629",
+            "length": "5457"
+        },
+        {
+            "ID": "scaffold_628",
+            "length": "5459"
+        },
+        {
+            "ID": "scaffold_627",
+            "length": "5482"
+        },
+        {
+            "ID": "scaffold_626",
+            "length": "5482"
+        },
+        {
+            "ID": "scaffold_625",
+            "length": "5482"
+        },
+        {
+            "ID": "scaffold_672",
+            "length": "5491"
+        },
+        {
+            "ID": "scaffold_646",
+            "length": "5493"
+        },
+        {
+            "ID": "scaffold_685",
+            "length": "5534"
+        },
+        {
+            "ID": "scaffold_616",
+            "length": "5563"
+        },
+        {
+            "ID": "scaffold_615",
+            "length": "5574"
+        },
+        {
+            "ID": "scaffold_614",
+            "length": "5576"
+        },
+        {
+            "ID": "scaffold_630",
+            "length": "5629"
+        },
+        {
+            "ID": "scaffold_608",
+            "length": "5644"
+        },
+        {
+            "ID": "scaffold_810",
+            "length": "5651"
+        },
+        {
+            "ID": "scaffold_748",
+            "length": "5666"
+        },
+        {
+            "ID": "scaffold_604",
+            "length": "5673"
+        },
+        {
+            "ID": "scaffold_603",
+            "length": "5688"
+        },
+        {
+            "ID": "scaffold_591",
+            "length": "5806"
+        },
+        {
+            "ID": "scaffold_639",
+            "length": "5820"
+        },
+        {
+            "ID": "scaffold_665",
+            "length": "5827"
+        },
+        {
+            "ID": "scaffold_840",
+            "length": "5829"
+        },
+        {
+            "ID": "scaffold_637",
+            "length": "5829"
+        },
+        {
+            "ID": "scaffold_684",
+            "length": "5838"
+        },
+        {
+            "ID": "scaffold_589",
+            "length": "5841"
+        },
+        {
+            "ID": "scaffold_587",
+            "length": "5857"
+        },
+        {
+            "ID": "scaffold_677",
+            "length": "5864"
+        },
+        {
+            "ID": "scaffold_584",
+            "length": "5890"
+        },
+        {
+            "ID": "scaffold_582",
+            "length": "5927"
+        },
+        {
+            "ID": "scaffold_580",
+            "length": "5936"
+        },
+        {
+            "ID": "scaffold_579",
+            "length": "5937"
+        },
+        {
+            "ID": "scaffold_575",
+            "length": "5959"
+        },
+        {
+            "ID": "scaffold_573",
+            "length": "5973"
+        },
+        {
+            "ID": "scaffold_569",
+            "length": "5983"
+        },
+        {
+            "ID": "scaffold_565",
+            "length": "6009"
+        },
+        {
+            "ID": "scaffold_562",
+            "length": "6014"
+        },
+        {
+            "ID": "scaffold_642",
+            "length": "6019"
+        },
+        {
+            "ID": "scaffold_597",
+            "length": "6031"
+        },
+        {
+            "ID": "scaffold_594",
+            "length": "6032"
+        },
+        {
+            "ID": "scaffold_947",
+            "length": "6058"
+        },
+        {
+            "ID": "scaffold_557",
+            "length": "6061"
+        },
+        {
+            "ID": "scaffold_552",
+            "length": "6083"
+        },
+        {
+            "ID": "scaffold_564",
+            "length": "6109"
+        },
+        {
+            "ID": "scaffold_602",
+            "length": "6162"
+        },
+        {
+            "ID": "scaffold_592",
+            "length": "6190"
+        },
+        {
+            "ID": "scaffold_576",
+            "length": "6219"
+        },
+        {
+            "ID": "scaffold_770",
+            "length": "6232"
+        },
+        {
+            "ID": "scaffold_532",
+            "length": "6269"
+        },
+        {
+            "ID": "scaffold_554",
+            "length": "6283"
+        },
+        {
+            "ID": "scaffold_704",
+            "length": "6290"
+        },
+        {
+            "ID": "scaffold_612",
+            "length": "6294"
+        },
+        {
+            "ID": "scaffold_610",
+            "length": "6315"
+        },
+        {
+            "ID": "scaffold_525",
+            "length": "6326"
+        },
+        {
+            "ID": "scaffold_520",
+            "length": "6360"
+        },
+        {
+            "ID": "scaffold_519",
+            "length": "6361"
+        },
+        {
+            "ID": "scaffold_531",
+            "length": "6372"
+        },
+        {
+            "ID": "scaffold_516",
+            "length": "6382"
+        },
+        {
+            "ID": "scaffold_512",
+            "length": "6411"
+        },
+        {
+            "ID": "scaffold_645",
+            "length": "6504"
+        },
+        {
+            "ID": "scaffold_507",
+            "length": "6505"
+        },
+        {
+            "ID": "scaffold_617",
+            "length": "6537"
+        },
+        {
+            "ID": "scaffold_607",
+            "length": "6542"
+        },
+        {
+            "ID": "scaffold_510",
+            "length": "6553"
+        },
+        {
+            "ID": "scaffold_501",
+            "length": "6594"
+        },
+        {
+            "ID": "scaffold_500",
+            "length": "6608"
+        },
+        {
+            "ID": "scaffold_496",
+            "length": "6643"
+        },
+        {
+            "ID": "scaffold_585",
+            "length": "6689"
+        },
+        {
+            "ID": "scaffold_595",
+            "length": "6717"
+        },
+        {
+            "ID": "scaffold_558",
+            "length": "6765"
+        },
+        {
+            "ID": "scaffold_491",
+            "length": "6784"
+        },
+        {
+            "ID": "scaffold_486",
+            "length": "6821"
+        },
+        {
+            "ID": "scaffold_675",
+            "length": "6837"
+        },
+        {
+            "ID": "scaffold_635",
+            "length": "6847"
+        },
+        {
+            "ID": "scaffold_807",
+            "length": "6854"
+        },
+        {
+            "ID": "scaffold_481",
+            "length": "6892"
+        },
+        {
+            "ID": "scaffold_509",
+            "length": "6900"
+        },
+        {
+            "ID": "scaffold_706",
+            "length": "7009"
+        },
+        {
+            "ID": "scaffold_469",
+            "length": "7057"
+        },
+        {
+            "ID": "scaffold_549",
+            "length": "7074"
+        },
+        {
+            "ID": "scaffold_468",
+            "length": "7083"
+        },
+        {
+            "ID": "scaffold_488",
+            "length": "7089"
+        },
+        {
+            "ID": "scaffold_480",
+            "length": "7093"
+        },
+        {
+            "ID": "scaffold_487",
+            "length": "7116"
+        },
+        {
+            "ID": "scaffold_535",
+            "length": "7120"
+        },
+        {
+            "ID": "scaffold_485",
+            "length": "7120"
+        },
+        {
+            "ID": "scaffold_463",
+            "length": "7147"
+        },
+        {
+            "ID": "scaffold_540",
+            "length": "7151"
+        },
+        {
+            "ID": "scaffold_470",
+            "length": "7167"
+        },
+        {
+            "ID": "scaffold_461",
+            "length": "7174"
+        },
+        {
+            "ID": "scaffold_482",
+            "length": "7203"
+        },
+        {
+            "ID": "scaffold_472",
+            "length": "7204"
+        },
+        {
+            "ID": "scaffold_493",
+            "length": "7252"
+        },
+        {
+            "ID": "scaffold_505",
+            "length": "7365"
+        },
+        {
+            "ID": "scaffold_475",
+            "length": "7365"
+        },
+        {
+            "ID": "scaffold_551",
+            "length": "7366"
+        },
+        {
+            "ID": "scaffold_504",
+            "length": "7398"
+        },
+        {
+            "ID": "scaffold_460",
+            "length": "7398"
+        },
+        {
+            "ID": "scaffold_449",
+            "length": "7416"
+        },
+        {
+            "ID": "scaffold_489",
+            "length": "7466"
+        },
+        {
+            "ID": "scaffold_447",
+            "length": "7466"
+        },
+        {
+            "ID": "scaffold_446",
+            "length": "7466"
+        },
+        {
+            "ID": "scaffold_492",
+            "length": "7480"
+        },
+        {
+            "ID": "scaffold_451",
+            "length": "7539"
+        },
+        {
+            "ID": "scaffold_527",
+            "length": "7565"
+        },
+        {
+            "ID": "scaffold_443",
+            "length": "7567"
+        },
+        {
+            "ID": "scaffold_467",
+            "length": "7598"
+        },
+        {
+            "ID": "scaffold_439",
+            "length": "7615"
+        },
+        {
+            "ID": "scaffold_588",
+            "length": "7625"
+        },
+        {
+            "ID": "scaffold_462",
+            "length": "7632"
+        },
+        {
+            "ID": "scaffold_435",
+            "length": "7656"
+        },
+        {
+            "ID": "scaffold_429",
+            "length": "7683"
+        },
+        {
+            "ID": "scaffold_453",
+            "length": "7712"
+        },
+        {
+            "ID": "scaffold_428",
+            "length": "7726"
+        },
+        {
+            "ID": "scaffold_427",
+            "length": "7728"
+        },
+        {
+            "ID": "scaffold_436",
+            "length": "7748"
+        },
+        {
+            "ID": "scaffold_433",
+            "length": "7762"
+        },
+        {
+            "ID": "scaffold_484",
+            "length": "7775"
+        },
+        {
+            "ID": "scaffold_548",
+            "length": "7813"
+        },
+        {
+            "ID": "scaffold_457",
+            "length": "7818"
+        },
+        {
+            "ID": "scaffold_471",
+            "length": "7831"
+        },
+        {
+            "ID": "scaffold_426",
+            "length": "7840"
+        },
+        {
+            "ID": "scaffold_474",
+            "length": "7843"
+        },
+        {
+            "ID": "scaffold_413",
+            "length": "8084"
+        },
+        {
+            "ID": "scaffold_416",
+            "length": "8111"
+        },
+        {
+            "ID": "scaffold_450",
+            "length": "8167"
+        },
+        {
+            "ID": "scaffold_455",
+            "length": "8208"
+        },
+        {
+            "ID": "scaffold_412",
+            "length": "8224"
+        },
+        {
+            "ID": "scaffold_464",
+            "length": "8265"
+        },
+        {
+            "ID": "scaffold_415",
+            "length": "8283"
+        },
+        {
+            "ID": "scaffold_477",
+            "length": "8359"
+        },
+        {
+            "ID": "scaffold_403",
+            "length": "8363"
+        },
+        {
+            "ID": "scaffold_419",
+            "length": "8366"
+        },
+        {
+            "ID": "scaffold_401",
+            "length": "8402"
+        },
+        {
+            "ID": "scaffold_431",
+            "length": "8404"
+        },
+        {
+            "ID": "scaffold_398",
+            "length": "8508"
+        },
+        {
+            "ID": "scaffold_397",
+            "length": "8535"
+        },
+        {
+            "ID": "scaffold_408",
+            "length": "8592"
+        },
+        {
+            "ID": "scaffold_441",
+            "length": "8626"
+        },
+        {
+            "ID": "scaffold_390",
+            "length": "8733"
+        },
+        {
+            "ID": "scaffold_396",
+            "length": "8738"
+        },
+        {
+            "ID": "scaffold_384",
+            "length": "8774"
+        },
+        {
+            "ID": "scaffold_383",
+            "length": "8774"
+        },
+        {
+            "ID": "scaffold_381",
+            "length": "8802"
+        },
+        {
+            "ID": "scaffold_380",
+            "length": "8802"
+        },
+        {
+            "ID": "scaffold_379",
+            "length": "8803"
+        },
+        {
+            "ID": "scaffold_378",
+            "length": "8822"
+        },
+        {
+            "ID": "scaffold_375",
+            "length": "8855"
+        },
+        {
+            "ID": "scaffold_386",
+            "length": "8868"
+        },
+        {
+            "ID": "scaffold_385",
+            "length": "8873"
+        },
+        {
+            "ID": "scaffold_566",
+            "length": "8876"
+        },
+        {
+            "ID": "scaffold_372",
+            "length": "8876"
+        },
+        {
+            "ID": "scaffold_624",
+            "length": "8921"
+        },
+        {
+            "ID": "scaffold_402",
+            "length": "8929"
+        },
+        {
+            "ID": "scaffold_409",
+            "length": "8939"
+        },
+        {
+            "ID": "scaffold_366",
+            "length": "8942"
+        },
+        {
+            "ID": "scaffold_365",
+            "length": "8943"
+        },
+        {
+            "ID": "scaffold_368",
+            "length": "9003"
+        },
+        {
+            "ID": "scaffold_361",
+            "length": "9014"
+        },
+        {
+            "ID": "scaffold_371",
+            "length": "9041"
+        },
+        {
+            "ID": "scaffold_358",
+            "length": "9041"
+        },
+        {
+            "ID": "scaffold_363",
+            "length": "9090"
+        },
+        {
+            "ID": "scaffold_355",
+            "length": "9149"
+        },
+        {
+            "ID": "scaffold_354",
+            "length": "9157"
+        },
+        {
+            "ID": "scaffold_352",
+            "length": "9205"
+        },
+        {
+            "ID": "scaffold_350",
+            "length": "9246"
+        },
+        {
+            "ID": "scaffold_349",
+            "length": "9250"
+        },
+        {
+            "ID": "scaffold_348",
+            "length": "9251"
+        },
+        {
+            "ID": "scaffold_346",
+            "length": "9256"
+        },
+        {
+            "ID": "scaffold_376",
+            "length": "9273"
+        },
+        {
+            "ID": "scaffold_344",
+            "length": "9289"
+        },
+        {
+            "ID": "scaffold_343",
+            "length": "9298"
+        },
+        {
+            "ID": "scaffold_340",
+            "length": "9319"
+        },
+        {
+            "ID": "scaffold_339",
+            "length": "9323"
+        },
+        {
+            "ID": "scaffold_337",
+            "length": "9326"
+        },
+        {
+            "ID": "scaffold_335",
+            "length": "9336"
+        },
+        {
+            "ID": "scaffold_351",
+            "length": "9344"
+        },
+        {
+            "ID": "scaffold_334",
+            "length": "9371"
+        },
+        {
+            "ID": "scaffold_341",
+            "length": "9405"
+        },
+        {
+            "ID": "scaffold_332",
+            "length": "9416"
+        },
+        {
+            "ID": "scaffold_330",
+            "length": "9444"
+        },
+        {
+            "ID": "scaffold_342",
+            "length": "9505"
+        },
+        {
+            "ID": "scaffold_400",
+            "length": "9516"
+        },
+        {
+            "ID": "scaffold_364",
+            "length": "9531"
+        },
+        {
+            "ID": "scaffold_325",
+            "length": "9588"
+        },
+        {
+            "ID": "scaffold_322",
+            "length": "9656"
+        },
+        {
+            "ID": "scaffold_320",
+            "length": "9724"
+        },
+        {
+            "ID": "scaffold_319",
+            "length": "9767"
+        },
+        {
+            "ID": "scaffold_388",
+            "length": "9797"
+        },
+        {
+            "ID": "scaffold_310",
+            "length": "9954"
+        },
+        {
+            "ID": "scaffold_307",
+            "length": "10021"
+        },
+        {
+            "ID": "scaffold_357",
+            "length": "10030"
+        },
+        {
+            "ID": "scaffold_304",
+            "length": "10091"
+        },
+        {
+            "ID": "scaffold_303",
+            "length": "10106"
+        },
+        {
+            "ID": "scaffold_327",
+            "length": "10118"
+        },
+        {
+            "ID": "scaffold_345",
+            "length": "10120"
+        },
+        {
+            "ID": "scaffold_300",
+            "length": "10133"
+        },
+        {
+            "ID": "scaffold_305",
+            "length": "10182"
+        },
+        {
+            "ID": "scaffold_298",
+            "length": "10202"
+        },
+        {
+            "ID": "scaffold_302",
+            "length": "10227"
+        },
+        {
+            "ID": "scaffold_293",
+            "length": "10266"
+        },
+        {
+            "ID": "scaffold_299",
+            "length": "10268"
+        },
+        {
+            "ID": "scaffold_292",
+            "length": "10276"
+        },
+        {
+            "ID": "scaffold_295",
+            "length": "10362"
+        },
+        {
+            "ID": "scaffold_294",
+            "length": "10363"
+        },
+        {
+            "ID": "scaffold_285",
+            "length": "10478"
+        },
+        {
+            "ID": "scaffold_284",
+            "length": "10500"
+        },
+        {
+            "ID": "scaffold_287",
+            "length": "10534"
+        },
+        {
+            "ID": "scaffold_283",
+            "length": "10573"
+        },
+        {
+            "ID": "scaffold_290",
+            "length": "10597"
+        },
+        {
+            "ID": "scaffold_281",
+            "length": "10755"
+        },
+        {
+            "ID": "scaffold_315",
+            "length": "10914"
+        },
+        {
+            "ID": "scaffold_288",
+            "length": "10982"
+        },
+        {
+            "ID": "scaffold_417",
+            "length": "11063"
+        },
+        {
+            "ID": "scaffold_311",
+            "length": "11111"
+        },
+        {
+            "ID": "scaffold_268",
+            "length": "11135"
+        },
+        {
+            "ID": "scaffold_277",
+            "length": "11163"
+        },
+        {
+            "ID": "scaffold_266",
+            "length": "11173"
+        },
+        {
+            "ID": "scaffold_265",
+            "length": "11173"
+        },
+        {
+            "ID": "scaffold_269",
+            "length": "11233"
+        },
+        {
+            "ID": "scaffold_262",
+            "length": "11236"
+        },
+        {
+            "ID": "scaffold_267",
+            "length": "11253"
+        },
+        {
+            "ID": "scaffold_261",
+            "length": "11263"
+        },
+        {
+            "ID": "scaffold_347",
+            "length": "11265"
+        },
+        {
+            "ID": "scaffold_264",
+            "length": "11275"
+        },
+        {
+            "ID": "scaffold_286",
+            "length": "11290"
+        },
+        {
+            "ID": "scaffold_275",
+            "length": "11334"
+        },
+        {
+            "ID": "scaffold_258",
+            "length": "11345"
+        },
+        {
+            "ID": "scaffold_279",
+            "length": "11393"
+        },
+        {
+            "ID": "scaffold_251",
+            "length": "11483"
+        },
+        {
+            "ID": "scaffold_271",
+            "length": "11518"
+        },
+        {
+            "ID": "scaffold_289",
+            "length": "11519"
+        },
+        {
+            "ID": "scaffold_270",
+            "length": "11521"
+        },
+        {
+            "ID": "scaffold_249",
+            "length": "11536"
+        },
+        {
+            "ID": "scaffold_248",
+            "length": "11543"
+        },
+        {
+            "ID": "scaffold_253",
+            "length": "11547"
+        },
+        {
+            "ID": "scaffold_252",
+            "length": "11573"
+        },
+        {
+            "ID": "scaffold_259",
+            "length": "11642"
+        },
+        {
+            "ID": "scaffold_250",
+            "length": "11642"
+        },
+        {
+            "ID": "scaffold_247",
+            "length": "11656"
+        },
+        {
+            "ID": "scaffold_278",
+            "length": "11661"
+        },
+        {
+            "ID": "scaffold_246",
+            "length": "11661"
+        },
+        {
+            "ID": "scaffold_241",
+            "length": "11720"
+        },
+        {
+            "ID": "scaffold_240",
+            "length": "11761"
+        },
+        {
+            "ID": "scaffold_239",
+            "length": "11778"
+        },
+        {
+            "ID": "scaffold_243",
+            "length": "11791"
+        },
+        {
+            "ID": "scaffold_374",
+            "length": "11842"
+        },
+        {
+            "ID": "scaffold_244",
+            "length": "11945"
+        },
+        {
+            "ID": "scaffold_233",
+            "length": "11955"
+        },
+        {
+            "ID": "scaffold_236",
+            "length": "11975"
+        },
+        {
+            "ID": "scaffold_231",
+            "length": "12023"
+        },
+        {
+            "ID": "scaffold_255",
+            "length": "12066"
+        },
+        {
+            "ID": "scaffold_228",
+            "length": "12137"
+        },
+        {
+            "ID": "scaffold_230",
+            "length": "12195"
+        },
+        {
+            "ID": "scaffold_223",
+            "length": "12436"
+        },
+        {
+            "ID": "scaffold_221",
+            "length": "12465"
+        },
+        {
+            "ID": "scaffold_242",
+            "length": "12482"
+        },
+        {
+            "ID": "scaffold_219",
+            "length": "12503"
+        },
+        {
+            "ID": "scaffold_220",
+            "length": "12567"
+        },
+        {
+            "ID": "scaffold_213",
+            "length": "12589"
+        },
+        {
+            "ID": "scaffold_212",
+            "length": "12623"
+        },
+        {
+            "ID": "scaffold_216",
+            "length": "12667"
+        },
+        {
+            "ID": "scaffold_215",
+            "length": "12671"
+        },
+        {
+            "ID": "scaffold_208",
+            "length": "12734"
+        },
+        {
+            "ID": "scaffold_207",
+            "length": "12741"
+        },
+        {
+            "ID": "scaffold_235",
+            "length": "12746"
+        },
+        {
+            "ID": "scaffold_206",
+            "length": "12758"
+        },
+        {
+            "ID": "scaffold_225",
+            "length": "12774"
+        },
+        {
+            "ID": "scaffold_210",
+            "length": "12820"
+        },
+        {
+            "ID": "scaffold_214",
+            "length": "12939"
+        },
+        {
+            "ID": "scaffold_203",
+            "length": "12995"
+        },
+        {
+            "ID": "scaffold_205",
+            "length": "13037"
+        },
+        {
+            "ID": "scaffold_234",
+            "length": "13216"
+        },
+        {
+            "ID": "scaffold_323",
+            "length": "13369"
+        },
+        {
+            "ID": "scaffold_211",
+            "length": "13490"
+        },
+        {
+            "ID": "scaffold_197",
+            "length": "13548"
+        },
+        {
+            "ID": "scaffold_209",
+            "length": "13614"
+        },
+        {
+            "ID": "scaffold_301",
+            "length": "13661"
+        },
+        {
+            "ID": "scaffold_193",
+            "length": "13678"
+        },
+        {
+            "ID": "scaffold_188",
+            "length": "14062"
+        },
+        {
+            "ID": "scaffold_189",
+            "length": "14063"
+        },
+        {
+            "ID": "scaffold_229",
+            "length": "14132"
+        },
+        {
+            "ID": "scaffold_201",
+            "length": "14150"
+        },
+        {
+            "ID": "scaffold_226",
+            "length": "14339"
+        },
+        {
+            "ID": "scaffold_181",
+            "length": "14397"
+        },
+        {
+            "ID": "scaffold_199",
+            "length": "14456"
+        },
+        {
+            "ID": "scaffold_195",
+            "length": "14542"
+        },
+        {
+            "ID": "scaffold_179",
+            "length": "14583"
+        },
+        {
+            "ID": "scaffold_190",
+            "length": "14608"
+        },
+        {
+            "ID": "scaffold_191",
+            "length": "14737"
+        },
+        {
+            "ID": "scaffold_177",
+            "length": "14777"
+        },
+        {
+            "ID": "scaffold_196",
+            "length": "14784"
+        },
+        {
+            "ID": "scaffold_176",
+            "length": "14793"
+        },
+        {
+            "ID": "scaffold_180",
+            "length": "14826"
+        },
+        {
+            "ID": "scaffold_184",
+            "length": "14860"
+        },
+        {
+            "ID": "scaffold_222",
+            "length": "14935"
+        },
+        {
+            "ID": "scaffold_172",
+            "length": "15141"
+        },
+        {
+            "ID": "scaffold_173",
+            "length": "15208"
+        },
+        {
+            "ID": "scaffold_170",
+            "length": "15673"
+        },
+        {
+            "ID": "scaffold_165",
+            "length": "15836"
+        },
+        {
+            "ID": "scaffold_164",
+            "length": "15851"
+        },
+        {
+            "ID": "scaffold_178",
+            "length": "15941"
+        },
+        {
+            "ID": "scaffold_163",
+            "length": "15971"
+        },
+        {
+            "ID": "scaffold_166",
+            "length": "16014"
+        },
+        {
+            "ID": "scaffold_158",
+            "length": "16071"
+        },
+        {
+            "ID": "scaffold_159",
+            "length": "16148"
+        },
+        {
+            "ID": "scaffold_160",
+            "length": "16358"
+        },
+        {
+            "ID": "scaffold_169",
+            "length": "16599"
+        },
+        {
+            "ID": "scaffold_149",
+            "length": "16847"
+        },
+        {
+            "ID": "scaffold_151",
+            "length": "17353"
+        },
+        {
+            "ID": "scaffold_143",
+            "length": "17394"
+        },
+        {
+            "ID": "scaffold_141",
+            "length": "17526"
+        },
+        {
+            "ID": "scaffold_142",
+            "length": "17620"
+        },
+        {
+            "ID": "scaffold_139",
+            "length": "17624"
+        },
+        {
+            "ID": "scaffold_138",
+            "length": "17628"
+        },
+        {
+            "ID": "scaffold_161",
+            "length": "17702"
+        },
+        {
+            "ID": "scaffold_146",
+            "length": "17905"
+        },
+        {
+            "ID": "scaffold_137",
+            "length": "18049"
+        },
+        {
+            "ID": "scaffold_136",
+            "length": "18177"
+        },
+        {
+            "ID": "scaffold_132",
+            "length": "18203"
+        },
+        {
+            "ID": "scaffold_129",
+            "length": "18393"
+        },
+        {
+            "ID": "scaffold_125",
+            "length": "18511"
+        },
+        {
+            "ID": "scaffold_121",
+            "length": "18658"
+        },
+        {
+            "ID": "scaffold_122",
+            "length": "18722"
+        },
+        {
+            "ID": "scaffold_130",
+            "length": "18728"
+        },
+        {
+            "ID": "scaffold_128",
+            "length": "18776"
+        },
+        {
+            "ID": "scaffold_133",
+            "length": "18967"
+        },
+        {
+            "ID": "scaffold_126",
+            "length": "19147"
+        },
+        {
+            "ID": "scaffold_135",
+            "length": "19286"
+        },
+        {
+            "ID": "scaffold_120",
+            "length": "19368"
+        },
+        {
+            "ID": "scaffold_115",
+            "length": "19382"
+        },
+        {
+            "ID": "scaffold_152",
+            "length": "19386"
+        },
+        {
+            "ID": "scaffold_114",
+            "length": "19422"
+        },
+        {
+            "ID": "scaffold_113",
+            "length": "19435"
+        },
+        {
+            "ID": "scaffold_112",
+            "length": "19564"
+        },
+        {
+            "ID": "scaffold_123",
+            "length": "19715"
+        },
+        {
+            "ID": "scaffold_118",
+            "length": "19913"
+        },
+        {
+            "ID": "scaffold_106",
+            "length": "20070"
+        },
+        {
+            "ID": "scaffold_103",
+            "length": "20430"
+        },
+        {
+            "ID": "scaffold_108",
+            "length": "20787"
+        },
+        {
+            "ID": "scaffold_110",
+            "length": "20827"
+        },
+        {
+            "ID": "scaffold_100",
+            "length": "20959"
+        },
+        {
+            "ID": "scaffold_98",
+            "length": "20962"
+        },
+        {
+            "ID": "scaffold_99",
+            "length": "21256"
+        },
+        {
+            "ID": "scaffold_96",
+            "length": "21493"
+        },
+        {
+            "ID": "scaffold_117",
+            "length": "21951"
+        },
+        {
+            "ID": "scaffold_91",
+            "length": "22377"
+        },
+        {
+            "ID": "scaffold_90",
+            "length": "22400"
+        },
+        {
+            "ID": "scaffold_97",
+            "length": "22403"
+        },
+        {
+            "ID": "scaffold_89",
+            "length": "22846"
+        },
+        {
+            "ID": "scaffold_85",
+            "length": "24006"
+        },
+        {
+            "ID": "scaffold_88",
+            "length": "24147"
+        },
+        {
+            "ID": "scaffold_83",
+            "length": "24864"
+        },
+        {
+            "ID": "scaffold_76",
+            "length": "26132"
+        },
+        {
+            "ID": "scaffold_73",
+            "length": "26592"
+        },
+        {
+            "ID": "scaffold_77",
+            "length": "26910"
+        },
+        {
+            "ID": "scaffold_72",
+            "length": "27939"
+        },
+        {
+            "ID": "scaffold_71",
+            "length": "28414"
+        },
+        {
+            "ID": "scaffold_66",
+            "length": "28436"
+        },
+        {
+            "ID": "scaffold_74",
+            "length": "30081"
+        },
+        {
+            "ID": "scaffold_63",
+            "length": "30383"
+        },
+        {
+            "ID": "scaffold_70",
+            "length": "30586"
+        },
+        {
+            "ID": "scaffold_57",
+            "length": "35077"
+        },
+        {
+            "ID": "scaffold_61",
+            "length": "37089"
+        },
+        {
+            "ID": "scaffold_387",
+            "length": "38674"
+        },
+        {
+            "ID": "scaffold_92",
+            "length": "41166"
+        },
+        {
+            "ID": "scaffold_185",
+            "length": "41385"
+        },
+        {
+            "ID": "scaffold_144",
+            "length": "42461"
+        },
+        {
+            "ID": "scaffold_53",
+            "length": "42563"
+        },
+        {
+            "ID": "scaffold_68",
+            "length": "42762"
+        },
+        {
+            "ID": "scaffold_109",
+            "length": "42950"
+        },
+        {
+            "ID": "scaffold_80",
+            "length": "44312"
+        },
+        {
+            "ID": "scaffold_86",
+            "length": "47099"
+        },
+        {
+            "ID": "scaffold_84",
+            "length": "47761"
+        },
+        {
+            "ID": "scaffold_65",
+            "length": "48666"
+        },
+        {
+            "ID": "scaffold_167",
+            "length": "49487"
+        },
+        {
+            "ID": "scaffold_47",
+            "length": "50189"
+        },
+        {
+            "ID": "scaffold_87",
+            "length": "50767"
+        },
+        {
+            "ID": "scaffold_37",
+            "length": "50885"
+        },
+        {
+            "ID": "scaffold_64",
+            "length": "51199"
+        },
+        {
+            "ID": "scaffold_38",
+            "length": "54598"
+        },
+        {
+            "ID": "scaffold_60",
+            "length": "54680"
+        },
+        {
+            "ID": "scaffold_36",
+            "length": "55443"
+        },
+        {
+            "ID": "scaffold_39",
+            "length": "56741"
+        },
+        {
+            "ID": "scaffold_52",
+            "length": "57915"
+        },
+        {
+            "ID": "scaffold_58",
+            "length": "58233"
+        },
+        {
+            "ID": "scaffold_43",
+            "length": "58977"
+        },
+        {
+            "ID": "scaffold_54",
+            "length": "59709"
+        },
+        {
+            "ID": "scaffold_59",
+            "length": "60404"
+        },
+        {
+            "ID": "scaffold_51",
+            "length": "60900"
+        },
+        {
+            "ID": "scaffold_32",
+            "length": "67898"
+        },
+        {
+            "ID": "scaffold_24",
+            "length": "72324"
+        },
+        {
+            "ID": "scaffold_25",
+            "length": "76307"
+        },
+        {
+            "ID": "scaffold_22",
+            "length": "77967"
+        },
+        {
+            "ID": "scaffold_29",
+            "length": "77981"
+        },
+        {
+            "ID": "scaffold_27",
+            "length": "79363"
+        },
+        {
+            "ID": "scaffold_48",
+            "length": "82330"
+        },
+        {
+            "ID": "scaffold_28",
+            "length": "82702"
+        },
+        {
+            "ID": "scaffold_34",
+            "length": "82892"
+        },
+        {
+            "ID": "scaffold_41",
+            "length": "83393"
+        },
+        {
+            "ID": "scaffold_35",
+            "length": "85588"
+        },
+        {
+            "ID": "scaffold_23",
+            "length": "95112"
+        },
+        {
+            "ID": "scaffold_20",
+            "length": "100232"
+        },
+        {
+            "ID": "scaffold_31",
+            "length": "104288"
+        },
+        {
+            "ID": "scaffold_33",
+            "length": "127197"
+        },
+        {
+            "ID": "scaffold_19",
+            "length": "129820"
+        },
+        {
+            "ID": "scaffold_21",
+            "length": "154816"
+        },
+        {
+            "ID": "scaffold_18",
+            "length": "163736"
+        },
+        {
+            "ID": "scaffold_16",
+            "length": "170080"
+        },
+        {
+            "ID": "scaffold_17",
+            "length": "170241"
+        },
+        {
+            "ID": "scaffold_26",
+            "length": "171326"
+        },
+        {
+            "ID": "scaffold_15",
+            "length": "269926"
+        },
+        {
+            "ID": "scaffold_13",
+            "length": "274490"
+        },
+        {
+            "ID": "scaffold_14",
+            "length": "361337"
+        },
+        {
+            "ID": "scaffold_11",
+            "length": "440609"
+        },
+        {
+            "ID": "scaffold_10",
+            "length": "461865"
+        },
+        {
+            "ID": "scaffold_9",
+            "length": "1906741"
+        },
+        {
+            "ID": "2",
+            "length": "19320864"
+        },
+        {
+            "ID": "5",
+            "length": "21221946"
+        },
+        {
+            "ID": "8",
+            "length": "22951293"
+        },
+        {
+            "ID": "4",
+            "length": "23328337"
+        },
+        {
+            "ID": "3",
+            "length": "24464547"
+        },
+        {
+            "ID": "7",
+            "length": "24649197"
+        },
+        {
+            "ID": "6",
+            "length": "25113588"
+        },
+        {
+            "ID": "1",
+            "length": "33132539"
+        }
+    ],
+    "reference": [
+        {
+            "reference": "file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa"
+        },
+        {
+            "reference": "file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa"
+        }
+    ],
+    "GATKCommandLine": [
+        {
+            "ID": "CombineVariants",
+            "CommandLineOptions": "analysis_type=CombineVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=[(RodBindingCollection [(RodBinding name=HignConfSNPs source=HighConf_Variants.asPASSED.AllSamples.vcf)]), (RodBindingCollection [(RodBinding name=SNPs source=DNA_Samples.Passed.SNPs_allHetsRemoved.vcf)]), (RodBindingCollection [(RodBinding name=InDels source=DNA_Samples.Passed.InDels_allHetsRemoved.vcf)])] out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_Variants.vcf genotypemergeoption=UNSORTED filteredrecordsmergetype=KEEP_IF_ANY_UNFILTERED multipleallelesmergetype=BY_TYPE rod_priority_list=null printComplexMerges=false filteredAreUncalled=false minimalVCF=false excludeNonVariants=false setKey=set assumeIdenticalSamples=false minimumN=1 suppressCommandLineHeader=false mergeInfoWithMaxAC=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:56:42 EST 2017",
+            "Epoch": "1513918602988",
+            "Version": "3.7-0-gcfedb67"
+        },
+        {
+            "ID": "GenotypeGVCFs",
+            "CommandLineOptions": "analysis_type=GenotypeGVCFs input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=[(RodBindingCollection [(RodBinding name=variant source=MA605.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant2 source=MA611.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant3 source=MA622.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant4 source=MA625.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant5 source=MA629.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant6 source=Ncm8.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant7 source=Sp3.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant8 source=Sp21.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant9 source=Sp76.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant10 source=Sp154.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant11 source=Sp164.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant12 source=SpNor33.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant13 source=ms01e.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant14 source=ms02g.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant15 source=ms03g.raw.snps.indels.g.vcf)]), (RodBindingCollection [(RodBinding name=variant16 source=ms04h.raw.snps.indels.g.vcf)])] out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes/raw_variants.AllSamples.MySpF1.vcf includeNonVariantSites=false uniquifySamples=false annotateNDA=false useNewAFCalculator=false heterozygosity=0.001 indel_heterozygosity=1.25E-4 heterozygosity_stdev=0.01 standard_min_confidence_threshold_for_calling=10.0 standard_min_confidence_threshold_for_emitting=30.0 max_alternate_alleles=6 max_genotype_count=1024 max_num_PL_values=100 input_prior=[] sample_ploidy=2 annotation=[] group=[StandardAnnotation] dbsnp=(RodBinding name= source=UNBOUND) filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Sat Dec 16 20:17:48 EST 2017",
+            "Epoch": "1513473468011",
+            "Version": "3.8-0-ge9d806836"
+        },
+        {
+            "ID": "HaplotypeCaller",
+            "CommandLineOptions": "analysis_type=HaplotypeCaller input_file=[good_Coverage.mapQ20.sorted.MA611.bam] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=[2:15881000-15902000, 3:12165000-12174000] excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=/home/bkgiri/apps/RefGenomeN_index/lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=500 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false likelihoodCalculationEngine=PairHMM heterogeneousKmerSizeResolution=COMBO_MIN dbsnp=(RodBinding name= source=UNBOUND) dontTrimActiveRegions=false maxDiscARExtension=25 maxGGAARExtension=300 paddingAroundIndels=150 paddingAroundSNPs=20 comp=[] annotation=[StrandBiasBySample] excludeAnnotation=[ChromosomeCounts, FisherStrand, StrandOddsRatio, QualByDepth] group=[StandardAnnotation, StandardHCAnnotation] debug=false useFilteredReadsForAnnotations=false emitRefConfidence=GVCF bamOutput=null bamWriterType=CALLED_HAPLOTYPES emitDroppedReads=false disableOptimizations=false annotateNDA=false useNewAFCalculator=false heterozygosity=0.001 indel_heterozygosity=1.25E-4 heterozygosity_stdev=0.01 standard_min_confidence_threshold_for_calling=-0.0 standard_min_confidence_threshold_for_emitting=30.0 max_alternate_alleles=6 max_genotype_count=1024 max_num_PL_values=100 input_prior=[] sample_ploidy=2 genotyping_mode=DISCOVERY alleles=(RodBinding name= source=UNBOUND) contamination_fraction_to_filter=0.0 contamination_fraction_per_sample_file=null p_nonref_model=null exactcallslog=null output_mode=EMIT_VARIANTS_ONLY allSitePLs=true gcpHMM=10 pair_hmm_implementation=FASTEST_AVAILABLE phredScaledGlobalReadMismappingRate=45 noFpga=false nativePairHmmThreads=1 useDoublePrecision=false sample_name=null kmerSize=[10, 25] dontIncreaseKmerSizesForCycles=false allowNonUniqueKmersInRef=false numPruningSamples=1 recoverDanglingHeads=false doNotRecoverDanglingBranches=false minDanglingBranchLength=4 consensus=false maxNumHaplotypesInPopulation=128 errorCorrectKmers=false minPruning=2 debugGraphTransformations=false allowCyclesInKmerGraphToGeneratePaths=false graphOutput=null kmerLengthForReadErrorCorrection=25 minObservationsForKmerToBeSolid=20 GVCFGQBands=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 70, 80, 90, 99] indelSizeToEliminateInRefModel=10 min_base_quality_score=10 includeUmappedReads=false useAllelesTrigger=false doNotRunPhysicalPhasing=false keepRG=null justDetermineActiveRegions=false dontGenotype=false dontUseSoftClippedBases=false captureAssemblyFailureBAM=false errorCorrectReads=false pcr_indel_model=CONSERVATIVE maxReadsInRegionPerSample=10000 minReadsPerAlignmentStart=10 mergeVariantsViaLD=false activityProfileOut=null activeRegionOut=null activeRegionIn=null activeRegionExtension=null forceActive=false activeRegionMaxSize=null bandPassSigma=null maxReadsInMemoryPerSample=30000 maxTotalReadsInMemory=10000000 maxProbPropagationDistance=50 activeProbabilityThreshold=0.002 min_mapping_quality_score=20 filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Fri Dec 15 18:29:51 EST 2017",
+            "Epoch": "1513380591593",
+            "Version": "3.8-0-ge9d806836"
+        },
+        {
+            "ID": "SelectVariants",
+            "CommandLineOptions": "analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=Remaining.Variants.AllSamples.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.raw_SNPs.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[ms01e, ms02g, ms03g, ms04h] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.getCalledChrCount() == 0] invertselect=true excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=true restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[SNP] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:18:22 EST 2017",
+            "Epoch": "1513916302870",
+            "Version": "3.8-0-ge9d806836"
+        },
+        {
+            "ID": "SelectVariants",
+            "CommandLineOptions": "analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.Filtered_SNPs.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_SNPs.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.isNotFiltered()] invertselect=false excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:20:01 EST 2017",
+            "Epoch": "1513916401173",
+            "Version": "3.7-0-gcfedb67"
+        },
+        {
+            "ID": "SelectVariants",
+            "CommandLineOptions": "analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.Passed_SNPs.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed.SNPs_allHetsRemoved.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[vc.getHetCount() == vc.getCalledChrCount()/2] invertselect=true excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:20:23 EST 2017",
+            "Epoch": "1513916423031",
+            "Version": "3.7-0-gcfedb67"
+        },
+        {
+            "ID": "SelectVariants",
+            "CommandLineOptions": "analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null use_jdk_deflater=false use_jdk_inflater=false disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=raw_variants.AllSamples.MySpF1.vcf) discordance=(RodBinding name=discordance source=Detlef.Variants.asPASSED.vcf) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/Remaining.Variants.AllSamples.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[] invertselect=false excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=2147483647 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:10:31 EST 2017",
+            "Epoch": "1513915831133",
+            "Version": "3.8-0-ge9d806836"
+        },
+        {
+            "ID": "VariantFiltration",
+            "CommandLineOptions": "analysis_type=VariantFiltration input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 secondsBetweenProgressUpdates=10 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=DNA_Samples.raw_SNPs.vcf) mask=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref - New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Filtered_SNPs.vcf filterExpression=[QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0] filterName=[my_snp_filter] genotypeFilterExpression=[] genotypeFilterName=[] clusterSize=3 clusterWindowSize=0 maskExtension=0 maskName=Mask filterNotInMask=false missingValuesInExpressionsShouldEvaluateAsFailing=false invalidatePreviousFilters=false invertFilterExpression=false invertGenotypeFilterExpression=false setFilteredGtToNocall=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false",
+            "Date": "Thu Dec 21 23:19:58 EST 2017",
+            "Epoch": "1513916398266",
+            "Version": "3.7-0-gcfedb67"
+        }
+    ],
+    "GVCFBlock": [
+        {
+            "minGQ": "55(inclusive)",
+            "maxGQ": "56(exclusive)",
+            "Block": "55-56"
+        },
+        {
+            "minGQ": "56(inclusive)",
+            "maxGQ": "57(exclusive)",
+            "Block": "56-57"
+        },
+        {
+            "minGQ": "57(inclusive)",
+            "maxGQ": "58(exclusive)",
+            "Block": "57-58"
+        },
+        {
+            "minGQ": "58(inclusive)",
+            "maxGQ": "59(exclusive)",
+            "Block": "58-59"
+        }
+    ],
+    "samples": [
+        {
+            "name": "ms01e",
+            "position": 10
+        },
+        {
+            "name": "ms02g",
+            "position": 11
+        },
+        {
+            "name": "ms03g",
+            "position": 12
+        },
+        {
+            "name": "ms04h",
+            "position": 13
+        },
+        {
+            "name": "MA611",
+            "position": 14
+        },
+        {
+            "name": "MA605",
+            "position": 15
+        },
+        {
+            "name": "MA622",
+            "position": 16
+        }
+    ]
+}

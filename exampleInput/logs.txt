@@ -1,0 +1,14 @@
+
+Before removing numpy :
+
+time for vcf to haplotype :  0.3136453628540039 seconds
+
+After removing numpy:
+time for vcf to haplotype : elapsed time:  0.2877204418182373 seconds
+
+elapsed time:  0.3002200126647949
+
+After modifying nested if else conditions: 
+elapsed time:  0.287334680557251
+
+

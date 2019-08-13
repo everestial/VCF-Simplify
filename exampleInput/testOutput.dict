@@ -1,0 +1,2375 @@
+OrderedDict([('VCFspec',
+              OrderedDict([('fileformat', ['VCFv4.2']), ('GVCF', [True])])),
+             ('FORMAT',
+              OrderedDict([('ID',
+                            ['AD',
+                             'DP',
+                             'GQ',
+                             'GT',
+                             'MIN_DP',
+                             'PGT',
+                             'PID',
+                             'PL',
+                             'RGQ',
+                             'SB',
+                             'PG',
+                             'PB',
+                             'PI',
+                             'PM',
+                             'PW',
+                             'PC']),
+                           ('Number',
+                            ['R',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             'G',
+                             '1',
+                             '4',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1']),
+                           ('Type',
+                            ['Integer',
+                             'Integer',
+                             'Integer',
+                             'String',
+                             'Integer',
+                             'String',
+                             'String',
+                             'Integer',
+                             'Integer',
+                             'Integer',
+                             'String',
+                             'String',
+                             'String',
+                             'String',
+                             'String',
+                             'String']),
+                           ('Description',
+                            ['Allelic depths for the ref and alt alleles in '
+                             'the order listed',
+                             'Approximate read depth (reads with MQ=255 or '
+                             'with bad mates are filtered)',
+                             'Genotype Quality',
+                             'Genotype',
+                             'Minimum DP observed within the GVCF block',
+                             'Physical phasing haplotype information, '
+                             'describing how the alternate alleles are phased '
+                             'in relation to one another',
+                             'Physical phasing ID information, where each '
+                             'unique ID within a given sample (but not across '
+                             'samples) connects records within a phasing group',
+                             'Normalized, Phred-scaled likelihoods for '
+                             'genotypes as defined in the VCF specification',
+                             'Unconditional reference genotype confidence, '
+                             'encoded as a phred quality -10*log10 p(genotype '
+                             'call is wrong)',
+                             'Per-sample component statistics which comprise '
+                             "the Fisher's Exact Test to detect strand bias.",
+                             'phASER Local Genotype',
+                             'phASER Local Block',
+                             'phASER Local Block Index (unique for each block)',
+                             'phASER Local Block Maximum Variant MAF',
+                             'phASER Genome Wide Genotype',
+                             'phASER Genome Wide Confidence'])])),
+             ('INFO',
+              OrderedDict([('ID',
+                            ['AF',
+                             'BaseQRankSum',
+                             'ClippingRankSum',
+                             'DP',
+                             'DS',
+                             'END',
+                             'ExcessHet',
+                             'FS',
+                             'HaplotypeScore',
+                             'InbreedingCoeff',
+                             'MLEAC',
+                             'MLEAF',
+                             'MQ',
+                             'MQRankSum',
+                             'QD',
+                             'RAW_MQ',
+                             'ReadPosRankSum',
+                             'SOR',
+                             'set',
+                             'SF',
+                             'AC',
+                             'AN',
+                             'TS']),
+                           ('Number',
+                            ['A',
+                             '1',
+                             '1',
+                             '1',
+                             '0',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             'A',
+                             'A',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '1',
+                             '.',
+                             '.',
+                             '1']),
+                           ('Type',
+                            ['Float',
+                             'Float',
+                             'Float',
+                             'Integer',
+                             'Flag',
+                             'Integer',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Integer',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'Float',
+                             'String',
+                             'String',
+                             'Integer',
+                             'Integer',
+                             'Test']),
+                           ('Description',
+                            ['Allele Frequency, for each ALT allele, in the '
+                             'same order as listed',
+                             'Z-score from Wilcoxon rank sum test of Alt Vs. '
+                             'Ref base qualities',
+                             'Z-score From Wilcoxon rank sum test of Alt vs. '
+                             'Ref number of hard clipped bases',
+                             'Approximate read depth; some reads may have been '
+                             'filtered',
+                             'Were any of the samples downsampled?',
+                             'Stop position of the interval',
+                             'Phred-scaled p-value for exact test of excess '
+                             'heterozygosity',
+                             "Phred-scaled p-value using Fisher's exact test "
+                             'to detect strand bias',
+                             'Consistency of the site with at most two '
+                             'segregating haplotypes',
+                             'Inbreeding coefficient as estimated from the '
+                             'genotype likelihoods per-sample when compared '
+                             'against the Hardy-Weinberg expectation',
+                             'Maximum likelihood expectation (MLE) for the '
+                             'allele counts (not necessarily the same as the '
+                             'AC), for each ALT allele, in the same order as '
+                             'listed',
+                             'Maximum likelihood expectation (MLE) for the '
+                             'allele frequency (not necessarily the same as '
+                             'the AF), for each ALT allele, in the same order '
+                             'as listed',
+                             'RMS Mapping Quality',
+                             'Z-score From Wilcoxon rank sum test of Alt vs. '
+                             'Ref read mapping qualities',
+                             'Variant Confidence/Quality by Depth',
+                             'Raw data for RMS Mapping Quality',
+                             'Z-score from Wilcoxon rank sum test of Alt vs. '
+                             'Ref read position bias',
+                             'Symmetric Odds Ratio of 2x2 contingency table to '
+                             'detect strand bias',
+                             'Source VCF for the merged record in '
+                             'CombineVariants',
+                             'Source File (index to sourceFiles, f when '
+                             'filtered)',
+                             'Allele count in genotypes',
+                             'Total number of alleles in called genotypes',
+                             'Allele count in genotypes'])])),
+             ('FILTER',
+              OrderedDict([('ID',
+                            ['LowQual', 'my_indel_filter', 'my_snp_filter']),
+                           ('Description',
+                            ['Low quality',
+                             'QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0',
+                             'QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum '
+                             '< -12.5 || ReadPosRankSum < -8.0'])])),
+             ('contig',
+              OrderedDict([('ID',
+                            ['scaffold_1118',
+                             'scaffold_1117',
+                             'scaffold_1116',
+                             'scaffold_1113',
+                             'scaffold_1112',
+                             'scaffold_1111',
+                             'scaffold_1109',
+                             'scaffold_1106',
+                             'scaffold_1105',
+                             'scaffold_1102',
+                             'scaffold_1099',
+                             'scaffold_1096',
+                             'scaffold_1095',
+                             'scaffold_1094',
+                             'scaffold_1091',
+                             'scaffold_1090',
+                             'scaffold_1089',
+                             'scaffold_1086',
+                             'scaffold_1084',
+                             'scaffold_1080',
+                             'scaffold_1044',
+                             'scaffold_1021',
+                             'scaffold_1034',
+                             'scaffold_1072',
+                             'scaffold_999',
+                             'scaffold_1097',
+                             'scaffold_1085',
+                             'scaffold_1069',
+                             'scaffold_1025',
+                             'scaffold_1032',
+                             'scaffold_1087',
+                             'scaffold_1074',
+                             'scaffold_983',
+                             'scaffold_1082',
+                             'scaffold_982',
+                             'scaffold_998',
+                             'scaffold_1017',
+                             'scaffold_1012',
+                             'scaffold_1056',
+                             'scaffold_1057',
+                             'scaffold_1070',
+                             'scaffold_960',
+                             'scaffold_975',
+                             'scaffold_1064',
+                             'scaffold_955',
+                             'scaffold_954',
+                             'scaffold_1058',
+                             'scaffold_1078',
+                             'scaffold_1041',
+                             'scaffold_946',
+                             'scaffold_945',
+                             'scaffold_1043',
+                             'scaffold_1054',
+                             'scaffold_939',
+                             'scaffold_993',
+                             'scaffold_1052',
+                             'scaffold_936',
+                             'scaffold_991',
+                             'scaffold_1033',
+                             'scaffold_1022',
+                             'scaffold_928',
+                             'scaffold_924',
+                             'scaffold_941',
+                             'scaffold_919',
+                             'scaffold_1040',
+                             'scaffold_918',
+                             'scaffold_915',
+                             'scaffold_1029',
+                             'scaffold_996',
+                             'scaffold_912',
+                             'scaffold_938',
+                             'scaffold_1046',
+                             'scaffold_965',
+                             'scaffold_979',
+                             'scaffold_1003',
+                             'scaffold_1000',
+                             'scaffold_896',
+                             'scaffold_1061',
+                             'scaffold_1010',
+                             'scaffold_894',
+                             'scaffold_1008',
+                             'scaffold_1031',
+                             'scaffold_1014',
+                             'scaffold_893',
+                             'scaffold_992',
+                             'scaffold_1006',
+                             'scaffold_1001',
+                             'scaffold_964',
+                             'scaffold_1007',
+                             'scaffold_883',
+                             'scaffold_881',
+                             'scaffold_1020',
+                             'scaffold_879',
+                             'scaffold_1048',
+                             'scaffold_1005',
+                             'scaffold_878',
+                             'scaffold_1015',
+                             'scaffold_940',
+                             'scaffold_875',
+                             'scaffold_963',
+                             'scaffold_984',
+                             'scaffold_872',
+                             'scaffold_891',
+                             'scaffold_866',
+                             'scaffold_880',
+                             'scaffold_908',
+                             'scaffold_968',
+                             'scaffold_1019',
+                             'scaffold_976',
+                             'scaffold_989',
+                             'scaffold_858',
+                             'scaffold_971',
+                             'scaffold_853',
+                             'scaffold_852',
+                             'scaffold_851',
+                             'scaffold_911',
+                             'scaffold_849',
+                             'scaffold_848',
+                             'scaffold_1053',
+                             'scaffold_986',
+                             'scaffold_920',
+                             'scaffold_895',
+                             'scaffold_861',
+                             'scaffold_962',
+                             'scaffold_900',
+                             'scaffold_987',
+                             'scaffold_970',
+                             'scaffold_835',
+                             'scaffold_834',
+                             'scaffold_868',
+                             'scaffold_832',
+                             'scaffold_830',
+                             'scaffold_981',
+                             'scaffold_828',
+                             'scaffold_958',
+                             'scaffold_994',
+                             'scaffold_977',
+                             'scaffold_825',
+                             'scaffold_890',
+                             'scaffold_905',
+                             'scaffold_978',
+                             'scaffold_823',
+                             'scaffold_887',
+                             'scaffold_950',
+                             'scaffold_843',
+                             'scaffold_871',
+                             'scaffold_817',
+                             'scaffold_815',
+                             'scaffold_1076',
+                             'scaffold_882',
+                             'scaffold_813',
+                             'scaffold_937',
+                             'scaffold_831',
+                             'scaffold_829',
+                             'scaffold_901',
+                             'scaffold_877',
+                             'scaffold_805',
+                             'scaffold_804',
+                             'scaffold_802',
+                             'scaffold_903',
+                             'scaffold_798',
+                             'scaffold_797',
+                             'scaffold_796',
+                             'scaffold_884',
+                             'scaffold_855',
+                             'scaffold_793',
+                             'scaffold_792',
+                             'scaffold_788',
+                             'scaffold_819',
+                             'scaffold_784',
+                             'scaffold_783',
+                             'scaffold_865',
+                             'scaffold_781',
+                             'scaffold_990',
+                             'scaffold_801',
+                             'scaffold_845',
+                             'scaffold_812',
+                             'scaffold_864',
+                             'scaffold_779',
+                             'scaffold_838',
+                             'scaffold_777',
+                             'scaffold_814',
+                             'scaffold_790',
+                             'scaffold_811',
+                             'scaffold_787',
+                             'scaffold_773',
+                             'scaffold_862',
+                             'scaffold_772',
+                             'scaffold_771',
+                             'scaffold_782',
+                             'scaffold_786',
+                             'scaffold_766',
+                             'scaffold_763',
+                             'scaffold_762',
+                             'scaffold_837',
+                             'scaffold_759',
+                             'scaffold_756',
+                             'scaffold_755',
+                             'scaffold_753',
+                             'scaffold_752',
+                             'scaffold_780',
+                             'scaffold_747',
+                             'scaffold_746',
+                             'scaffold_769',
+                             'scaffold_744',
+                             'scaffold_741',
+                             'scaffold_740',
+                             'scaffold_739',
+                             'scaffold_738',
+                             'scaffold_736',
+                             'scaffold_735',
+                             'scaffold_734',
+                             'scaffold_733',
+                             'scaffold_729',
+                             'scaffold_728',
+                             'scaffold_727',
+                             'scaffold_723',
+                             'scaffold_721',
+                             'scaffold_961',
+                             'scaffold_716',
+                             'scaffold_715',
+                             'scaffold_713',
+                             'scaffold_711',
+                             'scaffold_710',
+                             'scaffold_707',
+                             'scaffold_702',
+                             'scaffold_701',
+                             'scaffold_776',
+                             'scaffold_700',
+                             'scaffold_697',
+                             'scaffold_693',
+                             'scaffold_902',
+                             'scaffold_688',
+                             'scaffold_686',
+                             'scaffold_867',
+                             'scaffold_761',
+                             'scaffold_682',
+                             'scaffold_679',
+                             'scaffold_795',
+                             'scaffold_699',
+                             'scaffold_678',
+                             'scaffold_904',
+                             'scaffold_674',
+                             'scaffold_694',
+                             'scaffold_671',
+                             'scaffold_670',
+                             'scaffold_669',
+                             'scaffold_668',
+                             'scaffold_667',
+                             'scaffold_683',
+                             'scaffold_664',
+                             'scaffold_663',
+                             'scaffold_662',
+                             'scaffold_661',
+                             'scaffold_695',
+                             'scaffold_658',
+                             'scaffold_681',
+                             'scaffold_655',
+                             'scaffold_680',
+                             'scaffold_666',
+                             'scaffold_717',
+                             'scaffold_653',
+                             'scaffold_651',
+                             'scaffold_731',
+                             'scaffold_649',
+                             'scaffold_719',
+                             'scaffold_659',
+                             'scaffold_705',
+                             'scaffold_638',
+                             'scaffold_636',
+                             'scaffold_726',
+                             'scaffold_631',
+                             'scaffold_629',
+                             'scaffold_628',
+                             'scaffold_627',
+                             'scaffold_626',
+                             'scaffold_625',
+                             'scaffold_672',
+                             'scaffold_646',
+                             'scaffold_685',
+                             'scaffold_616',
+                             'scaffold_615',
+                             'scaffold_614',
+                             'scaffold_630',
+                             'scaffold_608',
+                             'scaffold_810',
+                             'scaffold_748',
+                             'scaffold_604',
+                             'scaffold_603',
+                             'scaffold_591',
+                             'scaffold_639',
+                             'scaffold_665',
+                             'scaffold_840',
+                             'scaffold_637',
+                             'scaffold_684',
+                             'scaffold_589',
+                             'scaffold_587',
+                             'scaffold_677',
+                             'scaffold_584',
+                             'scaffold_582',
+                             'scaffold_580',
+                             'scaffold_579',
+                             'scaffold_575',
+                             'scaffold_573',
+                             'scaffold_569',
+                             'scaffold_565',
+                             'scaffold_562',
+                             'scaffold_642',
+                             'scaffold_597',
+                             'scaffold_594',
+                             'scaffold_947',
+                             'scaffold_557',
+                             'scaffold_552',
+                             'scaffold_564',
+                             'scaffold_602',
+                             'scaffold_592',
+                             'scaffold_576',
+                             'scaffold_770',
+                             'scaffold_532',
+                             'scaffold_554',
+                             'scaffold_704',
+                             'scaffold_612',
+                             'scaffold_610',
+                             'scaffold_525',
+                             'scaffold_520',
+                             'scaffold_519',
+                             'scaffold_531',
+                             'scaffold_516',
+                             'scaffold_512',
+                             'scaffold_645',
+                             'scaffold_507',
+                             'scaffold_617',
+                             'scaffold_607',
+                             'scaffold_510',
+                             'scaffold_501',
+                             'scaffold_500',
+                             'scaffold_496',
+                             'scaffold_585',
+                             'scaffold_595',
+                             'scaffold_558',
+                             'scaffold_491',
+                             'scaffold_486',
+                             'scaffold_675',
+                             'scaffold_635',
+                             'scaffold_807',
+                             'scaffold_481',
+                             'scaffold_509',
+                             'scaffold_706',
+                             'scaffold_469',
+                             'scaffold_549',
+                             'scaffold_468',
+                             'scaffold_488',
+                             'scaffold_480',
+                             'scaffold_487',
+                             'scaffold_535',
+                             'scaffold_485',
+                             'scaffold_463',
+                             'scaffold_540',
+                             'scaffold_470',
+                             'scaffold_461',
+                             'scaffold_482',
+                             'scaffold_472',
+                             'scaffold_493',
+                             'scaffold_505',
+                             'scaffold_475',
+                             'scaffold_551',
+                             'scaffold_504',
+                             'scaffold_460',
+                             'scaffold_449',
+                             'scaffold_489',
+                             'scaffold_447',
+                             'scaffold_446',
+                             'scaffold_492',
+                             'scaffold_451',
+                             'scaffold_527',
+                             'scaffold_443',
+                             'scaffold_467',
+                             'scaffold_439',
+                             'scaffold_588',
+                             'scaffold_462',
+                             'scaffold_435',
+                             'scaffold_429',
+                             'scaffold_453',
+                             'scaffold_428',
+                             'scaffold_427',
+                             'scaffold_436',
+                             'scaffold_433',
+                             'scaffold_484',
+                             'scaffold_548',
+                             'scaffold_457',
+                             'scaffold_471',
+                             'scaffold_426',
+                             'scaffold_474',
+                             'scaffold_413',
+                             'scaffold_416',
+                             'scaffold_450',
+                             'scaffold_455',
+                             'scaffold_412',
+                             'scaffold_464',
+                             'scaffold_415',
+                             'scaffold_477',
+                             'scaffold_403',
+                             'scaffold_419',
+                             'scaffold_401',
+                             'scaffold_431',
+                             'scaffold_398',
+                             'scaffold_397',
+                             'scaffold_408',
+                             'scaffold_441',
+                             'scaffold_390',
+                             'scaffold_396',
+                             'scaffold_384',
+                             'scaffold_383',
+                             'scaffold_381',
+                             'scaffold_380',
+                             'scaffold_379',
+                             'scaffold_378',
+                             'scaffold_375',
+                             'scaffold_386',
+                             'scaffold_385',
+                             'scaffold_566',
+                             'scaffold_372',
+                             'scaffold_624',
+                             'scaffold_402',
+                             'scaffold_409',
+                             'scaffold_366',
+                             'scaffold_365',
+                             'scaffold_368',
+                             'scaffold_361',
+                             'scaffold_371',
+                             'scaffold_358',
+                             'scaffold_363',
+                             'scaffold_355',
+                             'scaffold_354',
+                             'scaffold_352',
+                             'scaffold_350',
+                             'scaffold_349',
+                             'scaffold_348',
+                             'scaffold_346',
+                             'scaffold_376',
+                             'scaffold_344',
+                             'scaffold_343',
+                             'scaffold_340',
+                             'scaffold_339',
+                             'scaffold_337',
+                             'scaffold_335',
+                             'scaffold_351',
+                             'scaffold_334',
+                             'scaffold_341',
+                             'scaffold_332',
+                             'scaffold_330',
+                             'scaffold_342',
+                             'scaffold_400',
+                             'scaffold_364',
+                             'scaffold_325',
+                             'scaffold_322',
+                             'scaffold_320',
+                             'scaffold_319',
+                             'scaffold_388',
+                             'scaffold_310',
+                             'scaffold_307',
+                             'scaffold_357',
+                             'scaffold_304',
+                             'scaffold_303',
+                             'scaffold_327',
+                             'scaffold_345',
+                             'scaffold_300',
+                             'scaffold_305',
+                             'scaffold_298',
+                             'scaffold_302',
+                             'scaffold_293',
+                             'scaffold_299',
+                             'scaffold_292',
+                             'scaffold_295',
+                             'scaffold_294',
+                             'scaffold_285',
+                             'scaffold_284',
+                             'scaffold_287',
+                             'scaffold_283',
+                             'scaffold_290',
+                             'scaffold_281',
+                             'scaffold_315',
+                             'scaffold_288',
+                             'scaffold_417',
+                             'scaffold_311',
+                             'scaffold_268',
+                             'scaffold_277',
+                             'scaffold_266',
+                             'scaffold_265',
+                             'scaffold_269',
+                             'scaffold_262',
+                             'scaffold_267',
+                             'scaffold_261',
+                             'scaffold_347',
+                             'scaffold_264',
+                             'scaffold_286',
+                             'scaffold_275',
+                             'scaffold_258',
+                             'scaffold_279',
+                             'scaffold_251',
+                             'scaffold_271',
+                             'scaffold_289',
+                             'scaffold_270',
+                             'scaffold_249',
+                             'scaffold_248',
+                             'scaffold_253',
+                             'scaffold_252',
+                             'scaffold_259',
+                             'scaffold_250',
+                             'scaffold_247',
+                             'scaffold_278',
+                             'scaffold_246',
+                             'scaffold_241',
+                             'scaffold_240',
+                             'scaffold_239',
+                             'scaffold_243',
+                             'scaffold_374',
+                             'scaffold_244',
+                             'scaffold_233',
+                             'scaffold_236',
+                             'scaffold_231',
+                             'scaffold_255',
+                             'scaffold_228',
+                             'scaffold_230',
+                             'scaffold_223',
+                             'scaffold_221',
+                             'scaffold_242',
+                             'scaffold_219',
+                             'scaffold_220',
+                             'scaffold_213',
+                             'scaffold_212',
+                             'scaffold_216',
+                             'scaffold_215',
+                             'scaffold_208',
+                             'scaffold_207',
+                             'scaffold_235',
+                             'scaffold_206',
+                             'scaffold_225',
+                             'scaffold_210',
+                             'scaffold_214',
+                             'scaffold_203',
+                             'scaffold_205',
+                             'scaffold_234',
+                             'scaffold_323',
+                             'scaffold_211',
+                             'scaffold_197',
+                             'scaffold_209',
+                             'scaffold_301',
+                             'scaffold_193',
+                             'scaffold_188',
+                             'scaffold_189',
+                             'scaffold_229',
+                             'scaffold_201',
+                             'scaffold_226',
+                             'scaffold_181',
+                             'scaffold_199',
+                             'scaffold_195',
+                             'scaffold_179',
+                             'scaffold_190',
+                             'scaffold_191',
+                             'scaffold_177',
+                             'scaffold_196',
+                             'scaffold_176',
+                             'scaffold_180',
+                             'scaffold_184',
+                             'scaffold_222',
+                             'scaffold_172',
+                             'scaffold_173',
+                             'scaffold_170',
+                             'scaffold_165',
+                             'scaffold_164',
+                             'scaffold_178',
+                             'scaffold_163',
+                             'scaffold_166',
+                             'scaffold_158',
+                             'scaffold_159',
+                             'scaffold_160',
+                             'scaffold_169',
+                             'scaffold_149',
+                             'scaffold_151',
+                             'scaffold_143',
+                             'scaffold_141',
+                             'scaffold_142',
+                             'scaffold_139',
+                             'scaffold_138',
+                             'scaffold_161',
+                             'scaffold_146',
+                             'scaffold_137',
+                             'scaffold_136',
+                             'scaffold_132',
+                             'scaffold_129',
+                             'scaffold_125',
+                             'scaffold_121',
+                             'scaffold_122',
+                             'scaffold_130',
+                             'scaffold_128',
+                             'scaffold_133',
+                             'scaffold_126',
+                             'scaffold_135',
+                             'scaffold_120',
+                             'scaffold_115',
+                             'scaffold_152',
+                             'scaffold_114',
+                             'scaffold_113',
+                             'scaffold_112',
+                             'scaffold_123',
+                             'scaffold_118',
+                             'scaffold_106',
+                             'scaffold_103',
+                             'scaffold_108',
+                             'scaffold_110',
+                             'scaffold_100',
+                             'scaffold_98',
+                             'scaffold_99',
+                             'scaffold_96',
+                             'scaffold_117',
+                             'scaffold_91',
+                             'scaffold_90',
+                             'scaffold_97',
+                             'scaffold_89',
+                             'scaffold_85',
+                             'scaffold_88',
+                             'scaffold_83',
+                             'scaffold_76',
+                             'scaffold_73',
+                             'scaffold_77',
+                             'scaffold_72',
+                             'scaffold_71',
+                             'scaffold_66',
+                             'scaffold_74',
+                             'scaffold_63',
+                             'scaffold_70',
+                             'scaffold_57',
+                             'scaffold_61',
+                             'scaffold_387',
+                             'scaffold_92',
+                             'scaffold_185',
+                             'scaffold_144',
+                             'scaffold_53',
+                             'scaffold_68',
+                             'scaffold_109',
+                             'scaffold_80',
+                             'scaffold_86',
+                             'scaffold_84',
+                             'scaffold_65',
+                             'scaffold_167',
+                             'scaffold_47',
+                             'scaffold_87',
+                             'scaffold_37',
+                             'scaffold_64',
+                             'scaffold_38',
+                             'scaffold_60',
+                             'scaffold_36',
+                             'scaffold_39',
+                             'scaffold_52',
+                             'scaffold_58',
+                             'scaffold_43',
+                             'scaffold_54',
+                             'scaffold_59',
+                             'scaffold_51',
+                             'scaffold_32',
+                             'scaffold_24',
+                             'scaffold_25',
+                             'scaffold_22',
+                             'scaffold_29',
+                             'scaffold_27',
+                             'scaffold_48',
+                             'scaffold_28',
+                             'scaffold_34',
+                             'scaffold_41',
+                             'scaffold_35',
+                             'scaffold_23',
+                             'scaffold_20',
+                             'scaffold_31',
+                             'scaffold_33',
+                             'scaffold_19',
+                             'scaffold_21',
+                             'scaffold_18',
+                             'scaffold_16',
+                             'scaffold_17',
+                             'scaffold_26',
+                             'scaffold_15',
+                             'scaffold_13',
+                             'scaffold_14',
+                             'scaffold_11',
+                             'scaffold_10',
+                             'scaffold_9',
+                             '2',
+                             '5',
+                             '8',
+                             '4',
+                             '3',
+                             '7',
+                             '6',
+                             '1']),
+                           ('length',
+                            ['1005',
+                             '1017',
+                             '1032',
+                             '1037',
+                             '1047',
+                             '1078',
+                             '1083',
+                             '1174',
+                             '1194',
+                             '1249',
+                             '1362',
+                             '1413',
+                             '1425',
+                             '1447',
+                             '1567',
+                             '1576',
+                             '1632',
+                             '1720',
+                             '1840',
+                             '1964',
+                             '2691',
+                             '3008',
+                             '3146',
+                             '3249',
+                             '3250',
+                             '3259',
+                             '3303',
+                             '3355',
+                             '3368',
+                             '3379',
+                             '3400',
+                             '3416',
+                             '3426',
+                             '3428',
+                             '3429',
+                             '3458',
+                             '3499',
+                             '3507',
+                             '3510',
+                             '3517',
+                             '3525',
+                             '3538',
+                             '3568',
+                             '3571',
+                             '3571',
+                             '3584',
+                             '3585',
+                             '3595',
+                             '3612',
+                             '3616',
+                             '3617',
+                             '3621',
+                             '3622',
+                             '3631',
+                             '3636',
+                             '3641',
+                             '3647',
+                             '3657',
+                             '3660',
+                             '3679',
+                             '3697',
+                             '3704',
+                             '3726',
+                             '3737',
+                             '3746',
+                             '3747',
+                             '3754',
+                             '3768',
+                             '3769',
+                             '3771',
+                             '3779',
+                             '3782',
+                             '3785',
+                             '3792',
+                             '3794',
+                             '3807',
+                             '3846',
+                             '3854',
+                             '3854',
+                             '3855',
+                             '3858',
+                             '3861',
+                             '3862',
+                             '3862',
+                             '3872',
+                             '3877',
+                             '3881',
+                             '3891',
+                             '3901',
+                             '3909',
+                             '3916',
+                             '3919',
+                             '3924',
+                             '3927',
+                             '3927',
+                             '3930',
+                             '3932',
+                             '3938',
+                             '3940',
+                             '3949',
+                             '3958',
+                             '3968',
+                             '4007',
+                             '4016',
+                             '4021',
+                             '4028',
+                             '4042',
+                             '4049',
+                             '4054',
+                             '4061',
+                             '4066',
+                             '4079',
+                             '4089',
+                             '4092',
+                             '4097',
+                             '4098',
+                             '4099',
+                             '4102',
+                             '4104',
+                             '4114',
+                             '4123',
+                             '4136',
+                             '4139',
+                             '4142',
+                             '4145',
+                             '4148',
+                             '4154',
+                             '4174',
+                             '4178',
+                             '4182',
+                             '4187',
+                             '4194',
+                             '4203',
+                             '4207',
+                             '4209',
+                             '4210',
+                             '4214',
+                             '4247',
+                             '4249',
+                             '4260',
+                             '4265',
+                             '4267',
+                             '4269',
+                             '4273',
+                             '4275',
+                             '4285',
+                             '4298',
+                             '4310',
+                             '4311',
+                             '4320',
+                             '4331',
+                             '4338',
+                             '4344',
+                             '4347',
+                             '4359',
+                             '4368',
+                             '4370',
+                             '4377',
+                             '4396',
+                             '4408',
+                             '4415',
+                             '4423',
+                             '4429',
+                             '4431',
+                             '4439',
+                             '4441',
+                             '4443',
+                             '4458',
+                             '4465',
+                             '4474',
+                             '4478',
+                             '4494',
+                             '4495',
+                             '4503',
+                             '4509',
+                             '4512',
+                             '4514',
+                             '4516',
+                             '4521',
+                             '4523',
+                             '4536',
+                             '4539',
+                             '4554',
+                             '4562',
+                             '4568',
+                             '4573',
+                             '4575',
+                             '4582',
+                             '4584',
+                             '4595',
+                             '4606',
+                             '4606',
+                             '4616',
+                             '4621',
+                             '4626',
+                             '4630',
+                             '4643',
+                             '4645',
+                             '4660',
+                             '4661',
+                             '4662',
+                             '4673',
+                             '4685',
+                             '4691',
+                             '4703',
+                             '4712',
+                             '4713',
+                             '4724',
+                             '4726',
+                             '4732',
+                             '4737',
+                             '4745',
+                             '4746',
+                             '4780',
+                             '4797',
+                             '4814',
+                             '4825',
+                             '4834',
+                             '4838',
+                             '4853',
+                             '4861',
+                             '4863',
+                             '4872',
+                             '4912',
+                             '4917',
+                             '4958',
+                             '4959',
+                             '4960',
+                             '4965',
+                             '4979',
+                             '4983',
+                             '5000',
+                             '5023',
+                             '5026',
+                             '5049',
+                             '5050',
+                             '5054',
+                             '5059',
+                             '5066',
+                             '5067',
+                             '5083',
+                             '5088',
+                             '5112',
+                             '5113',
+                             '5118',
+                             '5121',
+                             '5128',
+                             '5132',
+                             '5140',
+                             '5141',
+                             '5148',
+                             '5148',
+                             '5156',
+                             '5160',
+                             '5175',
+                             '5205',
+                             '5213',
+                             '5225',
+                             '5240',
+                             '5241',
+                             '5243',
+                             '5252',
+                             '5261',
+                             '5275',
+                             '5283',
+                             '5313',
+                             '5359',
+                             '5366',
+                             '5368',
+                             '5373',
+                             '5424',
+                             '5424',
+                             '5457',
+                             '5459',
+                             '5482',
+                             '5482',
+                             '5482',
+                             '5491',
+                             '5493',
+                             '5534',
+                             '5563',
+                             '5574',
+                             '5576',
+                             '5629',
+                             '5644',
+                             '5651',
+                             '5666',
+                             '5673',
+                             '5688',
+                             '5806',
+                             '5820',
+                             '5827',
+                             '5829',
+                             '5829',
+                             '5838',
+                             '5841',
+                             '5857',
+                             '5864',
+                             '5890',
+                             '5927',
+                             '5936',
+                             '5937',
+                             '5959',
+                             '5973',
+                             '5983',
+                             '6009',
+                             '6014',
+                             '6019',
+                             '6031',
+                             '6032',
+                             '6058',
+                             '6061',
+                             '6083',
+                             '6109',
+                             '6162',
+                             '6190',
+                             '6219',
+                             '6232',
+                             '6269',
+                             '6283',
+                             '6290',
+                             '6294',
+                             '6315',
+                             '6326',
+                             '6360',
+                             '6361',
+                             '6372',
+                             '6382',
+                             '6411',
+                             '6504',
+                             '6505',
+                             '6537',
+                             '6542',
+                             '6553',
+                             '6594',
+                             '6608',
+                             '6643',
+                             '6689',
+                             '6717',
+                             '6765',
+                             '6784',
+                             '6821',
+                             '6837',
+                             '6847',
+                             '6854',
+                             '6892',
+                             '6900',
+                             '7009',
+                             '7057',
+                             '7074',
+                             '7083',
+                             '7089',
+                             '7093',
+                             '7116',
+                             '7120',
+                             '7120',
+                             '7147',
+                             '7151',
+                             '7167',
+                             '7174',
+                             '7203',
+                             '7204',
+                             '7252',
+                             '7365',
+                             '7365',
+                             '7366',
+                             '7398',
+                             '7398',
+                             '7416',
+                             '7466',
+                             '7466',
+                             '7466',
+                             '7480',
+                             '7539',
+                             '7565',
+                             '7567',
+                             '7598',
+                             '7615',
+                             '7625',
+                             '7632',
+                             '7656',
+                             '7683',
+                             '7712',
+                             '7726',
+                             '7728',
+                             '7748',
+                             '7762',
+                             '7775',
+                             '7813',
+                             '7818',
+                             '7831',
+                             '7840',
+                             '7843',
+                             '8084',
+                             '8111',
+                             '8167',
+                             '8208',
+                             '8224',
+                             '8265',
+                             '8283',
+                             '8359',
+                             '8363',
+                             '8366',
+                             '8402',
+                             '8404',
+                             '8508',
+                             '8535',
+                             '8592',
+                             '8626',
+                             '8733',
+                             '8738',
+                             '8774',
+                             '8774',
+                             '8802',
+                             '8802',
+                             '8803',
+                             '8822',
+                             '8855',
+                             '8868',
+                             '8873',
+                             '8876',
+                             '8876',
+                             '8921',
+                             '8929',
+                             '8939',
+                             '8942',
+                             '8943',
+                             '9003',
+                             '9014',
+                             '9041',
+                             '9041',
+                             '9090',
+                             '9149',
+                             '9157',
+                             '9205',
+                             '9246',
+                             '9250',
+                             '9251',
+                             '9256',
+                             '9273',
+                             '9289',
+                             '9298',
+                             '9319',
+                             '9323',
+                             '9326',
+                             '9336',
+                             '9344',
+                             '9371',
+                             '9405',
+                             '9416',
+                             '9444',
+                             '9505',
+                             '9516',
+                             '9531',
+                             '9588',
+                             '9656',
+                             '9724',
+                             '9767',
+                             '9797',
+                             '9954',
+                             '10021',
+                             '10030',
+                             '10091',
+                             '10106',
+                             '10118',
+                             '10120',
+                             '10133',
+                             '10182',
+                             '10202',
+                             '10227',
+                             '10266',
+                             '10268',
+                             '10276',
+                             '10362',
+                             '10363',
+                             '10478',
+                             '10500',
+                             '10534',
+                             '10573',
+                             '10597',
+                             '10755',
+                             '10914',
+                             '10982',
+                             '11063',
+                             '11111',
+                             '11135',
+                             '11163',
+                             '11173',
+                             '11173',
+                             '11233',
+                             '11236',
+                             '11253',
+                             '11263',
+                             '11265',
+                             '11275',
+                             '11290',
+                             '11334',
+                             '11345',
+                             '11393',
+                             '11483',
+                             '11518',
+                             '11519',
+                             '11521',
+                             '11536',
+                             '11543',
+                             '11547',
+                             '11573',
+                             '11642',
+                             '11642',
+                             '11656',
+                             '11661',
+                             '11661',
+                             '11720',
+                             '11761',
+                             '11778',
+                             '11791',
+                             '11842',
+                             '11945',
+                             '11955',
+                             '11975',
+                             '12023',
+                             '12066',
+                             '12137',
+                             '12195',
+                             '12436',
+                             '12465',
+                             '12482',
+                             '12503',
+                             '12567',
+                             '12589',
+                             '12623',
+                             '12667',
+                             '12671',
+                             '12734',
+                             '12741',
+                             '12746',
+                             '12758',
+                             '12774',
+                             '12820',
+                             '12939',
+                             '12995',
+                             '13037',
+                             '13216',
+                             '13369',
+                             '13490',
+                             '13548',
+                             '13614',
+                             '13661',
+                             '13678',
+                             '14062',
+                             '14063',
+                             '14132',
+                             '14150',
+                             '14339',
+                             '14397',
+                             '14456',
+                             '14542',
+                             '14583',
+                             '14608',
+                             '14737',
+                             '14777',
+                             '14784',
+                             '14793',
+                             '14826',
+                             '14860',
+                             '14935',
+                             '15141',
+                             '15208',
+                             '15673',
+                             '15836',
+                             '15851',
+                             '15941',
+                             '15971',
+                             '16014',
+                             '16071',
+                             '16148',
+                             '16358',
+                             '16599',
+                             '16847',
+                             '17353',
+                             '17394',
+                             '17526',
+                             '17620',
+                             '17624',
+                             '17628',
+                             '17702',
+                             '17905',
+                             '18049',
+                             '18177',
+                             '18203',
+                             '18393',
+                             '18511',
+                             '18658',
+                             '18722',
+                             '18728',
+                             '18776',
+                             '18967',
+                             '19147',
+                             '19286',
+                             '19368',
+                             '19382',
+                             '19386',
+                             '19422',
+                             '19435',
+                             '19564',
+                             '19715',
+                             '19913',
+                             '20070',
+                             '20430',
+                             '20787',
+                             '20827',
+                             '20959',
+                             '20962',
+                             '21256',
+                             '21493',
+                             '21951',
+                             '22377',
+                             '22400',
+                             '22403',
+                             '22846',
+                             '24006',
+                             '24147',
+                             '24864',
+                             '26132',
+                             '26592',
+                             '26910',
+                             '27939',
+                             '28414',
+                             '28436',
+                             '30081',
+                             '30383',
+                             '30586',
+                             '35077',
+                             '37089',
+                             '38674',
+                             '41166',
+                             '41385',
+                             '42461',
+                             '42563',
+                             '42762',
+                             '42950',
+                             '44312',
+                             '47099',
+                             '47761',
+                             '48666',
+                             '49487',
+                             '50189',
+                             '50767',
+                             '50885',
+                             '51199',
+                             '54598',
+                             '54680',
+                             '55443',
+                             '56741',
+                             '57915',
+                             '58233',
+                             '58977',
+                             '59709',
+                             '60404',
+                             '60900',
+                             '67898',
+                             '72324',
+                             '76307',
+                             '77967',
+                             '77981',
+                             '79363',
+                             '82330',
+                             '82702',
+                             '82892',
+                             '83393',
+                             '85588',
+                             '95112',
+                             '100232',
+                             '104288',
+                             '127197',
+                             '129820',
+                             '154816',
+                             '163736',
+                             '170080',
+                             '170241',
+                             '171326',
+                             '269926',
+                             '274490',
+                             '361337',
+                             '440609',
+                             '461865',
+                             '1906741',
+                             '19320864',
+                             '21221946',
+                             '22951293',
+                             '23328337',
+                             '24464547',
+                             '24649197',
+                             '25113588',
+                             '33132539'])])),
+             ('reference',
+              OrderedDict([('reference',
+                            ['file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa',
+                             'file:///media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/lyrata_genome.fa'])])),
+             ('GATKCommandLine',
+              OrderedDict([('ID',
+                            ['CombineVariants',
+                             'GenotypeGVCFs',
+                             'HaplotypeCaller',
+                             'SelectVariants',
+                             'SelectVariants',
+                             'SelectVariants',
+                             'SelectVariants',
+                             'VariantFiltration']),
+                           ('CommandLineOptions',
+                            ['analysis_type=CombineVariants input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=[(RodBindingCollection [(RodBinding '
+                             'name=HignConfSNPs '
+                             'source=HighConf_Variants.asPASSED.AllSamples.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=SNPs '
+                             'source=DNA_Samples.Passed.SNPs_allHetsRemoved.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=InDels '
+                             'source=DNA_Samples.Passed.InDels_allHetsRemoved.vcf)])] '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_Variants.vcf '
+                             'genotypemergeoption=UNSORTED '
+                             'filteredrecordsmergetype=KEEP_IF_ANY_UNFILTERED '
+                             'multipleallelesmergetype=BY_TYPE '
+                             'rod_priority_list=null printComplexMerges=false '
+                             'filteredAreUncalled=false minimalVCF=false '
+                             'excludeNonVariants=false setKey=set '
+                             'assumeIdenticalSamples=false minimumN=1 '
+                             'suppressCommandLineHeader=false '
+                             'mergeInfoWithMaxAC=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=GenotypeGVCFs input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'use_jdk_deflater=false use_jdk_inflater=false '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=[(RodBindingCollection [(RodBinding '
+                             'name=variant '
+                             'source=MA605.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant2 '
+                             'source=MA611.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant3 '
+                             'source=MA622.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant4 '
+                             'source=MA625.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant5 '
+                             'source=MA629.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant6 '
+                             'source=Ncm8.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant7 '
+                             'source=Sp3.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant8 '
+                             'source=Sp21.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding name=variant9 '
+                             'source=Sp76.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant10 '
+                             'source=Sp154.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant11 '
+                             'source=Sp164.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant12 '
+                             'source=SpNor33.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant13 '
+                             'source=ms01e.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant14 '
+                             'source=ms02g.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant15 '
+                             'source=ms03g.raw.snps.indels.g.vcf)]), '
+                             '(RodBindingCollection [(RodBinding '
+                             'name=variant16 '
+                             'source=ms04h.raw.snps.indels.g.vcf)])] '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes/raw_variants.AllSamples.MySpF1.vcf '
+                             'includeNonVariantSites=false '
+                             'uniquifySamples=false annotateNDA=false '
+                             'useNewAFCalculator=false heterozygosity=0.001 '
+                             'indel_heterozygosity=1.25E-4 '
+                             'heterozygosity_stdev=0.01 '
+                             'standard_min_confidence_threshold_for_calling=10.0 '
+                             'standard_min_confidence_threshold_for_emitting=30.0 '
+                             'max_alternate_alleles=6 max_genotype_count=1024 '
+                             'max_num_PL_values=100 input_prior=[] '
+                             'sample_ploidy=2 annotation=[] '
+                             'group=[StandardAnnotation] dbsnp=(RodBinding '
+                             'name= source=UNBOUND) '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=HaplotypeCaller '
+                             'input_file=[good_Coverage.mapQ20.sorted.MA611.bam] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=[2:15881000-15902000, '
+                             '3:12165000-12174000] excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=/home/bkgiri/apps/RefGenomeN_index/lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=500 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'use_jdk_deflater=false use_jdk_inflater=false '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'likelihoodCalculationEngine=PairHMM '
+                             'heterogeneousKmerSizeResolution=COMBO_MIN '
+                             'dbsnp=(RodBinding name= source=UNBOUND) '
+                             'dontTrimActiveRegions=false '
+                             'maxDiscARExtension=25 maxGGAARExtension=300 '
+                             'paddingAroundIndels=150 paddingAroundSNPs=20 '
+                             'comp=[] annotation=[StrandBiasBySample] '
+                             'excludeAnnotation=[ChromosomeCounts, '
+                             'FisherStrand, StrandOddsRatio, QualByDepth] '
+                             'group=[StandardAnnotation, StandardHCAnnotation] '
+                             'debug=false useFilteredReadsForAnnotations=false '
+                             'emitRefConfidence=GVCF bamOutput=null '
+                             'bamWriterType=CALLED_HAPLOTYPES '
+                             'emitDroppedReads=false '
+                             'disableOptimizations=false annotateNDA=false '
+                             'useNewAFCalculator=false heterozygosity=0.001 '
+                             'indel_heterozygosity=1.25E-4 '
+                             'heterozygosity_stdev=0.01 '
+                             'standard_min_confidence_threshold_for_calling=-0.0 '
+                             'standard_min_confidence_threshold_for_emitting=30.0 '
+                             'max_alternate_alleles=6 max_genotype_count=1024 '
+                             'max_num_PL_values=100 input_prior=[] '
+                             'sample_ploidy=2 genotyping_mode=DISCOVERY '
+                             'alleles=(RodBinding name= source=UNBOUND) '
+                             'contamination_fraction_to_filter=0.0 '
+                             'contamination_fraction_per_sample_file=null '
+                             'p_nonref_model=null exactcallslog=null '
+                             'output_mode=EMIT_VARIANTS_ONLY allSitePLs=true '
+                             'gcpHMM=10 '
+                             'pair_hmm_implementation=FASTEST_AVAILABLE '
+                             'phredScaledGlobalReadMismappingRate=45 '
+                             'noFpga=false nativePairHmmThreads=1 '
+                             'useDoublePrecision=false sample_name=null '
+                             'kmerSize=[10, 25] '
+                             'dontIncreaseKmerSizesForCycles=false '
+                             'allowNonUniqueKmersInRef=false '
+                             'numPruningSamples=1 recoverDanglingHeads=false '
+                             'doNotRecoverDanglingBranches=false '
+                             'minDanglingBranchLength=4 consensus=false '
+                             'maxNumHaplotypesInPopulation=128 '
+                             'errorCorrectKmers=false minPruning=2 '
+                             'debugGraphTransformations=false '
+                             'allowCyclesInKmerGraphToGeneratePaths=false '
+                             'graphOutput=null '
+                             'kmerLengthForReadErrorCorrection=25 '
+                             'minObservationsForKmerToBeSolid=20 '
+                             'GVCFGQBands=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, '
+                             '12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, '
+                             '24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, '
+                             '36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, '
+                             '48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, '
+                             '60, 70, 80, 90, 99] '
+                             'indelSizeToEliminateInRefModel=10 '
+                             'min_base_quality_score=10 '
+                             'includeUmappedReads=false '
+                             'useAllelesTrigger=false '
+                             'doNotRunPhysicalPhasing=false keepRG=null '
+                             'justDetermineActiveRegions=false '
+                             'dontGenotype=false dontUseSoftClippedBases=false '
+                             'captureAssemblyFailureBAM=false '
+                             'errorCorrectReads=false '
+                             'pcr_indel_model=CONSERVATIVE '
+                             'maxReadsInRegionPerSample=10000 '
+                             'minReadsPerAlignmentStart=10 '
+                             'mergeVariantsViaLD=false activityProfileOut=null '
+                             'activeRegionOut=null activeRegionIn=null '
+                             'activeRegionExtension=null forceActive=false '
+                             'activeRegionMaxSize=null bandPassSigma=null '
+                             'maxReadsInMemoryPerSample=30000 '
+                             'maxTotalReadsInMemory=10000000 '
+                             'maxProbPropagationDistance=50 '
+                             'activeProbabilityThreshold=0.002 '
+                             'min_mapping_quality_score=20 '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=SelectVariants input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'use_jdk_deflater=false use_jdk_inflater=false '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=(RodBinding name=variant '
+                             'source=Remaining.Variants.AllSamples.vcf) '
+                             'discordance=(RodBinding name= source=UNBOUND) '
+                             'concordance=(RodBinding name= source=UNBOUND) '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.raw_SNPs.vcf '
+                             'sample_name=[] sample_expressions=null '
+                             'sample_file=null exclude_sample_name=[ms01e, '
+                             'ms02g, ms03g, ms04h] exclude_sample_file=[] '
+                             'exclude_sample_expressions=[] '
+                             'selectexpressions=[vc.getCalledChrCount() == 0] '
+                             'invertselect=true excludeNonVariants=false '
+                             'excludeFiltered=false preserveAlleles=false '
+                             'removeUnusedAlternates=true '
+                             'restrictAllelesTo=ALL keepOriginalAC=false '
+                             'keepOriginalDP=false mendelianViolation=false '
+                             'invertMendelianViolation=false '
+                             'mendelianViolationQualThreshold=0.0 '
+                             'select_random_fraction=0.0 '
+                             'remove_fraction_genotypes=0.0 '
+                             'selectTypeToInclude=[SNP] selectTypeToExclude=[] '
+                             'keepIDs=null excludeIDs=null fullyDecode=false '
+                             'justRead=false maxIndelSize=2147483647 '
+                             'minIndelSize=0 maxFilteredGenotypes=2147483647 '
+                             'minFilteredGenotypes=0 '
+                             'maxFractionFilteredGenotypes=1.0 '
+                             'minFractionFilteredGenotypes=0.0 '
+                             'maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 '
+                             'setFilteredGtToNocall=false '
+                             'ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false '
+                             'forceValidOutput=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=SelectVariants input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=(RodBinding name=variant '
+                             'source=DNA_Samples.Filtered_SNPs.vcf) '
+                             'discordance=(RodBinding name= source=UNBOUND) '
+                             'concordance=(RodBinding name= source=UNBOUND) '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed_SNPs.vcf '
+                             'sample_name=[] sample_expressions=null '
+                             'sample_file=null exclude_sample_name=[] '
+                             'exclude_sample_file=[] '
+                             'exclude_sample_expressions=[] '
+                             'selectexpressions=[vc.isNotFiltered()] '
+                             'invertselect=false excludeNonVariants=false '
+                             'excludeFiltered=false preserveAlleles=false '
+                             'removeUnusedAlternates=false '
+                             'restrictAllelesTo=ALL keepOriginalAC=false '
+                             'keepOriginalDP=false mendelianViolation=false '
+                             'invertMendelianViolation=false '
+                             'mendelianViolationQualThreshold=0.0 '
+                             'select_random_fraction=0.0 '
+                             'remove_fraction_genotypes=0.0 '
+                             'selectTypeToInclude=[] selectTypeToExclude=[] '
+                             'keepIDs=null excludeIDs=null fullyDecode=false '
+                             'justRead=false maxIndelSize=2147483647 '
+                             'minIndelSize=0 maxFilteredGenotypes=2147483647 '
+                             'minFilteredGenotypes=0 '
+                             'maxFractionFilteredGenotypes=1.0 '
+                             'minFractionFilteredGenotypes=0.0 '
+                             'maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 '
+                             'setFilteredGtToNocall=false '
+                             'ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false '
+                             'forceValidOutput=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=SelectVariants input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=(RodBinding name=variant '
+                             'source=DNA_Samples.Passed_SNPs.vcf) '
+                             'discordance=(RodBinding name= source=UNBOUND) '
+                             'concordance=(RodBinding name= source=UNBOUND) '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Passed.SNPs_allHetsRemoved.vcf '
+                             'sample_name=[] sample_expressions=null '
+                             'sample_file=null exclude_sample_name=[] '
+                             'exclude_sample_file=[] '
+                             'exclude_sample_expressions=[] '
+                             'selectexpressions=[vc.getHetCount() == '
+                             'vc.getCalledChrCount()/2] invertselect=true '
+                             'excludeNonVariants=false excludeFiltered=false '
+                             'preserveAlleles=false '
+                             'removeUnusedAlternates=false '
+                             'restrictAllelesTo=ALL keepOriginalAC=false '
+                             'keepOriginalDP=false mendelianViolation=false '
+                             'invertMendelianViolation=false '
+                             'mendelianViolationQualThreshold=0.0 '
+                             'select_random_fraction=0.0 '
+                             'remove_fraction_genotypes=0.0 '
+                             'selectTypeToInclude=[] selectTypeToExclude=[] '
+                             'keepIDs=null excludeIDs=null fullyDecode=false '
+                             'justRead=false maxIndelSize=2147483647 '
+                             'minIndelSize=0 maxFilteredGenotypes=2147483647 '
+                             'minFilteredGenotypes=0 '
+                             'maxFractionFilteredGenotypes=1.0 '
+                             'minFractionFilteredGenotypes=0.0 '
+                             'maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 '
+                             'setFilteredGtToNocall=false '
+                             'ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false '
+                             'forceValidOutput=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=SelectVariants input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'use_jdk_deflater=false use_jdk_inflater=false '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=(RodBinding name=variant '
+                             'source=raw_variants.AllSamples.MySpF1.vcf) '
+                             'discordance=(RodBinding name=discordance '
+                             'source=Detlef.Variants.asPASSED.vcf) '
+                             'concordance=(RodBinding name= source=UNBOUND) '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/Remaining.Variants.AllSamples.vcf '
+                             'sample_name=[] sample_expressions=null '
+                             'sample_file=null exclude_sample_name=[] '
+                             'exclude_sample_file=[] '
+                             'exclude_sample_expressions=[] '
+                             'selectexpressions=[] invertselect=false '
+                             'excludeNonVariants=false excludeFiltered=false '
+                             'preserveAlleles=false '
+                             'removeUnusedAlternates=false '
+                             'restrictAllelesTo=ALL keepOriginalAC=false '
+                             'keepOriginalDP=false mendelianViolation=false '
+                             'invertMendelianViolation=false '
+                             'mendelianViolationQualThreshold=0.0 '
+                             'select_random_fraction=0.0 '
+                             'remove_fraction_genotypes=0.0 '
+                             'selectTypeToInclude=[] selectTypeToExclude=[] '
+                             'keepIDs=null excludeIDs=null fullyDecode=false '
+                             'justRead=false maxIndelSize=2147483647 '
+                             'minIndelSize=0 maxFilteredGenotypes=2147483647 '
+                             'minFilteredGenotypes=0 '
+                             'maxFractionFilteredGenotypes=1.0 '
+                             'minFractionFilteredGenotypes=0.0 '
+                             'maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 '
+                             'setFilteredGtToNocall=false '
+                             'ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false '
+                             'forceValidOutput=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false',
+                             'analysis_type=VariantFiltration input_file=[] '
+                             'showFullBamList=false read_buffer_size=null '
+                             'read_filter=[] disable_read_filter=[] '
+                             'intervals=null excludeIntervals=null '
+                             'interval_set_rule=UNION interval_merging=ALL '
+                             'interval_padding=0 '
+                             'reference_sequence=lyrata_genome.fa '
+                             'nonDeterministicRandomSeed=false '
+                             'disableDithering=false maxRuntime=-1 '
+                             'maxRuntimeUnits=MINUTES '
+                             'downsampling_type=BY_SAMPLE '
+                             'downsample_to_fraction=null '
+                             'downsample_to_coverage=1000 baq=OFF '
+                             'baqGapOpenPenalty=40.0 '
+                             'refactor_NDN_cigar_string=false '
+                             'fix_misencoded_quality_scores=false '
+                             'allow_potentially_misencoded_quality_scores=false '
+                             'useOriginalQualities=false '
+                             'defaultBaseQualities=-1 performanceLog=null '
+                             'BQSR=null quantize_quals=0 '
+                             'static_quantized_quals=null '
+                             'round_down_quantized=false '
+                             'disable_indel_quals=false '
+                             'emit_original_quals=false '
+                             'preserve_qscores_less_than=6 '
+                             'globalQScorePrior=-1.0 '
+                             'secondsBetweenProgressUpdates=10 '
+                             'validation_strictness=SILENT '
+                             'remove_program_records=false '
+                             'keep_program_records=false '
+                             'sample_rename_mapping_file=null unsafe=null '
+                             'disable_auto_index_creation_and_locking_when_reading_rods=false '
+                             'no_cmdline_in_header=false sites_only=false '
+                             'never_trim_vcf_format_field=false bcf=false '
+                             'bam_compression=null simplifyBAM=false '
+                             'disable_bam_indexing=false generate_md5=false '
+                             'num_threads=1 num_cpu_threads_per_data_thread=1 '
+                             'num_io_threads=0 monitorThreadEfficiency=false '
+                             'num_bam_file_handles=null '
+                             'read_group_black_list=null pedigree=[] '
+                             'pedigreeString=[] pedigreeValidationType=STRICT '
+                             'allow_intervals_with_unindexed_bam=false '
+                             'generateShadowBCF=false '
+                             'variant_index_type=DYNAMIC_SEEK '
+                             'variant_index_parameter=-1 '
+                             'reference_window_stop=0 phone_home= '
+                             'gatk_key=null tag=NA logging_level=INFO '
+                             'log_to_file=null help=false version=false '
+                             'variant=(RodBinding name=variant '
+                             'source=DNA_Samples.raw_SNPs.vcf) '
+                             'mask=(RodBinding name= source=UNBOUND) '
+                             'out=/media/everestial007/SeagateBackup4.0TB/RNAseq_Data_Analyses/02_Alignment_To_Ref '
+                             '- '
+                             'New/GVCF_Calls_onGenes-RunningTest01/02-JointGenotyping_MySpF1/DNA_Samples.Filtered_SNPs.vcf '
+                             'filterExpression=[QD < 2.0 || FS > 60.0 || MQ < '
+                             '40.0 || MQRankSum < -12.5 || ReadPosRankSum < '
+                             '-8.0] filterName=[my_snp_filter] '
+                             'genotypeFilterExpression=[] '
+                             'genotypeFilterName=[] clusterSize=3 '
+                             'clusterWindowSize=0 maskExtension=0 '
+                             'maskName=Mask filterNotInMask=false '
+                             'missingValuesInExpressionsShouldEvaluateAsFailing=false '
+                             'invalidatePreviousFilters=false '
+                             'invertFilterExpression=false '
+                             'invertGenotypeFilterExpression=false '
+                             'setFilteredGtToNocall=false '
+                             'filter_reads_with_N_cigar=false '
+                             'filter_mismatching_base_and_quals=false '
+                             'filter_bases_not_stored=false']),
+                           ('Date',
+                            ['Thu Dec 21 23:56:42 EST 2017',
+                             'Sat Dec 16 20:17:48 EST 2017',
+                             'Fri Dec 15 18:29:51 EST 2017',
+                             'Thu Dec 21 23:18:22 EST 2017',
+                             'Thu Dec 21 23:20:01 EST 2017',
+                             'Thu Dec 21 23:20:23 EST 2017',
+                             'Thu Dec 21 23:10:31 EST 2017',
+                             'Thu Dec 21 23:19:58 EST 2017']),
+                           ('Epoch',
+                            ['1513918602988',
+                             '1513473468011',
+                             '1513380591593',
+                             '1513916302870',
+                             '1513916401173',
+                             '1513916423031',
+                             '1513915831133',
+                             '1513916398266']),
+                           ('Version',
+                            ['3.7-0-gcfedb67',
+                             '3.8-0-ge9d806836',
+                             '3.8-0-ge9d806836',
+                             '3.8-0-ge9d806836',
+                             '3.7-0-gcfedb67',
+                             '3.7-0-gcfedb67',
+                             '3.8-0-ge9d806836',
+                             '3.7-0-gcfedb67'])])),
+             ('GVCFBlock',
+              OrderedDict([('minGQ',
+                            ['55(inclusive)',
+                             '56(inclusive)',
+                             '57(inclusive)',
+                             '58(inclusive)']),
+                           ('maxGQ',
+                            ['56(exclusive)',
+                             '57(exclusive)',
+                             '58(exclusive)',
+                             '59(exclusive)']),
+                           ('Block', ['55-56', '56-57', '57-58', '58-59'])])),
+             ('samples',
+              OrderedDict([('name',
+                            ['ms01e',
+                             'ms02g',
+                             'ms03g',
+                             'ms04h',
+                             'MA611',
+                             'MA605',
+                             'MA622']),
+                           ('position', [10, 11, 12, 13, 14, 15, 16])]))])
