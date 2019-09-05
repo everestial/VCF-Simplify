@@ -1,0 +1,1341 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=LowQual,Description="Low quality">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##GATKCommandLine.SelectVariants=<ID=SelectVariants,Version=3.6-0-g89b7209,Date="Sat Dec 03 20:47:23 EST 2016",Epoch=1480816043930,CommandLineOptions="analysis_type=SelectVariants input_file=[] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=null excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=1000 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false variant=(RodBinding name=variant source=variantsMY-stitcher.vcf) discordance=(RodBinding name= source=UNBOUND) concordance=(RodBinding name= source=UNBOUND) out=/media/everestial007/SeagateBackup4.0TB/New_Alignment_Set/05-A-ReAligned_reads/05-A-ReAligned_reads/SnpsMY-stitcher.vcf sample_name=[] sample_expressions=null sample_file=null exclude_sample_name=[] exclude_sample_file=[] exclude_sample_expressions=[] selectexpressions=[] invertselect=false excludeNonVariants=false excludeFiltered=false preserveAlleles=false removeUnusedAlternates=false restrictAllelesTo=ALL keepOriginalAC=false keepOriginalDP=false mendelianViolation=false invertMendelianViolation=false mendelianViolationQualThreshold=0.0 select_random_fraction=0.0 remove_fraction_genotypes=0.0 selectTypeToInclude=[SNP, INDEL] selectTypeToExclude=[] keepIDs=null excludeIDs=null fullyDecode=false justRead=false maxIndelSize=3 minIndelSize=0 maxFilteredGenotypes=2147483647 minFilteredGenotypes=0 maxFractionFilteredGenotypes=1.0 minFractionFilteredGenotypes=0.0 maxNOCALLnumber=2147483647 maxNOCALLfraction=1.0 setFilteredGtToNocall=false ALLOW_NONOVERLAPPING_COMMAND_LINE_SAMPLES=false forceValidOutput=false filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false">
+##GATKCommandLine.UnifiedGenotyper=<ID=UnifiedGenotyper,Version=3.6-0-g89b7209,Date="Sat Dec 03 20:18:07 EST 2016",Epoch=1480814287212,CommandLineOptions="analysis_type=UnifiedGenotyper input_file=[MA605.deDuplicated.indel_realigned.bam, MA611.deDuplicated.indel_realigned.bam, MA622.deDuplicated.indel_realigned.bam, MA625.deDuplicated.indel_realigned.bam, MA629.deDuplicated.indel_realigned.bam, Ncm8.deDuplicated.indel_realigned.bam] showFullBamList=false read_buffer_size=null read_filter=[] disable_read_filter=[] intervals=[2] excludeIntervals=null interval_set_rule=UNION interval_merging=ALL interval_padding=0 reference_sequence=lyrata_genome.fa nonDeterministicRandomSeed=false disableDithering=false maxRuntime=-1 maxRuntimeUnits=MINUTES downsampling_type=BY_SAMPLE downsample_to_fraction=null downsample_to_coverage=250 baq=OFF baqGapOpenPenalty=40.0 refactor_NDN_cigar_string=false fix_misencoded_quality_scores=false allow_potentially_misencoded_quality_scores=false useOriginalQualities=false defaultBaseQualities=-1 performanceLog=null BQSR=null quantize_quals=0 static_quantized_quals=null round_down_quantized=false disable_indel_quals=false emit_original_quals=false preserve_qscores_less_than=6 globalQScorePrior=-1.0 validation_strictness=SILENT remove_program_records=false keep_program_records=false sample_rename_mapping_file=null unsafe=null disable_auto_index_creation_and_locking_when_reading_rods=false no_cmdline_in_header=false sites_only=false never_trim_vcf_format_field=false bcf=false bam_compression=null simplifyBAM=false disable_bam_indexing=false generate_md5=false num_threads=1 num_cpu_threads_per_data_thread=1 num_io_threads=0 monitorThreadEfficiency=false num_bam_file_handles=null read_group_black_list=null pedigree=[] pedigreeString=[] pedigreeValidationType=STRICT allow_intervals_with_unindexed_bam=false generateShadowBCF=false variant_index_type=DYNAMIC_SEEK variant_index_parameter=-1 reference_window_stop=0 phone_home= gatk_key=null tag=NA logging_level=INFO log_to_file=null help=false version=false genotype_likelihoods_model=SNP pcr_error_rate=1.0E-4 computeSLOD=false pair_hmm_implementation=LOGLESS_CACHING min_base_quality_score=17 max_deletion_fraction=0.05 min_indel_count_for_genotyping=5 min_indel_fraction_per_sample=0.25 indelGapContinuationPenalty=10 indelGapOpenPenalty=45 indelHaplotypeSize=80 indelDebug=false ignoreSNPAlleles=false allReadsSP=false ignoreLaneInfo=false reference_sample_calls=(RodBinding name= source=UNBOUND) reference_sample_name=null min_quality_score=1 max_quality_score=40 site_quality_prior=20 min_power_threshold_for_calling=0.95 annotateNDA=false heterozygosity=0.001 indel_heterozygosity=1.25E-4 standard_min_confidence_threshold_for_calling=20.0 standard_min_confidence_threshold_for_emitting=20.0 max_alternate_alleles=6 max_num_PL_values=100 input_prior=[] sample_ploidy=2 genotyping_mode=DISCOVERY alleles=(RodBinding name= source=UNBOUND) contamination_fraction_to_filter=0.0 contamination_fraction_per_sample_file=null p_nonref_model=null exactcallslog=null output_mode=EMIT_VARIANTS_ONLY allSitePLs=false dbsnp=(RodBinding name= source=UNBOUND) comp=[] out=/media/everestial007/SeagateBackup4.0TB/New_Alignment_Set/05-A-ReAligned_reads/05-A-ReAligned_reads/variantsMY-stitcher.vcf onlyEmitSamples=[] debug_file=null metrics_file=null annotation=[] excludeAnnotation=[] filter_reads_with_N_cigar=false filter_mismatching_base_and_quals=false filter_bases_not_stored=false">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=DS,Number=0,Type=Flag,Description="Were any of the samples downsampled?">
+##INFO=<ID=Dels,Number=1,Type=Float,Description="Fraction of Reads Containing Spanning Deletions">
+##INFO=<ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity">
+##INFO=<ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias">
+##INFO=<ID=HaplotypeScore,Number=1,Type=Float,Description="Consistency of the site with at most two segregating haplotypes">
+##INFO=<ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation">
+##INFO=<ID=MLEAC,Number=A,Type=Integer,Description="Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed">
+##INFO=<ID=MLEAF,Number=A,Type=Float,Description="Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQ0,Number=1,Type=Integer,Description="Total Mapping Quality Zero Reads">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Variant Confidence/Quality by Depth">
+##INFO=<ID=RPA,Number=.,Type=Integer,Description="Number of times tandem repeat unit is repeated, for each allele (including reference)">
+##INFO=<ID=RU,Number=1,Type=String,Description="Tandem repeat unit (bases)">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##INFO=<ID=SOR,Number=1,Type=Float,Description="Symmetric Odds Ratio of 2x2 contingency table to detect strand bias">
+##INFO=<ID=STR,Number=0,Type=Flag,Description="Variant is a short tandem repeat">
+##contig=<ID=scaffold_1118,length=1005>
+##contig=<ID=scaffold_1117,length=1017>
+##contig=<ID=scaffold_1116,length=1032>
+##contig=<ID=scaffold_1113,length=1037>
+##contig=<ID=scaffold_1112,length=1047>
+##contig=<ID=scaffold_1111,length=1078>
+##contig=<ID=scaffold_1109,length=1083>
+##contig=<ID=scaffold_1106,length=1174>
+##contig=<ID=scaffold_1105,length=1194>
+##contig=<ID=scaffold_1102,length=1249>
+##contig=<ID=scaffold_1099,length=1362>
+##contig=<ID=scaffold_1096,length=1413>
+##contig=<ID=scaffold_1095,length=1425>
+##contig=<ID=scaffold_1094,length=1447>
+##contig=<ID=scaffold_1091,length=1567>
+##contig=<ID=scaffold_1090,length=1576>
+##contig=<ID=scaffold_1089,length=1632>
+##contig=<ID=scaffold_1086,length=1720>
+##contig=<ID=scaffold_1084,length=1840>
+##contig=<ID=scaffold_1080,length=1964>
+##contig=<ID=scaffold_1044,length=2691>
+##contig=<ID=scaffold_1021,length=3008>
+##contig=<ID=scaffold_1034,length=3146>
+##contig=<ID=scaffold_1072,length=3249>
+##contig=<ID=scaffold_999,length=3250>
+##contig=<ID=scaffold_1097,length=3259>
+##contig=<ID=scaffold_1085,length=3303>
+##contig=<ID=scaffold_1069,length=3355>
+##contig=<ID=scaffold_1025,length=3368>
+##contig=<ID=scaffold_1032,length=3379>
+##contig=<ID=scaffold_1087,length=3400>
+##contig=<ID=scaffold_1074,length=3416>
+##contig=<ID=scaffold_983,length=3426>
+##contig=<ID=scaffold_1082,length=3428>
+##contig=<ID=scaffold_982,length=3429>
+##contig=<ID=scaffold_998,length=3458>
+##contig=<ID=scaffold_1017,length=3499>
+##contig=<ID=scaffold_1012,length=3507>
+##contig=<ID=scaffold_1056,length=3510>
+##contig=<ID=scaffold_1057,length=3517>
+##contig=<ID=scaffold_1070,length=3525>
+##contig=<ID=scaffold_960,length=3538>
+##contig=<ID=scaffold_975,length=3568>
+##contig=<ID=scaffold_1064,length=3571>
+##contig=<ID=scaffold_955,length=3571>
+##contig=<ID=scaffold_954,length=3584>
+##contig=<ID=scaffold_1058,length=3585>
+##contig=<ID=scaffold_1078,length=3595>
+##contig=<ID=scaffold_1041,length=3612>
+##contig=<ID=scaffold_946,length=3616>
+##contig=<ID=scaffold_945,length=3617>
+##contig=<ID=scaffold_1043,length=3621>
+##contig=<ID=scaffold_1054,length=3622>
+##contig=<ID=scaffold_939,length=3631>
+##contig=<ID=scaffold_993,length=3636>
+##contig=<ID=scaffold_1052,length=3641>
+##contig=<ID=scaffold_936,length=3647>
+##contig=<ID=scaffold_991,length=3657>
+##contig=<ID=scaffold_1033,length=3660>
+##contig=<ID=scaffold_1022,length=3679>
+##contig=<ID=scaffold_928,length=3697>
+##contig=<ID=scaffold_924,length=3704>
+##contig=<ID=scaffold_941,length=3726>
+##contig=<ID=scaffold_919,length=3737>
+##contig=<ID=scaffold_1040,length=3746>
+##contig=<ID=scaffold_918,length=3747>
+##contig=<ID=scaffold_915,length=3754>
+##contig=<ID=scaffold_1029,length=3768>
+##contig=<ID=scaffold_996,length=3769>
+##contig=<ID=scaffold_912,length=3771>
+##contig=<ID=scaffold_938,length=3779>
+##contig=<ID=scaffold_1046,length=3782>
+##contig=<ID=scaffold_965,length=3785>
+##contig=<ID=scaffold_979,length=3792>
+##contig=<ID=scaffold_1003,length=3794>
+##contig=<ID=scaffold_1000,length=3807>
+##contig=<ID=scaffold_896,length=3846>
+##contig=<ID=scaffold_1061,length=3854>
+##contig=<ID=scaffold_1010,length=3854>
+##contig=<ID=scaffold_894,length=3855>
+##contig=<ID=scaffold_1008,length=3858>
+##contig=<ID=scaffold_1031,length=3861>
+##contig=<ID=scaffold_1014,length=3862>
+##contig=<ID=scaffold_893,length=3862>
+##contig=<ID=scaffold_992,length=3872>
+##contig=<ID=scaffold_1006,length=3877>
+##contig=<ID=scaffold_1001,length=3881>
+##contig=<ID=scaffold_964,length=3891>
+##contig=<ID=scaffold_1007,length=3901>
+##contig=<ID=scaffold_883,length=3909>
+##contig=<ID=scaffold_881,length=3916>
+##contig=<ID=scaffold_1020,length=3919>
+##contig=<ID=scaffold_879,length=3924>
+##contig=<ID=scaffold_1048,length=3927>
+##contig=<ID=scaffold_1005,length=3927>
+##contig=<ID=scaffold_878,length=3930>
+##contig=<ID=scaffold_1015,length=3932>
+##contig=<ID=scaffold_940,length=3938>
+##contig=<ID=scaffold_875,length=3940>
+##contig=<ID=scaffold_963,length=3949>
+##contig=<ID=scaffold_984,length=3958>
+##contig=<ID=scaffold_872,length=3968>
+##contig=<ID=scaffold_891,length=4007>
+##contig=<ID=scaffold_866,length=4016>
+##contig=<ID=scaffold_880,length=4021>
+##contig=<ID=scaffold_908,length=4028>
+##contig=<ID=scaffold_968,length=4042>
+##contig=<ID=scaffold_1019,length=4049>
+##contig=<ID=scaffold_976,length=4054>
+##contig=<ID=scaffold_989,length=4061>
+##contig=<ID=scaffold_858,length=4066>
+##contig=<ID=scaffold_971,length=4079>
+##contig=<ID=scaffold_853,length=4089>
+##contig=<ID=scaffold_852,length=4092>
+##contig=<ID=scaffold_851,length=4097>
+##contig=<ID=scaffold_911,length=4098>
+##contig=<ID=scaffold_849,length=4099>
+##contig=<ID=scaffold_848,length=4102>
+##contig=<ID=scaffold_1053,length=4104>
+##contig=<ID=scaffold_986,length=4114>
+##contig=<ID=scaffold_920,length=4123>
+##contig=<ID=scaffold_895,length=4136>
+##contig=<ID=scaffold_861,length=4139>
+##contig=<ID=scaffold_962,length=4142>
+##contig=<ID=scaffold_900,length=4145>
+##contig=<ID=scaffold_987,length=4148>
+##contig=<ID=scaffold_970,length=4154>
+##contig=<ID=scaffold_835,length=4174>
+##contig=<ID=scaffold_834,length=4178>
+##contig=<ID=scaffold_868,length=4182>
+##contig=<ID=scaffold_832,length=4187>
+##contig=<ID=scaffold_830,length=4194>
+##contig=<ID=scaffold_981,length=4203>
+##contig=<ID=scaffold_828,length=4207>
+##contig=<ID=scaffold_958,length=4209>
+##contig=<ID=scaffold_994,length=4210>
+##contig=<ID=scaffold_977,length=4214>
+##contig=<ID=scaffold_825,length=4247>
+##contig=<ID=scaffold_890,length=4249>
+##contig=<ID=scaffold_905,length=4260>
+##contig=<ID=scaffold_978,length=4265>
+##contig=<ID=scaffold_823,length=4267>
+##contig=<ID=scaffold_887,length=4269>
+##contig=<ID=scaffold_950,length=4273>
+##contig=<ID=scaffold_843,length=4275>
+##contig=<ID=scaffold_871,length=4285>
+##contig=<ID=scaffold_817,length=4298>
+##contig=<ID=scaffold_815,length=4310>
+##contig=<ID=scaffold_1076,length=4311>
+##contig=<ID=scaffold_882,length=4320>
+##contig=<ID=scaffold_813,length=4331>
+##contig=<ID=scaffold_937,length=4338>
+##contig=<ID=scaffold_831,length=4344>
+##contig=<ID=scaffold_829,length=4347>
+##contig=<ID=scaffold_901,length=4359>
+##contig=<ID=scaffold_877,length=4368>
+##contig=<ID=scaffold_805,length=4370>
+##contig=<ID=scaffold_804,length=4377>
+##contig=<ID=scaffold_802,length=4396>
+##contig=<ID=scaffold_903,length=4408>
+##contig=<ID=scaffold_798,length=4415>
+##contig=<ID=scaffold_797,length=4423>
+##contig=<ID=scaffold_796,length=4429>
+##contig=<ID=scaffold_884,length=4431>
+##contig=<ID=scaffold_855,length=4439>
+##contig=<ID=scaffold_793,length=4441>
+##contig=<ID=scaffold_792,length=4443>
+##contig=<ID=scaffold_788,length=4458>
+##contig=<ID=scaffold_819,length=4465>
+##contig=<ID=scaffold_784,length=4474>
+##contig=<ID=scaffold_783,length=4478>
+##contig=<ID=scaffold_865,length=4494>
+##contig=<ID=scaffold_781,length=4495>
+##contig=<ID=scaffold_990,length=4503>
+##contig=<ID=scaffold_801,length=4509>
+##contig=<ID=scaffold_845,length=4512>
+##contig=<ID=scaffold_812,length=4514>
+##contig=<ID=scaffold_864,length=4516>
+##contig=<ID=scaffold_779,length=4521>
+##contig=<ID=scaffold_838,length=4523>
+##contig=<ID=scaffold_777,length=4536>
+##contig=<ID=scaffold_814,length=4539>
+##contig=<ID=scaffold_790,length=4554>
+##contig=<ID=scaffold_811,length=4562>
+##contig=<ID=scaffold_787,length=4568>
+##contig=<ID=scaffold_773,length=4573>
+##contig=<ID=scaffold_862,length=4575>
+##contig=<ID=scaffold_772,length=4582>
+##contig=<ID=scaffold_771,length=4584>
+##contig=<ID=scaffold_782,length=4595>
+##contig=<ID=scaffold_786,length=4606>
+##contig=<ID=scaffold_766,length=4606>
+##contig=<ID=scaffold_763,length=4616>
+##contig=<ID=scaffold_762,length=4621>
+##contig=<ID=scaffold_837,length=4626>
+##contig=<ID=scaffold_759,length=4630>
+##contig=<ID=scaffold_756,length=4643>
+##contig=<ID=scaffold_755,length=4645>
+##contig=<ID=scaffold_753,length=4660>
+##contig=<ID=scaffold_752,length=4661>
+##contig=<ID=scaffold_780,length=4662>
+##contig=<ID=scaffold_747,length=4673>
+##contig=<ID=scaffold_746,length=4685>
+##contig=<ID=scaffold_769,length=4691>
+##contig=<ID=scaffold_744,length=4703>
+##contig=<ID=scaffold_741,length=4712>
+##contig=<ID=scaffold_740,length=4713>
+##contig=<ID=scaffold_739,length=4724>
+##contig=<ID=scaffold_738,length=4726>
+##contig=<ID=scaffold_736,length=4732>
+##contig=<ID=scaffold_735,length=4737>
+##contig=<ID=scaffold_734,length=4745>
+##contig=<ID=scaffold_733,length=4746>
+##contig=<ID=scaffold_729,length=4780>
+##contig=<ID=scaffold_728,length=4797>
+##contig=<ID=scaffold_727,length=4814>
+##contig=<ID=scaffold_723,length=4825>
+##contig=<ID=scaffold_721,length=4834>
+##contig=<ID=scaffold_961,length=4838>
+##contig=<ID=scaffold_716,length=4853>
+##contig=<ID=scaffold_715,length=4861>
+##contig=<ID=scaffold_713,length=4863>
+##contig=<ID=scaffold_711,length=4872>
+##contig=<ID=scaffold_710,length=4912>
+##contig=<ID=scaffold_707,length=4917>
+##contig=<ID=scaffold_702,length=4958>
+##contig=<ID=scaffold_701,length=4959>
+##contig=<ID=scaffold_776,length=4960>
+##contig=<ID=scaffold_700,length=4965>
+##contig=<ID=scaffold_697,length=4979>
+##contig=<ID=scaffold_693,length=4983>
+##contig=<ID=scaffold_902,length=5000>
+##contig=<ID=scaffold_688,length=5023>
+##contig=<ID=scaffold_686,length=5026>
+##contig=<ID=scaffold_867,length=5049>
+##contig=<ID=scaffold_761,length=5050>
+##contig=<ID=scaffold_682,length=5054>
+##contig=<ID=scaffold_679,length=5059>
+##contig=<ID=scaffold_795,length=5066>
+##contig=<ID=scaffold_699,length=5067>
+##contig=<ID=scaffold_678,length=5083>
+##contig=<ID=scaffold_904,length=5088>
+##contig=<ID=scaffold_674,length=5112>
+##contig=<ID=scaffold_694,length=5113>
+##contig=<ID=scaffold_671,length=5118>
+##contig=<ID=scaffold_670,length=5121>
+##contig=<ID=scaffold_669,length=5128>
+##contig=<ID=scaffold_668,length=5132>
+##contig=<ID=scaffold_667,length=5140>
+##contig=<ID=scaffold_683,length=5141>
+##contig=<ID=scaffold_664,length=5148>
+##contig=<ID=scaffold_663,length=5148>
+##contig=<ID=scaffold_662,length=5156>
+##contig=<ID=scaffold_661,length=5160>
+##contig=<ID=scaffold_695,length=5175>
+##contig=<ID=scaffold_658,length=5205>
+##contig=<ID=scaffold_681,length=5213>
+##contig=<ID=scaffold_655,length=5225>
+##contig=<ID=scaffold_680,length=5240>
+##contig=<ID=scaffold_666,length=5241>
+##contig=<ID=scaffold_717,length=5243>
+##contig=<ID=scaffold_653,length=5252>
+##contig=<ID=scaffold_651,length=5261>
+##contig=<ID=scaffold_731,length=5275>
+##contig=<ID=scaffold_649,length=5283>
+##contig=<ID=scaffold_719,length=5313>
+##contig=<ID=scaffold_659,length=5359>
+##contig=<ID=scaffold_705,length=5366>
+##contig=<ID=scaffold_638,length=5368>
+##contig=<ID=scaffold_636,length=5373>
+##contig=<ID=scaffold_726,length=5424>
+##contig=<ID=scaffold_631,length=5424>
+##contig=<ID=scaffold_629,length=5457>
+##contig=<ID=scaffold_628,length=5459>
+##contig=<ID=scaffold_627,length=5482>
+##contig=<ID=scaffold_626,length=5482>
+##contig=<ID=scaffold_625,length=5482>
+##contig=<ID=scaffold_672,length=5491>
+##contig=<ID=scaffold_646,length=5493>
+##contig=<ID=scaffold_685,length=5534>
+##contig=<ID=scaffold_616,length=5563>
+##contig=<ID=scaffold_615,length=5574>
+##contig=<ID=scaffold_614,length=5576>
+##contig=<ID=scaffold_630,length=5629>
+##contig=<ID=scaffold_608,length=5644>
+##contig=<ID=scaffold_810,length=5651>
+##contig=<ID=scaffold_748,length=5666>
+##contig=<ID=scaffold_604,length=5673>
+##contig=<ID=scaffold_603,length=5688>
+##contig=<ID=scaffold_591,length=5806>
+##contig=<ID=scaffold_639,length=5820>
+##contig=<ID=scaffold_665,length=5827>
+##contig=<ID=scaffold_840,length=5829>
+##contig=<ID=scaffold_637,length=5829>
+##contig=<ID=scaffold_684,length=5838>
+##contig=<ID=scaffold_589,length=5841>
+##contig=<ID=scaffold_587,length=5857>
+##contig=<ID=scaffold_677,length=5864>
+##contig=<ID=scaffold_584,length=5890>
+##contig=<ID=scaffold_582,length=5927>
+##contig=<ID=scaffold_580,length=5936>
+##contig=<ID=scaffold_579,length=5937>
+##contig=<ID=scaffold_575,length=5959>
+##contig=<ID=scaffold_573,length=5973>
+##contig=<ID=scaffold_569,length=5983>
+##contig=<ID=scaffold_565,length=6009>
+##contig=<ID=scaffold_562,length=6014>
+##contig=<ID=scaffold_642,length=6019>
+##contig=<ID=scaffold_597,length=6031>
+##contig=<ID=scaffold_594,length=6032>
+##contig=<ID=scaffold_947,length=6058>
+##contig=<ID=scaffold_557,length=6061>
+##contig=<ID=scaffold_552,length=6083>
+##contig=<ID=scaffold_564,length=6109>
+##contig=<ID=scaffold_602,length=6162>
+##contig=<ID=scaffold_592,length=6190>
+##contig=<ID=scaffold_576,length=6219>
+##contig=<ID=scaffold_770,length=6232>
+##contig=<ID=scaffold_532,length=6269>
+##contig=<ID=scaffold_554,length=6283>
+##contig=<ID=scaffold_704,length=6290>
+##contig=<ID=scaffold_612,length=6294>
+##contig=<ID=scaffold_610,length=6315>
+##contig=<ID=scaffold_525,length=6326>
+##contig=<ID=scaffold_520,length=6360>
+##contig=<ID=scaffold_519,length=6361>
+##contig=<ID=scaffold_531,length=6372>
+##contig=<ID=scaffold_516,length=6382>
+##contig=<ID=scaffold_512,length=6411>
+##contig=<ID=scaffold_645,length=6504>
+##contig=<ID=scaffold_507,length=6505>
+##contig=<ID=scaffold_617,length=6537>
+##contig=<ID=scaffold_607,length=6542>
+##contig=<ID=scaffold_510,length=6553>
+##contig=<ID=scaffold_501,length=6594>
+##contig=<ID=scaffold_500,length=6608>
+##contig=<ID=scaffold_496,length=6643>
+##contig=<ID=scaffold_585,length=6689>
+##contig=<ID=scaffold_595,length=6717>
+##contig=<ID=scaffold_558,length=6765>
+##contig=<ID=scaffold_491,length=6784>
+##contig=<ID=scaffold_486,length=6821>
+##contig=<ID=scaffold_675,length=6837>
+##contig=<ID=scaffold_635,length=6847>
+##contig=<ID=scaffold_807,length=6854>
+##contig=<ID=scaffold_481,length=6892>
+##contig=<ID=scaffold_509,length=6900>
+##contig=<ID=scaffold_706,length=7009>
+##contig=<ID=scaffold_469,length=7057>
+##contig=<ID=scaffold_549,length=7074>
+##contig=<ID=scaffold_468,length=7083>
+##contig=<ID=scaffold_488,length=7089>
+##contig=<ID=scaffold_480,length=7093>
+##contig=<ID=scaffold_487,length=7116>
+##contig=<ID=scaffold_535,length=7120>
+##contig=<ID=scaffold_485,length=7120>
+##contig=<ID=scaffold_463,length=7147>
+##contig=<ID=scaffold_540,length=7151>
+##contig=<ID=scaffold_470,length=7167>
+##contig=<ID=scaffold_461,length=7174>
+##contig=<ID=scaffold_482,length=7203>
+##contig=<ID=scaffold_472,length=7204>
+##contig=<ID=scaffold_493,length=7252>
+##contig=<ID=scaffold_505,length=7365>
+##contig=<ID=scaffold_475,length=7365>
+##contig=<ID=scaffold_551,length=7366>
+##contig=<ID=scaffold_504,length=7398>
+##contig=<ID=scaffold_460,length=7398>
+##contig=<ID=scaffold_449,length=7416>
+##contig=<ID=scaffold_489,length=7466>
+##contig=<ID=scaffold_447,length=7466>
+##contig=<ID=scaffold_446,length=7466>
+##contig=<ID=scaffold_492,length=7480>
+##contig=<ID=scaffold_451,length=7539>
+##contig=<ID=scaffold_527,length=7565>
+##contig=<ID=scaffold_443,length=7567>
+##contig=<ID=scaffold_467,length=7598>
+##contig=<ID=scaffold_439,length=7615>
+##contig=<ID=scaffold_588,length=7625>
+##contig=<ID=scaffold_462,length=7632>
+##contig=<ID=scaffold_435,length=7656>
+##contig=<ID=scaffold_429,length=7683>
+##contig=<ID=scaffold_453,length=7712>
+##contig=<ID=scaffold_428,length=7726>
+##contig=<ID=scaffold_427,length=7728>
+##contig=<ID=scaffold_436,length=7748>
+##contig=<ID=scaffold_433,length=7762>
+##contig=<ID=scaffold_484,length=7775>
+##contig=<ID=scaffold_548,length=7813>
+##contig=<ID=scaffold_457,length=7818>
+##contig=<ID=scaffold_471,length=7831>
+##contig=<ID=scaffold_426,length=7840>
+##contig=<ID=scaffold_474,length=7843>
+##contig=<ID=scaffold_413,length=8084>
+##contig=<ID=scaffold_416,length=8111>
+##contig=<ID=scaffold_450,length=8167>
+##contig=<ID=scaffold_455,length=8208>
+##contig=<ID=scaffold_412,length=8224>
+##contig=<ID=scaffold_464,length=8265>
+##contig=<ID=scaffold_415,length=8283>
+##contig=<ID=scaffold_477,length=8359>
+##contig=<ID=scaffold_403,length=8363>
+##contig=<ID=scaffold_419,length=8366>
+##contig=<ID=scaffold_401,length=8402>
+##contig=<ID=scaffold_431,length=8404>
+##contig=<ID=scaffold_398,length=8508>
+##contig=<ID=scaffold_397,length=8535>
+##contig=<ID=scaffold_408,length=8592>
+##contig=<ID=scaffold_441,length=8626>
+##contig=<ID=scaffold_390,length=8733>
+##contig=<ID=scaffold_396,length=8738>
+##contig=<ID=scaffold_384,length=8774>
+##contig=<ID=scaffold_383,length=8774>
+##contig=<ID=scaffold_381,length=8802>
+##contig=<ID=scaffold_380,length=8802>
+##contig=<ID=scaffold_379,length=8803>
+##contig=<ID=scaffold_378,length=8822>
+##contig=<ID=scaffold_375,length=8855>
+##contig=<ID=scaffold_386,length=8868>
+##contig=<ID=scaffold_385,length=8873>
+##contig=<ID=scaffold_566,length=8876>
+##contig=<ID=scaffold_372,length=8876>
+##contig=<ID=scaffold_624,length=8921>
+##contig=<ID=scaffold_402,length=8929>
+##contig=<ID=scaffold_409,length=8939>
+##contig=<ID=scaffold_366,length=8942>
+##contig=<ID=scaffold_365,length=8943>
+##contig=<ID=scaffold_368,length=9003>
+##contig=<ID=scaffold_361,length=9014>
+##contig=<ID=scaffold_371,length=9041>
+##contig=<ID=scaffold_358,length=9041>
+##contig=<ID=scaffold_363,length=9090>
+##contig=<ID=scaffold_355,length=9149>
+##contig=<ID=scaffold_354,length=9157>
+##contig=<ID=scaffold_352,length=9205>
+##contig=<ID=scaffold_350,length=9246>
+##contig=<ID=scaffold_349,length=9250>
+##contig=<ID=scaffold_348,length=9251>
+##contig=<ID=scaffold_346,length=9256>
+##contig=<ID=scaffold_376,length=9273>
+##contig=<ID=scaffold_344,length=9289>
+##contig=<ID=scaffold_343,length=9298>
+##contig=<ID=scaffold_340,length=9319>
+##contig=<ID=scaffold_339,length=9323>
+##contig=<ID=scaffold_337,length=9326>
+##contig=<ID=scaffold_335,length=9336>
+##contig=<ID=scaffold_351,length=9344>
+##contig=<ID=scaffold_334,length=9371>
+##contig=<ID=scaffold_341,length=9405>
+##contig=<ID=scaffold_332,length=9416>
+##contig=<ID=scaffold_330,length=9444>
+##contig=<ID=scaffold_342,length=9505>
+##contig=<ID=scaffold_400,length=9516>
+##contig=<ID=scaffold_364,length=9531>
+##contig=<ID=scaffold_325,length=9588>
+##contig=<ID=scaffold_322,length=9656>
+##contig=<ID=scaffold_320,length=9724>
+##contig=<ID=scaffold_319,length=9767>
+##contig=<ID=scaffold_388,length=9797>
+##contig=<ID=scaffold_310,length=9954>
+##contig=<ID=scaffold_307,length=10021>
+##contig=<ID=scaffold_357,length=10030>
+##contig=<ID=scaffold_304,length=10091>
+##contig=<ID=scaffold_303,length=10106>
+##contig=<ID=scaffold_327,length=10118>
+##contig=<ID=scaffold_345,length=10120>
+##contig=<ID=scaffold_300,length=10133>
+##contig=<ID=scaffold_305,length=10182>
+##contig=<ID=scaffold_298,length=10202>
+##contig=<ID=scaffold_302,length=10227>
+##contig=<ID=scaffold_293,length=10266>
+##contig=<ID=scaffold_299,length=10268>
+##contig=<ID=scaffold_292,length=10276>
+##contig=<ID=scaffold_295,length=10362>
+##contig=<ID=scaffold_294,length=10363>
+##contig=<ID=scaffold_285,length=10478>
+##contig=<ID=scaffold_284,length=10500>
+##contig=<ID=scaffold_287,length=10534>
+##contig=<ID=scaffold_283,length=10573>
+##contig=<ID=scaffold_290,length=10597>
+##contig=<ID=scaffold_281,length=10755>
+##contig=<ID=scaffold_315,length=10914>
+##contig=<ID=scaffold_288,length=10982>
+##contig=<ID=scaffold_417,length=11063>
+##contig=<ID=scaffold_311,length=11111>
+##contig=<ID=scaffold_268,length=11135>
+##contig=<ID=scaffold_277,length=11163>
+##contig=<ID=scaffold_266,length=11173>
+##contig=<ID=scaffold_265,length=11173>
+##contig=<ID=scaffold_269,length=11233>
+##contig=<ID=scaffold_262,length=11236>
+##contig=<ID=scaffold_267,length=11253>
+##contig=<ID=scaffold_261,length=11263>
+##contig=<ID=scaffold_347,length=11265>
+##contig=<ID=scaffold_264,length=11275>
+##contig=<ID=scaffold_286,length=11290>
+##contig=<ID=scaffold_275,length=11334>
+##contig=<ID=scaffold_258,length=11345>
+##contig=<ID=scaffold_279,length=11393>
+##contig=<ID=scaffold_251,length=11483>
+##contig=<ID=scaffold_271,length=11518>
+##contig=<ID=scaffold_289,length=11519>
+##contig=<ID=scaffold_270,length=11521>
+##contig=<ID=scaffold_249,length=11536>
+##contig=<ID=scaffold_248,length=11543>
+##contig=<ID=scaffold_253,length=11547>
+##contig=<ID=scaffold_252,length=11573>
+##contig=<ID=scaffold_259,length=11642>
+##contig=<ID=scaffold_250,length=11642>
+##contig=<ID=scaffold_247,length=11656>
+##contig=<ID=scaffold_278,length=11661>
+##contig=<ID=scaffold_246,length=11661>
+##contig=<ID=scaffold_241,length=11720>
+##contig=<ID=scaffold_240,length=11761>
+##contig=<ID=scaffold_239,length=11778>
+##contig=<ID=scaffold_243,length=11791>
+##contig=<ID=scaffold_374,length=11842>
+##contig=<ID=scaffold_244,length=11945>
+##contig=<ID=scaffold_233,length=11955>
+##contig=<ID=scaffold_236,length=11975>
+##contig=<ID=scaffold_231,length=12023>
+##contig=<ID=scaffold_255,length=12066>
+##contig=<ID=scaffold_228,length=12137>
+##contig=<ID=scaffold_230,length=12195>
+##contig=<ID=scaffold_223,length=12436>
+##contig=<ID=scaffold_221,length=12465>
+##contig=<ID=scaffold_242,length=12482>
+##contig=<ID=scaffold_219,length=12503>
+##contig=<ID=scaffold_220,length=12567>
+##contig=<ID=scaffold_213,length=12589>
+##contig=<ID=scaffold_212,length=12623>
+##contig=<ID=scaffold_216,length=12667>
+##contig=<ID=scaffold_215,length=12671>
+##contig=<ID=scaffold_208,length=12734>
+##contig=<ID=scaffold_207,length=12741>
+##contig=<ID=scaffold_235,length=12746>
+##contig=<ID=scaffold_206,length=12758>
+##contig=<ID=scaffold_225,length=12774>
+##contig=<ID=scaffold_210,length=12820>
+##contig=<ID=scaffold_214,length=12939>
+##contig=<ID=scaffold_203,length=12995>
+##contig=<ID=scaffold_205,length=13037>
+##contig=<ID=scaffold_234,length=13216>
+##contig=<ID=scaffold_323,length=13369>
+##contig=<ID=scaffold_211,length=13490>
+##contig=<ID=scaffold_197,length=13548>
+##contig=<ID=scaffold_209,length=13614>
+##contig=<ID=scaffold_301,length=13661>
+##contig=<ID=scaffold_193,length=13678>
+##contig=<ID=scaffold_188,length=14062>
+##contig=<ID=scaffold_189,length=14063>
+##contig=<ID=scaffold_229,length=14132>
+##contig=<ID=scaffold_201,length=14150>
+##contig=<ID=scaffold_226,length=14339>
+##contig=<ID=scaffold_181,length=14397>
+##contig=<ID=scaffold_199,length=14456>
+##contig=<ID=scaffold_195,length=14542>
+##contig=<ID=scaffold_179,length=14583>
+##contig=<ID=scaffold_190,length=14608>
+##contig=<ID=scaffold_191,length=14737>
+##contig=<ID=scaffold_177,length=14777>
+##contig=<ID=scaffold_196,length=14784>
+##contig=<ID=scaffold_176,length=14793>
+##contig=<ID=scaffold_180,length=14826>
+##contig=<ID=scaffold_184,length=14860>
+##contig=<ID=scaffold_222,length=14935>
+##contig=<ID=scaffold_172,length=15141>
+##contig=<ID=scaffold_173,length=15208>
+##contig=<ID=scaffold_170,length=15673>
+##contig=<ID=scaffold_165,length=15836>
+##contig=<ID=scaffold_164,length=15851>
+##contig=<ID=scaffold_178,length=15941>
+##contig=<ID=scaffold_163,length=15971>
+##contig=<ID=scaffold_166,length=16014>
+##contig=<ID=scaffold_158,length=16071>
+##contig=<ID=scaffold_159,length=16148>
+##contig=<ID=scaffold_160,length=16358>
+##contig=<ID=scaffold_169,length=16599>
+##contig=<ID=scaffold_149,length=16847>
+##contig=<ID=scaffold_151,length=17353>
+##contig=<ID=scaffold_143,length=17394>
+##contig=<ID=scaffold_141,length=17526>
+##contig=<ID=scaffold_142,length=17620>
+##contig=<ID=scaffold_139,length=17624>
+##contig=<ID=scaffold_138,length=17628>
+##contig=<ID=scaffold_161,length=17702>
+##contig=<ID=scaffold_146,length=17905>
+##contig=<ID=scaffold_137,length=18049>
+##contig=<ID=scaffold_136,length=18177>
+##contig=<ID=scaffold_132,length=18203>
+##contig=<ID=scaffold_129,length=18393>
+##contig=<ID=scaffold_125,length=18511>
+##contig=<ID=scaffold_121,length=18658>
+##contig=<ID=scaffold_122,length=18722>
+##contig=<ID=scaffold_130,length=18728>
+##contig=<ID=scaffold_128,length=18776>
+##contig=<ID=scaffold_133,length=18967>
+##contig=<ID=scaffold_126,length=19147>
+##contig=<ID=scaffold_135,length=19286>
+##contig=<ID=scaffold_120,length=19368>
+##contig=<ID=scaffold_115,length=19382>
+##contig=<ID=scaffold_152,length=19386>
+##contig=<ID=scaffold_114,length=19422>
+##contig=<ID=scaffold_113,length=19435>
+##contig=<ID=scaffold_112,length=19564>
+##contig=<ID=scaffold_123,length=19715>
+##contig=<ID=scaffold_118,length=19913>
+##contig=<ID=scaffold_106,length=20070>
+##contig=<ID=scaffold_103,length=20430>
+##contig=<ID=scaffold_108,length=20787>
+##contig=<ID=scaffold_110,length=20827>
+##contig=<ID=scaffold_100,length=20959>
+##contig=<ID=scaffold_98,length=20962>
+##contig=<ID=scaffold_99,length=21256>
+##contig=<ID=scaffold_96,length=21493>
+##contig=<ID=scaffold_117,length=21951>
+##contig=<ID=scaffold_91,length=22377>
+##contig=<ID=scaffold_90,length=22400>
+##contig=<ID=scaffold_97,length=22403>
+##contig=<ID=scaffold_89,length=22846>
+##contig=<ID=scaffold_85,length=24006>
+##contig=<ID=scaffold_88,length=24147>
+##contig=<ID=scaffold_83,length=24864>
+##contig=<ID=scaffold_76,length=26132>
+##contig=<ID=scaffold_73,length=26592>
+##contig=<ID=scaffold_77,length=26910>
+##contig=<ID=scaffold_72,length=27939>
+##contig=<ID=scaffold_71,length=28414>
+##contig=<ID=scaffold_66,length=28436>
+##contig=<ID=scaffold_74,length=30081>
+##contig=<ID=scaffold_63,length=30383>
+##contig=<ID=scaffold_70,length=30586>
+##contig=<ID=scaffold_57,length=35077>
+##contig=<ID=scaffold_61,length=37089>
+##contig=<ID=scaffold_387,length=38674>
+##contig=<ID=scaffold_92,length=41166>
+##contig=<ID=scaffold_185,length=41385>
+##contig=<ID=scaffold_144,length=42461>
+##contig=<ID=scaffold_53,length=42563>
+##contig=<ID=scaffold_68,length=42762>
+##contig=<ID=scaffold_109,length=42950>
+##contig=<ID=scaffold_80,length=44312>
+##contig=<ID=scaffold_86,length=47099>
+##contig=<ID=scaffold_84,length=47761>
+##contig=<ID=scaffold_65,length=48666>
+##contig=<ID=scaffold_167,length=49487>
+##contig=<ID=scaffold_47,length=50189>
+##contig=<ID=scaffold_87,length=50767>
+##contig=<ID=scaffold_37,length=50885>
+##contig=<ID=scaffold_64,length=51199>
+##contig=<ID=scaffold_38,length=54598>
+##contig=<ID=scaffold_60,length=54680>
+##contig=<ID=scaffold_36,length=55443>
+##contig=<ID=scaffold_39,length=56741>
+##contig=<ID=scaffold_52,length=57915>
+##contig=<ID=scaffold_58,length=58233>
+##contig=<ID=scaffold_43,length=58977>
+##contig=<ID=scaffold_54,length=59709>
+##contig=<ID=scaffold_59,length=60404>
+##contig=<ID=scaffold_51,length=60900>
+##contig=<ID=scaffold_32,length=67898>
+##contig=<ID=scaffold_24,length=72324>
+##contig=<ID=scaffold_25,length=76307>
+##contig=<ID=scaffold_22,length=77967>
+##contig=<ID=scaffold_29,length=77981>
+##contig=<ID=scaffold_27,length=79363>
+##contig=<ID=scaffold_48,length=82330>
+##contig=<ID=scaffold_28,length=82702>
+##contig=<ID=scaffold_34,length=82892>
+##contig=<ID=scaffold_41,length=83393>
+##contig=<ID=scaffold_35,length=85588>
+##contig=<ID=scaffold_23,length=95112>
+##contig=<ID=scaffold_20,length=100232>
+##contig=<ID=scaffold_31,length=104288>
+##contig=<ID=scaffold_33,length=127197>
+##contig=<ID=scaffold_19,length=129820>
+##contig=<ID=scaffold_21,length=154816>
+##contig=<ID=scaffold_18,length=163736>
+##contig=<ID=scaffold_16,length=170080>
+##contig=<ID=scaffold_17,length=170241>
+##contig=<ID=scaffold_26,length=171326>
+##contig=<ID=scaffold_15,length=269926>
+##contig=<ID=scaffold_13,length=274490>
+##contig=<ID=scaffold_14,length=361337>
+##contig=<ID=scaffold_11,length=440609>
+##contig=<ID=scaffold_10,length=461865>
+##contig=<ID=scaffold_9,length=1906741>
+##contig=<ID=2,length=19320864>
+##contig=<ID=5,length=21221946>
+##contig=<ID=8,length=22951293>
+##contig=<ID=4,length=23328337>
+##contig=<ID=3,length=24464547>
+##contig=<ID=7,length=24649197>
+##contig=<ID=6,length=25113588>
+##contig=<ID=1,length=33132539>
+##reference=file:///media/everestial007/SeagateBackup4.0TB/New_Alignment_Set/05-A-ReAligned_reads/05-A-ReAligned_reads/lyrata_genome.fa
+##source=SelectVariants
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ms01e	ms02g	ms03g	ms04h	MA611	MA605	MA622
+2	15881018	.	G	A,C	.	.	.	GT:PI:PG:PGal	0|1:5:0|1:0|1	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881080	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881106	.	C	CA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881156	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881224	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881229	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881230	.	GTT	G,GTTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881246	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881256	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881266	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881305	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/0:.:0/0:0/0	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881335	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1
+2	15881344	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881362	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1
+2	15881364	.	A	ATTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1/1:.:1/1:1/1	.:.:.:.	1/1:.:1/1:1/1
+2	15881436	.	GA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881445	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/0:.:0/0:0/0	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881550	.	C	T	.	.	.	GT:PI:PG:PGal	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	1|0:9:1|0:1|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881551	.	A	T	.	.	.	GT:PI:PG:PGal	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	1|0:9:1|0:1|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881553	.	C	A	.	.	.	GT:PI:PG:PGal	0|1:4:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0|0:9:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881764	.	T	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:6:1|0:1|0	0/0:.:0/0:0/0	0|0:9:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881767	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:6:1|0:1|0	0/0:.:0/0:0/0	0|0:9:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881810	.	A	C	.	.	.	GT:PI:PG:PGal	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1/1:.:1/1:1/1	1|1:9:1|1:1|1	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1
+2	15881944	.	C	T	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|1:7:0|1:0|1	0|1:7:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881974	.	C	A	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|1:7:0|1:0|1	0|1:7:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15881989	.	C	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:6:1|0:1|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882091	.	A	T	.	.	.	GT:PI:PG:PGal	0|1:4:0|1:0|1	0|1:6:0|1:0|1	1|0:7:1|0:1|0	0|0:7:0|0:0|0	1/1:.:1/1:1/1	1/1:.:1/1:1/1	1/1:.:1/1:1/1
+2	15882148	.	T	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:7:0|0:0|0	0|1:7:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882328	.	T	A	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882364	.	T	G	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882451	.	T	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882454	.	T	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882493	.	T	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882505	.	T	A	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|0:7:0|0:0|0	0|0:7:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882583	.	G	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:7:0|0:0|0	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882592	.	G	A	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882601	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	1|0:5:1|0:1|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882607	.	C	T	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882615	.	A	G	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882618	.	G	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882712	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882736	.	T	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882770	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|0:6:0|0:0|0	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882812	.	C	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	1|0:5:1|0:1|0	0/0:.:0/0:0/0	0/0:.:0/0:0/0	0/0:.:0/0:0/0
+2	15882822	.	G	A	.	.	.	GT:PI:PG:PGal	0|1:4:0|1:0|1	0|1:4:0|1:0|1	1|0:6:1|0:1|0	.:.:.:.	1/1:.:1/1:1/1	0|1:2:0|1:0|1	0|1:4:0|1:0|1
+2	15882922	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	1|0:2:1|0:1|0	1|0:4:1|0:1|0
+2	15882938	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	.:.:.:.	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15882952	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	.:.:.:.	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15882967	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15882973	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883029	.	T	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883059	.	C	G	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883065	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883070	.	G	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883071	.	T	C	.	.	.	GT:PI:PG:PGal	1|0:4:1|0:1|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883083	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	0|1:6:0|1:0|1	0|1:5:0|1:0|1	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883230	.	A	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0/1:.:0/1:0/1	.:.:.:.	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883328	.	T	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|1:4:1|1:1|1	0|0:6:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15883333	.	G	A	.	.	.	GT:PI:PG:PGal	0/1:.:0/1:0/1	0|0:4:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:2:0|0:0|0	0|0:4:0|0:0|0
+2	15883371	.	A	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|1:4:0|1:0|1	0/1:.:0/1:0/1
+2	15883431	.	A	T	.	.	.	GT:PI:PG:PGal	0|1:4:0|1:0|1	0|1:4:0|1:0|1	0|0:6:0|0:0|0	0|0:5:0|0:0|0	0/1:.:0/1:0/1	1|0:4:1|0:1|0	0|0:4:0|0:0|0
+2	15883479	.	C	CCTTTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883529	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	1|0:4:1|0:1|0	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883590	.	TA	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883606	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883644	.	C	CT	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	1|0:9:1|0:1|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883661	.	T	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883674	.	G	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	1|0:4:1|0:1|0	1|0:9:1|0:1|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883678	.	C	CA	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|1:4:0|1:0|1	1|0:9:1|0:1|0	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.
+2	15883728	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0/1:.:0/1:0/1	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883764	.	A	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15883765	.	GTA	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883769	.	T	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	.:.:.:.	0|0:9:0|0:0|0	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883771	.	A	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	.:.:.:.	0|0:9:0|0:0|0	1|1:5:1|1:1|1	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883782	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883783	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883785	.	T	TA	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883792	.	A	AAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883804	.	T	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	.:.:.:.	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883806	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883861	.	A	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883862	.	G	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:4:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883889	.	T	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|1:5:0|1:0|1	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883894	.	T	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|1:5:0|1:0|1	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883904	.	A	G	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:5:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883912	.	G	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:5:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883930	.	A	AATG	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883933	.	G	T	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883936	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|1:5:0|1:0|1	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883953	.	G	C	.	.	.	GT:PI:PG:PGal	0|0:4:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	.:.:.:.	0/1:.:0/1:0/1
+2	15883965	.	C	G	.	.	.	GT:PI:PG:PGal	0|1:7:0|1:0|1	0|1:5:0|1:0|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883979	.	A	T	.	.	.	GT:PI:PG:PGal	1|1:7:1|1:1|1	1|1:5:1|1:1|1	1|1:9:1|1:1|1	1|1:5:1|1:1|1	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15883987	.	T	C	.	.	.	GT:PI:PG:PGal	0|1:7:0|1:0|1	0|1:5:0|1:0|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15883998	.	A	G	.	.	.	GT:PI:PG:PGal	0|1:7:0|1:0|1	0|1:5:0|1:0|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884017	.	A	T	.	.	.	GT:PI:PG:PGal	0|0:7:0|0:0|0	0|1:5:0|1:0|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884047	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884078	.	G	GC,GCC	.	.	.	GT:PI:PG:PGal	.:.:.:.	1|1:5:1|1:1|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884079	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	1|1:5:1|1:1|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	.:.:.:.	0|0:4:0|0:0|0
+2	15884083	.	T	C	.	.	.	GT:PI:PG:PGal	0|0:7:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15884088	.	TA	T	.	.	.	GT:PI:PG:PGal	0|0:7:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	.:.:.:.	0|0:4:0|0:0|0
+2	15884090	.	ATG	A	.	.	.	GT:PI:PG:PGal	0|0:7:0|0:0|0	.:.:.:.	0|0:9:0|0:0|0	0|0:5:0|0:0|0	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15884096	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:7:0|0:0|0	1|1:5:1|1:1|1	1|1:9:1|1:1|1	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884302	.	G	T	.	.	.	GT:PI:PG:PGal	1|0:5:1|0:1|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884304	.	G	T	.	.	.	GT:PI:PG:PGal	1|0:5:1|0:1|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884323	.	G	A	.	.	.	GT:PI:PG:PGal	1|0:5:1|0:1|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884440	.	GTT	G	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0/1:.:0/1:0/1
+2	15884456	.	TTTTTCACTGCG	T,CTTTTCACTGCG	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:5:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884457	.	TTTTCACTGCG	T,*	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884525	.	G	GAT	.	.	.	GT:PI:PG:PGal	0/1:.:0/1:0/1	0|0:5:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884546	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884550	.	G	GT	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884582	.	T	C	.	.	.	GT:PI:PG:PGal	1|1:5:1|1:1|1	1|1:4:1|1:1|1	1|1:9:1|1:1|1	1|1:5:1|1:1|1	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15884613	.	G	GTT	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884649	.	G	C	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884742	.	A	G	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0/1:.:0/1:0/1	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884746	.	C	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884749	.	T	G	.	.	.	GT:PI:PG:PGal	1|1:5:1|1:1|1	1|1:4:1|1:1|1	1|1:9:1|1:1|1	1|1:5:1|1:1|1	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15884753	.	G	C,GTCC	.	.	.	GT:PI:PG:PGal	0/1:.:0/1:0/1	1|1:4:1|1:1|1	1|1:9:1|1:1|1	1/2:.:1/2:1/2	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15884873	.	G	GGAA	.	.	.	GT:PI:PG:PGal	0/1:.:0/1:0/1	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884958	.	T	G	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15884965	.	A	G	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885010	.	TCAA	T	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885024	.	TTTTTGTGCATCAGTGCATGC	T	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:4:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.
+2	15885061	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885110	.	C	CTTGGCAGACTTGTGTTTCATTTCCCAAATGTGAAATAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	.:.:.:.	0/1:.:0/1:0/1
+2	15885180	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885220	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885227	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885274	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885281	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885303	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885337	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885378	.	A	ATT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885536	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885567	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	0/1:.:0/1:0/1
+2	15885591	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885628	.	A	ATGATAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885643	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885740	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0
+2	15885742	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15885743	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15885751	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0/1:.:0/1:0/1	0|0:4:0|0:0|0
+2	15885902	.	GACCCT	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885907	.	T	*,A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885913	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885949	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885978	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15885992	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886010	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886013	.	TTAATAA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886030	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886059	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886068	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886116	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886216	.	ATGCTCATTCTC	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886220	.	T	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15886427	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886460	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886469	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886492	.	AAAT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886495	.	T	C,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886540	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886635	.	T	TG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886722	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886732	.	CT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886769	.	T	TA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15886770	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0
+2	15886771	.	G	GA,A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886775	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886790	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15886863	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886867	.	AT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886873	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15886889	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887008	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	.:.:.:.	1|1:4:1|1:1|1
+2	15887115	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887116	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887118	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887134	.	G	GAA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887137	.	GGA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887224	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887234	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887235	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887246	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887251	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887266	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887282	.	C	G,A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887285	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887294	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887314	.	TC	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887324	.	A	AAG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887352	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887393	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887395	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887415	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887436	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887445	.	G	GTTATTTTTATTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887447	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887537	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887541	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887549	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887554	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887565	.	AT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887589	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887612	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887646	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887651	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887662	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887698	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887710	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887728	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	.:.:.:.
+2	15887733	.	T	TC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887738	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887746	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887749	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887764	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887785	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887797	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887804	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887859	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887868	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887882	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887899	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887900	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887917	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887929	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887931	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887938	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15887959	.	G	A,C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887984	.	TTA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15887987	.	TAG	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888010	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888021	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888034	.	TC	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888040	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888061	.	AT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888069	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888085	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888092	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888124	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888127	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888138	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888141	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888169	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888172	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888185	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888232	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888248	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888294	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888298	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888321	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888324	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888342	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1/1:.:1/1:1/1	1|1:4:1|1:1|1	1|1:4:1|1:1|1
+2	15888354	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/0:.:0/0:0/0	0|0:4:0|0:0|0	0|0:4:0|0:0|0
+2	15888379	.	AT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888386	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888388	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888394	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888421	.	TCGC	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888426	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888444	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888457	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888473	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888478	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888485	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888487	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888490	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888499	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888524	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|0:1:0|0:0|0
+2	15888527	.	CT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888532	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888539	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888540	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888544	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888548	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888554	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:3:0|1:0|1	.:.:.:.	0|1:1:0|1:0|1
+2	15888580	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888581	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888584	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888588	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888589	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888595	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888622	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888626	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888630	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888638	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|1:1:0|1:0|1	0|1:1:0|1:0|1
+2	15888658	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888660	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888674	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	0|0:1:0|0:0|0
+2	15888706	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888714	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	1|1:1:1|1:1|1
+2	15888716	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888735	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888744	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888745	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888782	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888787	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888789	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888800	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888827	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888871	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888879	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888894	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888906	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888925	.	ATTTTTT	ATTTTT,A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	0|0:1:0|0:0|0	0/1:.:0/1:0/1
+2	15888935	.	TAAA	TAA,T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	1|1:1:1|1:1|1	0/1:.:0/1:0/1
+2	15888938	.	A	ATT,AAAAAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888944	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15888945	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888949	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15888955	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888962	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888969	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15888990	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15888993	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889001	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	0/1:.:0/1:0/1	1|1:1:1|1:1|1
+2	15889015	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889029	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889035	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889037	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889060	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889130	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889174	.	CT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889207	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889246	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889268	.	G	GAA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889277	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889284	.	GT	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889352	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	1|1:1:1|1:1|1
+2	15889355	.	GC	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	1|1:1:1|1:1|1
+2	15889363	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	1|1:1:1|1:1|1
+2	15889376	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:1:0|0:0|0
+2	15889395	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889473	.	G	GTTGCACAC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889548	.	CCTAAAGG	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889596	.	CAAATAATG	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889651	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889721	.	T	TGTATAA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889736	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889756	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889787	.	C	CTT,CTTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	0/1:.:0/1:0/1
+2	15889851	.	T	TA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889860	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889944	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889945	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15889966	.	GA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15889985	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	1|1:1:1|1:1|1
+2	15890049	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890058	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890079	.	C	A,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	2|2:3:2|2:2|2	2|2:1:2|2:2|2	.:.:.:.
+2	15890080	.	TCA	T,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	2|2:3:2|2:2|2	2|2:1:2|2:2|2	.:.:.:.
+2	15890102	.	T	A,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890103	.	T	A,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890108	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890111	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890123	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	1|1:1:1|1:1|1	.:.:.:.
+2	15890132	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15890137	.	CTTATT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15890138	.	TTA	*,T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15890140	.	A	T,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1	0/1:.:0/1:0/1	1|1:1:1|1:1|1
+2	15890186	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15890341	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:1:0|0:0|0	0|0:1:0|0:0|0
+2	15890347	.	CTTAAA	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|0:6:1|0:1|0	0|0:1:0|0:0|0	1|0:3:1|0:1|0
+2	15890352	.	A	G,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	2|0:6:2|0:2|0	0|0:1:0|0:0|0	2|0:3:2|0:2|0
+2	15890371	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15890389	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15890412	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15890457	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15890464	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15890518	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15890546	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15890549	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15890578	.	C	CGTTTGG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890579	.	T	G,TAACA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15890580	.	A	AAAAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	.:.:.:.
+2	15890583	.	T	TA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890584	.	T	TC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890590	.	C	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15890603	.	G	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15890619	.	T	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15890658	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890660	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890661	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890663	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890677	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890702	.	TG	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890705	.	AAATT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15890729	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890771	.	A	AG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890829	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890845	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890850	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890901	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15890949	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0
+2	15890962	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0
+2	15890966	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0
+2	15891003	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15891088	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15891091	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15891270	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15891283	.	AT	A,ATT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	0|0:1:0|0:0|0	0/1:.:0/1:0/1
+2	15891293	.	T	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891294	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15891297	.	G	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891313	.	G	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891316	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15891317	.	G	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	1:.:1:.	1:.:1:.	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891321	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0/1:.:0/1:0/1
+2	15891335	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0/1:.:0/1:0/1	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15891349	.	A	T	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0/1:.:0/1:0/1
+2	15891357	.	AAAGCCCTGT	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891363	.	C	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891367	.	AGCCCTGTTAGGGCCGG	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15891368	.	G	C,*	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/2:.:0/2:0/2
+2	15891369	.	C	T,*	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1
+2	15891371	.	C	*,A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/2:.:0/2:0/2
+2	15891373	.	G	A,*	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15891374	.	T	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891375	.	T	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891381	.	C	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891384	.	G	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891387	.	G	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891388	.	G	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891389	.	G	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891393	.	C	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891396	.	A	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891398	.	T	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891402	.	G	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891404	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15891406	.	C	.	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15891407	.	G	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891416	.	A	ACGGGC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1
+2	15891418	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891423	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891425	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15891429	.	AAACATATGCG	A,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891446	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15891453	.	TCGGAC	T,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891457	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1
+2	15891462	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15891531	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15891579	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	.:.:.:.	.:.:.:.
+2	15891590	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15891622	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:3:1|1:1|1
+2	15892511	.	TATACAAA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892538	.	GGTATTGAAATGGTC	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15892567	.	C	CT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15892674	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892696	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892736	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15892800	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892809	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892820	.	GT	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892892	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892921	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15892927	.	CTT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15893202	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15893227	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15893258	.	T	TTACC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	0|0:3:0|0:0|0
+2	15893312	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15893449	.	CTTTTT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15893564	.	AATATCTTGATGGTCCCATAT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15893598	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15893599	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15893600	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15893711	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	0/1:.:0/1:0/1	1|1:3:1|1:1|1
+2	15893733	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:1:1|1:1|1	1|1:3:1|1:1|1
+2	15893881	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:1:0|0:0|0	0|0:3:0|0:0|0
+2	15893890	.	A	AAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|0:3:1|0:1|0	1|1:3:1|1:1|1
+2	15893938	.	GTAGGGGACCAGC	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:3:0|0:0|0	0|0:3:0|0:0|0
+2	15893959	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:3:1|1:1|1	1|1:3:1|1:1|1
+2	15893993	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:3:0|0:0|0	0|0:3:0|0:0|0
+2	15894022	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:3:1|1:1|1	1|1:3:1|1:1|1
+2	15894090	.	A	AACTAG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	1|0:3:1|0:1|0	.:.:.:.
+2	15894092	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:3:0|0:0|0	0|0:3:0|0:0|0
+2	15894093	.	T	TTGAACCC,TTGAACCCGCGATACACCGC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|1:6:0|1:0|1	0|0:3:0|0:0|0
+2	15894094	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894095	.	CATAT	C,GATAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:6:0|1:0|1	0|0:3:0|0:0|0
+2	15894100	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894103	.	C	CCGCGA,T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894104	.	T	TACACCGCGGG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894105	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894108	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894110	.	A	AAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894113	.	TCA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894117	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894149	.	CAAATT	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894170	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894171	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894184	.	G	GAGTGT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894185	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894274	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894334	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894361	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894426	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894570	.	GA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894613	.	G	GTA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894636	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894641	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894695	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894701	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894721	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15894762	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894768	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894828	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894833	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894877	.	ATTAACAACACCTTGATATT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894955	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15894991	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895006	.	C	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895008	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895154	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:6:1|1:1|1	.:.:.:.	1|1:3:1|1:1|1
+2	15895188	.	T	TTAGTTTTTAGTATACTTTTTTTTTTTTTGTTAAAG,TTAGTTTTTAGTATACTTTTTTTTTTTTTTGTTAAAG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:6:0|0:0|0	.:.:.:.	1|1:3:1|1:1|1
+2	15895203	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:4:0|1:0|1	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895205	.	TGAGA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|1:4:0|1:0|1	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895209	.	A	ATT,*	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|2:4:0|2:0|2	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895213	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895227	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	.:.:.:.
+2	15895243	.	T	TTACTACGAATTAGGCCTGGGCGTTCGGTTTACTCGGTTTAATCGGTTCGGTTTGATCGGTTTCTGCCGAACGCCCAGACC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	.:.:.:.	0|0:3:0|0:0|0
+2	15895255	.	A	ATAATCAAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895269	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895270	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895273	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895283	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895353	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895433	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895453	.	TTA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895454	.	TA	*,T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	2|2:4:2|2:2|2	2|2:6:2|2:2|2	2|2:3:2|2:2|2
+2	15895486	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895494	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895508	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895563	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	.:.:.:.	1|1:3:1|1:1|1
+2	15895568	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	.:.:.:.	1|1:3:1|1:1|1
+2	15895586	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	.:.:.:.	1|1:3:1|1:1|1
+2	15895596	.	GAT	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	.:.:.:.	1|1:3:1|1:1|1
+2	15895667	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895766	.	T	TTATTAGGAATGTGA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895768	.	A	ATAACTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895822	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895869	.	GTTTT	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0/1:.:0/1:0/1	0|0:6:0|0:0|0	0/1:.:0/1:0/1
+2	15895945	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:4:0|0:0|0	0|0:6:0|0:0|0	0|0:3:0|0:0|0
+2	15895962	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15895989	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15896110	.	GA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:4:1|1:1|1	1|1:6:1|1:1|1	1|1:3:1|1:1|1
+2	15896126	.	AG	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	.:.:.:.	.:.:.:.	1|0:5:1|0:1|0	0|0:6:0|0:0|0	1|0:2:1|0:1|0
+2	15896128	.	AAC	A	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0|0:4:0|0:0|0	.:.:.:.	.:.:.:.	1|0:5:1|0:1|0	0|0:6:0|0:0|0	1|0:2:1|0:1|0
+2	15896138	.	C	CA,CAAA,CAA	.	.	.	GT:PI:PG:PGal	.:.:.:.	0/1:.:0/1:0/1	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:6:1|1:1|1	1|1:2:1|1:1|1
+2	15896152	.	C	CAACGT	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:4:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896174	.	C	CT	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:3:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.
+2	15896180	.	T	TC	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	0/1:.:0/1:0/1	0|0:9:0|0:0|0	0|0:5:0|0:0|0	1|1:5:1|1:1|1	1|1:6:1|1:1|1	1|1:2:1|1:1|1
+2	15896224	.	T	C	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:3:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896258	.	C	T	.	.	.	GT:PI:PG:PGal	0|0:5:0|0:0|0	1|0:3:1|0:1|0	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896306	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:6:1|1:1|1	1|1:2:1|1:1|1
+2	15896406	.	T	TTTAA	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	0|0:9:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896429	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:6:1|1:1|1	1|1:2:1|1:1|1
+2	15896451	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0|0:9:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896460	.	ACTTAG	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:6:1|1:1|1	1|1:2:1|1:1|1
+2	15896496	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896502	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	0|0:2:0|0:0|0
+2	15896517	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	1|1:3:1|1:1|1	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:6:0|0:0|0	.:.:.:.
+2	15896534	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	1|0:5:1|0:1|0	0/1:.:0/1:0/1
+2	15896543	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	1|0:5:1|0:1|0	0/1:.:0/1:0/1
+2	15896544	.	A	AGAGCCG	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0/1:.:0/1:0/1
+2	15896545	.	T	.	.	.	.	GT:PI:PG:PGal	1:.:1:.	0|0:3:0|0:0|0	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.	1:.:1:.
+2	15896546	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	1|0:5:1|0:1|0	0|0:2:0|0:0|0
+2	15896598	.	G	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15896620	.	AT	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896683	.	G	GTT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	.:.:.:.	1|1:2:1|1:1|1
+2	15896737	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	0|0:9:0|0:0|0	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15896764	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15896804	.	G	GTAAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896834	.	A	AC	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896869	.	CTAAAGCAA	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896890	.	TATAAATTATTAAGGC	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896937	.	TAAGGCGTTA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15896981	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897001	.	C	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897003	.	T	TGTTGATGA,TTTTGATGA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897025	.	G	GCTAAT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15897042	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897044	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897048	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897066	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897084	.	G	GA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	0|0:2:0|0:0|0
+2	15897087	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897091	.	T	TA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897096	.	C	CA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897101	.	C	CA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15897117	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897131	.	T	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897140	.	A	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15897167	.	A	ATGGAAG	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	.:.:.:.
+2	15897411	.	G	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	0|0:2:0|0:0|0
+2	15897423	.	G	A	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	0|0:2:0|0:0|0
+2	15897431	.	T	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	0|0:2:0|0:0|0
+2	15897913	.	GA	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:2:0|0:0|0
+2	15897972	.	TACA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	.:.:.:.	0/1:.:0/1:0/1
+2	15898296	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	.:.:.:.
+2	15898340	.	A	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898370	.	TAATATGTGA	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898385	.	C	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898406	.	T	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898440	.	TCTC	T	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	0|0:5:0|0:0|0	0|0:5:0|0:0|0	0|0:2:0|0:0|0
+2	15898452	.	C	CCGTCCGA	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	0|0:5:0|0:0|0	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898454	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	0|0:3:0|0:0|0	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.
+2	15898459	.	CA	C	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898461	.	G	GCA	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898503	.	A	AT	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898529	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898537	.	A	G	.	.	.	GT:PI:PG:PGal	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898569	.	G	GTCTTC	.	.	.	GT:PI:PG:PGal	1|1:5:1|1:1|1	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
+2	15898579	.	TGTG	T,TCAAAATCTGGTG	.	.	.	GT:PI:PG:PGal	1|1:5:1|1:1|1	.:.:.:.	.:.:.:.	.:.:.:.	1|1:5:1|1:1|1	1|1:5:1|1:1|1	1|1:2:1|1:1|1
