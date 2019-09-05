@@ -79,13 +79,29 @@ def vcf_solver(task, args):
     elif task == "SimplifyVCF":
         start_time = time.time()
         print("  Simplifying the VCF records ...")
+        header_name = args.outHeaderName
+        outfile = args.outFile
+        infile = args.inVCF
 
         if args.toType[0] == "haplotype":
-            # print(args)
-            fnc_vcf_to_haplotype(args)
+            pi_tag = args.PI
+            pg_tag = args.PG
+        
+            include_unphased = 'no' if args.includeUnphased in ('0', 'no') else 'yes'
+            
+            #update default argument for VCF to haplotype
+            
+            gtbase = ['PG:iupac'] if not args.GTbase else args.GTbase
+            fnc_vcf_to_haplotype(infile, outfile, header_name, pi_tag, pg_tag, include_unphased, gtbase)
 
         elif args.toType[0] == "table":
-            fnc_vcf_to_table(args)
+            preheader = args.preHeader
+            mode = 'long' if args.mode in ('long', '1') else 'wide'
+            samples = args.samples
+            formats = args.formats
+            infos = args.infos
+            gtbase = args.GTbase 
+            fnc_vcf_to_table(infile, outfile, preheader, mode, gtbase, header_name, infos, formats, samples)
 
         else:
             print("Incorrect file type. Enter valid type: table or haplotype")
@@ -93,12 +109,21 @@ def vcf_solver(task, args):
     ## Starting BuildVCF
     elif task == "BuildVCF":
         start_time = time.time()
+        infile = args.inFile
+        outfile = args.outVCF
         print("  Building VCF ...")
         if args.fromType == "table":
-            fnc_table_to_vcf(args)
+            meta_header = args.vcfHeader
+            samples = args.samples
+            formats = args.formats
+            infos = args.infos
+            genotype_is = args.GTbase
+            fnc_table_to_vcf(infile, meta_header, outfile, samples, formats, infos, genotype_is)
 
         elif args.fromType == "haplotype":
-            fnc_haplotype_to_vcf(args)
+            meta_header = args.vcfHeader
+            hap_format = args.haplotypeFormat
+            fnc_haplotype_to_vcf(infile, meta_header, outfile, hap_format)
 
         else:
             print("Incorrect file type. Enter valid type: table or haplotype")
