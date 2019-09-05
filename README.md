@@ -1,11 +1,25 @@
 # VCF-Simplify &ensp;&ensp;&ensp; v2.2
 
-A python parser to simplify the vcf file into table like format.
-There are several tools available to mainpulate and alter VCF file.
-But, a simple and comprehensive tool that can produce a most simple
-output required by emperical biologist is still amiss.
+**A python parser to parse metadata and records information from VCF file.** 
 
-- [VCF-Simplify &ensp;&ensp;&ensp; v2.1](#vcf-simplify-enspenspensp-v21)
+There are several tools available to manipulate and parse VCF file. But, a simple and comprehensive tool that can extract data in a most efficient (minimal code) way is still amiss. VCF simplify is aimed for users from non-programming background, empirical biologist and team who lack bioinformatics support, however can be used by users at any level to extract VCF data in a most efficient way. This application takes the approach of using minimal scripts to generate maximal output.
+
+**This tool performs following three main tasks:**
+
+1. **ViewVCF** : Display and extract metadata information from VCF files.
+2. **SimplifyVCF** : Convert VCF files to table or haplotype format.
+3. **BuildVCF** : Convert the table or haplotype format file back to VCF.
+
+**Note:** **haplotype** format data is exclusively used in [phase-Stitcher](https://github.com/everestial/pHASE-Stitcher) and [phase-Extender](https://github.com/everestial/phase-Extender) for phasing ReadBackPhased haplotypes.
+
+This application is not designed to merge, compare or compute statistics from VCF files. Tools like [vcflib](https://github.com/vcflib/vcflib) and [bcftools](https://github.com/samtools/bcftools) are the ones better suited for those purpose.
+
+<hr>
+
+###  Table of contents
+
+
+- [VCF-Simplify](#vcf-simplify--v22)
   - [Tutorial](#tutorial)
     - [Prerequisites](#prerequisites)
     - [Installation and setup](#installation-and-setup)
@@ -13,77 +27,73 @@ output required by emperical biologist is still amiss.
     - [ViewVCF](#viewvcf)
     - [SimplifyVCF](#simplifyvcf)
     - [BuildVCF](#buildvcf)
-  - [Upcoming features:](#upcoming-features)
-    - [Citation:](#citation)
+- [Upcoming features](#upcoming-features)
+- [Citation](#citation)
 
-This tool performs following three tasks:
-
-1. ViewVCF (Display and extract the metadata from the vcf files.)
-2. SimplifyVCF (Conversion of vcf files into table format and haplotype.)
-3. BuildVCF (Conversion from table or haplotyoe to vcf files.)
-
-- **Convert VCF to TABLE**\
-    This tool takes in sorted vcf file and reports a simplified table output
-for `INFO` and `FORMAT` field for each `SAMPLE` of interest. With default
-state (minimal code) all the `INFO`, `FORMAT` for all the `SAMPLE` are
-simplified. Fields can be further narrowed down using very convenient
-and comprehensive scripts.
-
-- **Convert TABLE to VCF**\
-    It is also possible to convert the TABLE file into VCF. Controlled,
-    workflows are included.
-
-**Exclusively for [phase-Stitcher](https://github.com/everestial/pHASE-Stitcher) and [phase-Extender](https://github.com/everestial/phase-Extender).**\
-
-  - **Convert VCF to Haplotype**\
-    It is also possible to convert the TABLE file into VCF. Controlled,
-    workflows are included.
-
-  - **Convert Haplotype to VCF**\
-    It is also possible to convert the TABLE file into VCF. Controlled,
-    workflows are included.
+<br>
 
 ## Tutorial
 
 ### Prerequisites
 
-**VCF Simplify** is written in python3, so you need to have python3 installed on your system to run this code locally. If you don't have python installed then, you can install from [here](https://www.python.org/downloads/). For linux; you can get latest python3 by:
+**VCF Simplify** is written in **python3** and only uses standard built-in modules. So, all you need is **`python3`** installed on your system (windows, mac, ubuntu) to run this code locally. If you do not have python installed, you can install it from **[here](https://www.python.org/downloads)**. For linux; you can get latest **python3** by:
 
-` sudo apt-get install python3`
+```bash
+sudo apt-get install python3
+```
 
+<br>
 
 ### Installation  and setup
 
-1. Clone this repo.
+1. **Clone this repo**
 
-``` 
+``` bash
 git clone https://github.com/everestial/VCF-SimplifyDev
 cd VCF-SimplifyDev
+
+# call the "VCF-Simplify" application
+python3 VcfSimplify.py -h
 ```
 
-2. Make virtual env for python and install requirements.
+2. **Cythonize** (Optional but helpful for faster performance) 
 
-```
-python3 -m venv myenv
-source myenv/bin/activate   # for linux
-myenv\Scripts\activate      # for windows
-pip install Cython
-```
+   - **Create and activate a virtual environment**
 
-3. In order to cythonize(so that app runs faster):
-   
-`python3 setup.py build_ext --inplace`
+     ```bash
+     # create virtual environment named "myenv"
+     python3 -m venv myenv       # rename environment as required
+     
+     # activate the environment 
+     source myenv/bin/activate   # for linux
+     myenv\Scripts\activate      # for windows
+     ```
 
-This makes .so files in your build directory and it will be called when importing modules rather than actual modules.
+   - **Install `Cython` library**
 
-4. Run help on VCFSimplify by:
-   
-<pre>
+     ```bash
+     (myenv)$ pip install Cython
+     ```
+
+   - **Cythonize (so that app runs faster)**
+
+     ```bash
+     # cythoize using the 'setup.py' file in "VCF Simplify"
+     (myenv)$ python3 setup.py build_ext --inplace
+     ```
+
+     This makes .so files in your build directory and it will be called when importing modules rather than actual modules.
+     
+
+3. **Call `VCFSimplify`** 
+
+```bash
 $ python3 VcfSimplify.py -h
 
-    ## VCF Simplify ## : Python application for parsing VCF files.
-    Author: Bishwa K. Giri
-    Contact: bkgiri@uncg.edu, kirannbishwa01@gmail.com
+## VCF Simplify ## : Python application for parsing VCF files.
+Author: Bishwa K. Giri
+Contact: bkgiri@uncg.edu, kirannbishwa01@gmail.com
+
 
 usage: VCF-Simplify [-h] {ViewVCF,SimplifyVCF,BuildVCF} ...
 
@@ -96,17 +106,22 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
+```
+**Three available functions are shown:**  
 
-</pre>
+- ViewVCF, SimplifyVCF, BuildVCF.
+- Each function can be further expanded as shown in the **"Usage"** below.
+
+<br>
 
 ## Usage
 
 ### ViewVCF
 
-- Help on view vcf:
+- Help on **ViewVCF**:
 
 
-<pre>
+```html
 $ python3 VcfSimplify.py ViewVCF -h
 
     ## VCF Simplify ## : Python application for parsing VCF files.
@@ -133,23 +148,34 @@ optional arguments:
                         Allowed values are: 
                           VCFspec, reference, contig, samples, INFO, FORMAT, FILTER, GATKCommandLine, GVCFBlock.
                         Multiple choices can be requested.
-</pre>
+```
 
-- Example A-01 Write metadata from VCF file as table, json, dict
-  ```python3 VcfSimplify.py ViewVCF -inVCF exampleInput/input_test.vcf -outFile exampleOutput/testOutput -outType table json dict```
+**examples:** 
+
+- Write metadata from VCF file as table, json, dict
   
-  This will create output of vcf headers into three format(table, json and dict) as testOutput.table and so on.
+  ```bash
+  python3 VcfSimplify.py ViewVCF -inVCF exampleInput/input_test.vcf -outFile exampleOutput/testOutput -outType table json dict  
+  ```
+This will write metadata information from vcf headers into three format (table, json and dict) as testOutput.table and so on. 
+  
+  **Note:** Since no `-metadata` flag is invoked, at default state all the available metadata are extracted.
 
-- Example A-02 View only specific metadata of interest (on console)
+<br>
 
-  ```python3 VcfSimplify.py ViewVCF -inVCF exampleInput/input_test.vcf -outFile exampleOutput/testOutput -metadata VCFspec samples```
+- Use `-metadata` flag to extract only specific metadata of interest (on console)
 
-  This will print metadata info in the console.
+  ```bash
+  python3 VcfSimplify.py ViewVCF -inVCF exampleInput/input_test.vcf -metadata VCFspec samples
+  ```
+  Since no output filename is given, this will print metadata info in the console. 
+
+<br>
 
 ### SimplifyVCF
 
-- Help on SimplifyVCF
-<pre>
+- Help on **SimplifyVCF**
+```html
 $ python3 VcfSimplify.py SimplifyVCF -h
 
     ## VCF Simplify ## : Python application for parsing VCF files.
@@ -234,26 +260,49 @@ Additional arguments for "VCF To -> Table":
   -mode {wide,long,0,1}
                         Structure of the output table. Default = wide (0)
 
-</pre>
+```
+<br>
 
-- Example B-01 : VCF to Table
-  
+**examples:** VCF to Table
+
+- Convert specific metadata into simplified tsv format
+
 ```python3 VcfSimplify.py SimplifyVCF -toType table -inVCF exampleInput/input_test.vcf -outFile exampleOutput/simple_table.txt -infos AF AN BaseQRankSum ClippingRankSum -formats GT PI PG GQ PL -preHeader CHROM POS REF ALT FILTER -mode wide -samples MA605 match:ms -GTbase GT:iupac PG:iupac -outHeaderName exampleOutput/vcf_header02.txt```
 
- This converts input_test.vcf file into simple_table.txt file using the arguments provided above.
+ This converts [***input_test.vcf***](exampleInput/input_test.vcf) into [***simple_table.txt***](exampleOutput/simple_table.txt) file using the arguments provided above.
 
-- Example B-02 : VCF to Haplotype
-  
+ <br>
+
+ - Convert all the VCF into simplified tsv format 
+
+ ```python3 VcfSimplify.py SimplifyVCF -toType table -inVCF exampleInput/input_test.vcf -outFile exampleOutput/simple_table.txt```
+
+ If no specific argument flag is raised, then all the tags from INFO and FORMAT (for all the samples) are simplified as tsv. 
+
+
+<br>
+
+**example:** VCF to Haplotype
+
 ```python3 VcfSimplify.py SimplifyVCF -toType haplotype -inVCF exampleInput/input_test.vcf -outFile exampleOutput/simple_haplotype.txt -outHeaderName exampleOutput/vcf_header02.txt -PI PI -PG GT -GTbase GT:numeric -includeUnphased yes```
 
-This converts input_test.vcf file into simple_haplotype.txt file using the arguments provided above. It also saves the header info intp vcf_header02.txt file.
+This converts [***input_test.vcf***](exampleInput/input_test.vcf) into [***simple_haplotype.txt***](exampleOutput/simple_haplotype.txt). 
 
+The raised arugments do the following:  
+
+  - `PI` from the FORMAT is used as unique index for the phased block for each sample. 
+  - phased genotypes are extracted from `GT`.
+  - phased genotypes are represented as numerical bases. 
+  - uphased genotypes are also written to haplotype file. 
+  - header info is written as [***vcf_header02.txt***](exampleOutput/vcf_header02.txt).
+
+<br>
 
 ### BuildVCF
 
 - Help on BuildVCF
   
-<pre>
+```
  $ python3 VcfSimplify.py BuildVCF -h   
 
     ## VCF Simplify ## : Python application for parsing VCF files.
@@ -309,18 +358,23 @@ Additional arguments for "Table To VCF":
 Additional arguments for "Haplotype To VCF":
   -haplotypeFormat      report which format (numeric vs. iupac) the haplotype file is in.
                         Default = iupac
-</pre>
+```
 
-- Example C01: From table to vcf:
-  
+<br>
+
+**example:** Table to VCF
+
   ```python3 VcfSimplify.py BuildVCF -fromType table -inFile exampleOutput/simple_table.txt -outVCF exampleOutput/tableToVcf.vcf -vcfHeader exampleOutput/vcf_header02.txt```
 
-  This converts the input table (simple_table.txt) to vcf file(tableToVcf.vcf) and also saves header into vcf_header02.txt file.
+  This converts the input table [***simple_table.txt***](exampleOutput/simple_table.txt) to vcf file [***tableToVcf.vcf***](exampleOutput/tableToVCF.vcf) and adds [***vcf_header02.txt***](exampleOutput/vcf_header02.txt) as metadata header.
 
-- Example C02: From haplotype to vcf:
+<br>
+
+**example:** haplotype to VCF
+
   ```python3 VcfSimplify.py BuildVCF -fromType haplotype -inFile exampleOutput/simple_haplotype.txt -outVCF exampleOutput/hapToVCF.vcf -vcfHeader exampleOutput/vcf_header.txt -haplotypeFormat iupac```
 
-  This converts back the haplotype file created using simplify vcf into its original vcf file along with header file.
+  This converts the haplotype file [***simple_haplotype.txt***](exampleOutput/simple_haplotype.txt) created using simplify vcf into its original vcf file [***hapToVCF.vcf***](exampleOutput/hapToVCF.vcf) along with header file.
 
 
 ##  Upcoming features:
@@ -335,4 +389,3 @@ Additional arguments for "Haplotype To VCF":
 
 ### Citation:
   &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
-
