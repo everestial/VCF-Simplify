@@ -1,34 +1,26 @@
 import time
 import sys
 
+from collections import OrderedDict
+from metadata_parser.utils import time_memory_track
+
 """Step 03 (D): Function for Table To VCF"""
+@time_memory_track
+def fnc_table_to_vcf(infile, meta_header, outfile, samples, formats, infos, genotype_is):
 
-
-def fnc_table_to_vcf(args):
     print("converting Table file to VCF")
 
     begin_time = time.time()
 
-    """Assign some input variables. """   
-    
-    infile = args.inFile
-    meta_header = args.vcfHeader
-    outfile = args.outVCF
-    samples = args.samples
-    formats = args.formats
-    infos = args.infos
-    
-    # find the genotype tags that are in iupac bases 
-    genotype_is = args.GTbase     
     gt_tag_as_iupac = []
     for gts_tag in genotype_is:
-        tag_format = gts_tag.split(':')
-        if tag_format[1] == 'iupac':
+        tag_format = gts_tag.split(":")
+        if tag_format[1] == "iupac":
             gt_tag_as_iupac.append(tag_format[0])
 
-
     with open(infile) as tablefile, open(meta_header) as meta_header, open(
-        outfile, "w+") as vcf_out:
+        outfile, "w+"
+    ) as vcf_out:
 
         """Start reading the haplotype file as generator. This saves memory. """
         for line in tablefile:
@@ -54,176 +46,75 @@ def fnc_table_to_vcf(args):
 
             if line.startswith("CHROM") or line.startswith("#CHROM"):
                 header_line = line.rstrip("\n").split("\t")
-                
-                
-                ################# function 01 ######################
-                ## ?? Bhuwan - move this as a preheader to another function and optimize if posible
 
-                if "CHROM" in header_line:
-                    contig_idx = header_line.index("CHROM")
-                    
-                    # update the taken header "labels"
-                    used_header += ["CHROM"]
-                    
-                elif "#CHROM" in header_line:
-                    contig_idx = header_line.index("#CHROM")
-                                                   
-                    # update the taken header "labels"
-                    used_header += ["#CHROM"]
-                else:
-                    print("CHROM field does not exist in the input table file. Update your file")
-                    print("Exiting the program")
-                    sys.exit(0)
+                contig_idx, contig_header = check_chrom_in_headerline(header_line)
+                used_header.append(contig_header)
 
-                if "POS" in header_line:
-                    pos_idx = header_line.index("POS")
-                    used_header += ["POS"]
-                else:
-                    print("POS field does not exist. Update your file")
-                    print("Exiting the program")
-                    sys.exit()                
+                pos_idx = check_pos_headerline(header_line)
+                id_idx = header_line.index("ID") if "ID" in header_line else None
+                ref_idx = header_line.index("REF") if "REF" in header_line else None
+                alt_idx = header_line.index("ALT") if "ALT" in header_line else None
+                qual_idx = header_line.index("QUAL") if "QUAL" in header_line else None
+                filter_idx = (
+                    header_line.index("FILTER") if "FILTER" in header_line else None
+                )
 
-                if "ID" in header_line:
-                    id_idx = header_line.index("ID")
-                else:
-                    id_idx = None
-                used_header += ["ID"]
+                used_header.extend(
+                    ["POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT"]
+                )
 
-                if "REF" in header_line:
-                    ref_idx = header_line.index("REF")
-                else:
-                    ref_idx == None
-                used_header += ["REF"]
-
-                if "ALT" in header_line:
-                    alt_idx = header_line.index("ALT")
-                else:
-                    alt_idx = None
-                used_header += ["ALT"]
-
-                if "QUAL" in header_line:
-                    qual_idx = header_line.index("QUAL")
-                else:
-                    qual_idx = None
-                used_header += ["QUAL"]
-
-                if "FILTER" in header_line:
-                    filter_idx = header_line.index("FILTER")
-                else:
-                    filter_idx = None
-                used_header += ["FILTER"]
-                ################## function 01 ends here ######
-                
-                
-                ###############function 02 ##################################
-                ## ?? Bhuwan - move this to a function and optimize the process 
                 """INFO tags are identified by matching "INFO:" in the column names."""
                 infos_in_header = [x for x in header_line if x.startswith("INFO:")]
                 all_infos = [x.replace("INFO:", "") for x in infos_in_header]
-                
-                if len(all_infos) == 0:
-                    print("INFO tags are not available.")
-                    print("INFO field will be populated with empty '.' value")
-                    info_tags = []
-                    
-                elif infos[0] == 'all':
-                    info_tags = all_infos
-                    print("Using the following metrics as INFO tags: ")
-                    print("    %s" % info_tags)
-                else: 
-                    info_tags = infos
-                    
-                    ## find any missing INFO tags or any nonsense tag
-                    non_matching_infos = list(set(info_tags) - set(all_infos))
-                    non_used_infos = list(set(all_infos) - set(info_tags))
-                    
-                    if len(non_matching_infos) > 0:
-                        print("the following user provided infos are not available in input file")
-                        print("  %s" % non_matching_infos)
-                        
-                    if len(non_used_infos) > 0:
-                        print("the following INFO tags won't be put in INFO fields of output VCF")
-                        print("  %s" %non_used_infos)
-                        
+
+                info_tags = process_fields(
+                    given_field=infos, all_fields=all_infos, tag="info"
+                )
+
                 # also find the position of the info tags on header line
                 infos_idx = []
                 if len(info_tags) != 0:
                     for inftag in info_tags:
                         infos_idx.append(header_line.index("INFO:" + inftag))
                 else:
-                    infos_idx = None                      
-                ##########################  #######################
-                
+                    infos_idx = None
 
-                ##############function 03 ################################
-                ## ?? Bhuwan - move this to a separate function and optimize the process if possible 
                 """SAMPLE names and FORMAT tags are identified using ":" delimiter in the column names, 
                     after excluding the INFO fields."""
-                possible_samples = [x for x in header_line if ':' in x]
-                
-                # remove the INFO fields 
-                samples_and_formats = list(set(possible_samples) - set(infos_in_header))
-                
-                # split and set to collect unique sample names and unique format tags 
-                # make sure to add process so the order is maintained
-                all_samples = list(set([x.split(':')[0] for x in samples_and_formats]))
-                all_formats = list(set([x.split(':')[1] for x in samples_and_formats]))
-                              
-                
+                possible_samples = [x for x in header_line if ":" in x]
+                # get sample names and unique format tags  by removing info tags
+                samples_and_formats = [
+                    x for x in possible_samples if x not in infos_in_header
+                ]
+
+                # separate samples and formats
+                all_samples = [x.split(":")[0] for x in samples_and_formats]
+                all_formats = [x.split(":")[1] for x in samples_and_formats]
+
+                # unique sample names and  format tags in order
+                all_samples = set_of_list_order(all_samples)
+                all_formats = set_of_list_order(all_formats)
+
                 # find the available format tags
-                # ?? Bhuwan - write this as a separate function or subfunction
-                #### sub function 03 A 
-                ### prepare sample names 
-                if formats[0]== "all":
-                    format_tags = all_formats
-                elif len(formats) == 0:
-                    print("No format tags available.")
-                    format_tags = []  
-                else: format_tags =  formats 
+                format_tags = process_fields(
+                    given_field=formats, all_fields=all_formats, tag="formats"
+                )
 
                 # In the available FORMAT tags, move "GT" field to the beginning.
                 if "GT" in format_tags:
                     format_tags.remove("GT")
                     format_tags.insert(0, "GT")
-                         
-                
-                
-                ## ?? Bhuwan - write as sub function 03 B 
-                ### prepare sample names 
-                if samples[0]== "all":
-                    sample_names = all_samples
-                elif len(samples) == 0:
-                    print("No sample available.")
-                    sample_names = []  
-                else: 
-                    sample_names = samples
-                    nonsense_sample_names = [x for x in samples if not x in all_samples]
-                    if len(nonsense_sample_names) > 0:
-                        print("The following sample names %s are not available in table file and not valid." 
-                              % nonsense_sample_names)
-                        sys.exit(0)                         
-                
-                used_header += sample_names
 
-                
-                
+                ### prepare sample names
+                sample_names = process_fields(
+                    given_field=samples, all_fields=all_samples, tag="samples"
+                )
+                used_header.extend(sample_names)
+                print(used_header)
 
-                ### ?? Bhuwan - write as function 04 and optimize 
                 """ Now, Read the meta header and add it to the output VCF file. """
                 print('\nReading meta header from file "%s" ' % (meta_header.name))
-
-                if meta_header != None:
-                    meta_info = meta_header.readlines()
-                    # if the meta header has "#CHROM	POS	REF ...." line then delete it
-                    if meta_info[-1].startswith("#CHROM\tPOS"):
-                        meta_info = "".join(meta_info[:-1]).rstrip("\n")
-                    else:
-                        meta_info = "".join(meta_info).rstrip("\n")
-
-                else:
-                    print("Header with meta information is not provided")
-                    print("Exiting the program")
-                    sys.exit(0)
+                meta_info = get_meta_info(meta_header)
 
                 # add meta header to the output VCF file
                 meta_info += "\n"
@@ -246,16 +137,12 @@ def fnc_table_to_vcf(args):
 
                 # add SAMPLE fields to output VCF file
                 meta_info += "\t".join(sample_names)
+                # print(meta_info)
 
                 # Finally, write the header part of the output VCF
                 vcf_out.write(meta_info + "\n")
-                
-                ######### function 04 ends here ###########
-                
 
                 continue
-                # break
-            
 
             """' Now, extract the required data from each of the remaining lines add to output VCF. """
             updated_line = table_to_vcf(
@@ -298,46 +185,18 @@ def table_to_vcf(
     sample_names,
     gt_tag_as_iupac,
     header_line,
-): 
-    
+):
 
     line = line_in.rstrip("\n").split("\t")
-    
-    
-    if contig_idx is not None:
-        chrom = line[contig_idx]
-    else:
-        chrom = "."
-        
-    if pos_idx is not None:
-        pos = line[pos_idx]
-    else:
-        pos = "."
 
-    if id_idx is not None:
-        ids = line[id_idx]
-    else:
-        ids = "."
-        
-    if ref_idx is not None:
-        ref = line[ref_idx]
-    else:
-        ids = "."
-        
-    if alt_idx is not None:
-        alt = line[alt_idx]
-    else:
-        alt = "."
-
-    if qual_idx is not None:
-        qual = line[qual_idx]
-    else:
-        qual = "."
-
-    if filter_idx is not None:
-        filter_ = line[filter_idx]
-    else:
-        filter_ = "."
+    chrom = line[contig_idx] if contig_idx is not None else "."
+    pos = line[pos_idx] if pos_idx is not None else "."
+    ids = line[id_idx] if id_idx is not None else "."
+    ref = line[ref_idx] if ref_idx is not None else "."
+    alt = line[alt_idx] if alt_idx is not None else "."
+    qual = line[qual_idx] if qual_idx is not None else "."
+    filter_ = line[filter_idx] if filter_idx is not None else "."
+    format_ = ":".join(format_tags) if format_tags is not None else "."
 
     # Update "info tags and value". This is little complex
     if info_tags != []:
@@ -348,12 +207,6 @@ def table_to_vcf(
         info_ = ";".join(info_)
     elif info_tags == []:
         info_ = "."
-
-    # write the tags names of the FORMAT column
-    if format_tags != None:
-        format_ = ":".join(format_tags)
-    else:
-        format_ = "."
 
     # update the output line
     line_out = (
@@ -376,7 +229,7 @@ def table_to_vcf(
 def update_sample_format(
     line, ref, alt, sample_names, format_tags, header_line, gt_tag_as_iupac
 ):
-    
+
     # The "line" variable is passed into this function.
     # The global variables are "genotype_is", "sample_names" and "format_tags"
 
@@ -393,32 +246,17 @@ def update_sample_format(
 
             """ further update the sample:format value if GT in table is as IUPAC base """
             if tagx in gt_tag_as_iupac:
-                if (
-                    sample_format_val == "."
-                    or sample_format_val == "./."
-                    or sample_format_val == ".|."
-                ):
+                if sample_format_val in (".", "./.", ".|."):
                     continue
-
-                elif "/" in sample_format_val:
-                    sample_format_val = sample_format_val.split("/")
-
+                else:
+                    sep = "/" if "/" in sample_format_val else "|"
+                    sample_format_val = sample_format_val.split(sep)
                     sample_format_val = [
                         all_alleles.index(sample_format_val[0]),
                         all_alleles.index(sample_format_val[1]),
                     ]
 
-                    sample_format_val = "/".join(str(xth) for xth in sample_format_val)
-
-                elif "|" in sample_format_val:
-                    sample_format_val = sample_format_val.split("|")
-
-                    sample_format_val = [
-                        all_alleles.index(sample_format_val[0]),
-                        all_alleles.index(sample_format_val[1]),
-                    ]
-
-                    sample_format_val = "|".join(str(xth) for xth in sample_format_val)
+                    sample_format_val = sep.join(str(xth) for xth in sample_format_val)
 
             namex_vals.append(sample_format_val)
 
@@ -427,3 +265,74 @@ def update_sample_format(
     sample_format_final = "\t".join(format_sample_line)
 
     return sample_format_final
+
+
+def check_chrom_in_headerline(header_line):
+    if "#CHROM" in header_line:
+        return header_line.index("#CHROM"), "#CHROM"
+    elif "CHROM" in header_line:
+        return header_line.index("CHROM"), "CHROM"
+    else:
+        print("CHROM field does not exist in the input table file. Update your file")
+        print("Exiting the program")
+        sys.exit(0)
+
+
+def check_pos_headerline(header_line):
+    if "POS" in header_line:
+        return header_line.index("POS")
+    else:
+        print("POS field does not exist. Update your file")
+        print("Exiting the program")
+        sys.exit()
+
+
+def process_fields(given_field, all_fields, tag):
+    if given_field[0] == "all":
+        return all_fields
+    elif len(given_field) == 0:
+        print(f"No {tag} available.")
+        if tag == "info":
+            print("INFO field will be populated with empty '.' value")
+        return []
+    else:
+        if tag == "formats":
+            return given_field
+        else:
+            nonsense_fields = [x for x in given_field if not x in all_fields]
+            not_used_fields = [x for x in all_fields if not x in given_field]
+            if tag == "info":
+                if len(not_used_fields):
+                    print(
+                        "the following INFO tags won't be put in INFO fields of output VCF"
+                    )
+
+            if len(nonsense_fields):
+                print(
+                    f"The following {nonsense_fields} {tag} are not available in table file and not valid."
+                )
+                sys.exit(0)
+            else:
+                return given_field
+
+
+def get_meta_info(meta_header):
+    if meta_header:
+        meta_info = meta_header.readlines()
+        # if the meta header has "#CHROM	POS	REF ...." line then delete it
+        if meta_info[-1].startswith("#CHROM\tPOS"):
+            return "".join(meta_info[:-1]).rstrip("\n")
+        else:
+            return "".join(meta_info).rstrip("\n")
+
+    else:
+        print("Header with meta information is not provided")
+        print("Exiting the program")
+        sys.exit(0)
+
+
+def set_of_list_order(input_list):
+    outtemp = OrderedDict()
+    for item in input_list:
+        outtemp[item] = None
+    return list(outtemp)

@@ -2,19 +2,15 @@ import sys
 import time
 import re
 
+from metadata_parser.utils import time_memory_track
+
 """Step 03 (C): Function for Haplotype To VCF"""
+@time_memory_track
+def fnc_haplotype_to_vcf(infile, meta_header, outfile, hap_format):
 
-
-def fnc_haplotype_to_vcf(args):
     print("converting Haplotype file to VCF")
     begin_time = time.time()
-
-    """Assign some input variables. """
-    infile = args.inFile
-    meta_header = args.vcfHeader
-    outfile = args.outVCF
-    hap_format = args.haplotypeFormat
-
+    
     with open(infile) as hapfile, open(meta_header) as meta_header, open(
         outfile, "w+"
     ) as vcf_out:

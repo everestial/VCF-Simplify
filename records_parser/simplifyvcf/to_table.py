@@ -5,22 +5,13 @@ import warnings
 
 from metadata_parser.vcf_metadata_parser import VcfReadMetaData
 from records_parser.vcf_records_parser import VcfReadIndividualRecord
+from metadata_parser.utils import time_memory_track
 
 """Step 03 (B) : Function for VCF To Table."""
-
-
-def fnc_vcf_to_table(args):
+@time_memory_track
+def fnc_vcf_to_table(input_vcf, out_filename, preheader, mode, gtbase, header_name, infos, formats, samples):
     # extract metadata and raw header from the input VCF
-    metadata, only_header, record_keys = VcfReadMetaData(args.inVCF).read_metadata()
-
-
-    ## Alternative way to access the class attributes 
-    ## read_metadata should return self instead of metadata, only_header, record_keys for the following to work 
-    # vcf_obj_meta = VcfReadMetaData(args.inVCF).read_metadata()
-    # metadata = vcf_obj_meta.metadict
-    # record_keys = vcf_obj_meta.record_keys
-    # only_header = vcf_obj_meta.raw_header
-
+    metadata, only_header, record_keys = VcfReadMetaData(input_vcf).read_metadata()
 
     all_info = [info["ID"] for info in metadata["INFO"]]
     all_samples = [x["name"] for x in metadata["samples"]]
@@ -31,47 +22,44 @@ def fnc_vcf_to_table(args):
     print()
 
     # method to write raw header to user provided filename
-    if args.outHeaderName: 
+    if header_name: 
         print("Writing the header to a separate output file.")
-        with open(args.outHeaderName, "w") as vcfheader:
+        with open(header_name, "w") as vcfheader:
             vcfheader.write(only_header)
     else:
         print("Skipping the header.")
     print()
 
     # Step 02: Now, pipe the "input arguments" to a variable
-    pre_header = args.preHeader
 
-    if args.mode == "1" or args.mode == "long":
-        mode = "long"
+    if  mode == "long":
         print("Writing table in a long format.")
         print()
     else:
-        mode = "wide"
         print("Writing table in a wide format.")
         print()
 
     # find the requested output format for the genotypes of interest 
-    gtbase = parse_genotypes_format(args.GTbase)    
-    for gts in gtbase:
+    gtbases = parse_genotypes_format(gtbase)    
+    for gts in gtbases:
         print("sample genotypes tag '%s' are written as '%s' bases" % (gts[0], gts[1]))
 
 
     # Step 03: Read vcf file using cyvcf2 and start mining the data
     start_time01 = time.time()
     # with open("simplified_vcf.txt", 'w') as write_block:
-    with open(args.outFile, "w") as write_block, open(args.inVCF) as invcf:
+    with open(out_filename, "w") as write_block, open(input_vcf) as invcf:
 
         # get field values according to arguments and all possible tags
-        my_preheader = process_fields(args.preHeader, all_preheader, argument_flag = '-preHeader')
-        my_infos = process_fields(args.infos, all_info, argument_flag = '-infos')
-        my_formats = process_fields(args.formats, all_format, argument_flag = '-formats')
+        my_preheader = process_fields(preheader, all_preheader, argument_flag = '-preHeader')
+        my_infos = process_fields(infos, all_info, argument_flag = '-infos')
+        my_formats = process_fields(formats, all_format, argument_flag = '-formats')
 
         matches = ["prefix:", "suffix:", "match:"]
-        if any(elem.startswith(x) for x in  matches for elem in args.samples):
-            my_samples = find_sample_name_by_stringmatch(args.samples, all_samples)
+        if any(elem.startswith(x) for x in  matches for elem in samples):
+            my_samples = find_sample_name_by_stringmatch(samples, all_samples)
         else:
-            my_samples = process_fields(args.samples, all_samples, argument_flag = '-samples')
+            my_samples = process_fields(samples, all_samples, argument_flag = '-samples')
         #print(my_samples)
         
         # ensure that sample names and format tags are in sync
@@ -182,9 +170,13 @@ def fnc_vcf_to_table(args):
 
 
 def process_fields(given_tags, all_fields, argument_flag):
-    if given_tags[0] == "all":
+    if isinstance(given_tags, str) and given_tags == 'all':
+        return all_fields
+    elif given_tags[0] == "all":
         return all_fields
     elif given_tags[0] == "0":
+        return []
+    elif isinstance(given_tags, str) and given_tags == "0":
         return []
     else:
         #print(f'given_tags: {given_tags}') 
@@ -300,6 +292,5 @@ def parse_genotypes_format(gtbase):
         gt_output.append(gts.split(':'))
         
     return tuple(gt_output)
-
 
 

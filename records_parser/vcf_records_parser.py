@@ -3,6 +3,7 @@ import collections
 from collections import OrderedDict
 import sys
 import re
+import warnings
 
 
 
@@ -29,13 +30,29 @@ class _RecordParser:
         record_dict = OrderedDict(zip(record_keys, record_values))
         return record_dict
 
+
     @staticmethod
     def map_info_tags_to_values(string):
-        splitter = shlex.shlex(string, posix=True)
-        splitter.whitespace_split = True
-        splitter.whitespace = ";"
-        info_dict = OrderedDict(pair.split("=", 1) for pair in splitter)
-        return info_dict
+        # splitter = shlex.shlex(string, posix=True)
+        # splitter.whitespace_split = True
+        # splitter.whitespace = ";"
+        # info_dict = OrderedDict(pair.split("=", 1) for pair in splitter)
+
+        try:
+            mapped_info = dict(s.split("=", 1) for s in string.split(";"))
+        except ValueError:
+            # warnings.warn(
+            #     f"This info tag doesnot have '=' sign in info : {string}.\
+            #     Such keys will be populated with '.' values"
+            # )
+            mapped_info = {}
+            for s in string.split(";"):
+                if "=" in s:
+                    k, v = s.split("=")
+                    mapped_info[k] = v
+                else:
+                    mapped_info[s] = "."
+        return mapped_info
 
     @staticmethod    
     def convert_genotypes(ref_and_alt, numeric_genotype):

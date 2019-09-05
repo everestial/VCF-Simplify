@@ -1,3 +1,32 @@
+import os
+import time
+
+import resource
+
+
+def elapsed_since(start):
+    return time.time() - start
+
+
+def get_process_memory():
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+
+
+def time_memory_track(func):
+    def wrapper(*args, **kwargs):
+        mem_before = get_process_memory()
+        start = time.time()
+        result = func(*args, **kwargs)
+        elapsed_time = elapsed_since(start)
+        mem_after = get_process_memory()
+        print("{}: memory before: {:,}, after: {:,}, consumed: {:,}; exec time: {} seconds".format(
+            func.__name__,
+            mem_before, mem_after, mem_after - mem_before,
+            elapsed_time))
+        return result
+    return wrapper
+
+
 """Collection of several utilities used while parsing VCF."""
 
 

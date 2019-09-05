@@ -4,6 +4,7 @@ import itertools
 
 from metadata_parser.vcf_metadata_parser import VcfReadMetaData
 from records_parser.vcf_records_parser import VcfReadIndividualRecord
+from metadata_parser.utils import time_memory_track
 
 ## to do ?? Bishwa:
 # have a method to replace args.PI, args.PG with any format tags (not just GT and PGs)
@@ -13,37 +14,22 @@ from records_parser.vcf_records_parser import VcfReadIndividualRecord
 
 
 """Step 03 (A): Function for VCF To Haplotype """
-
-# print('\navailable paths to haplotype level: %s' % sys.path)
-print()
-
-
-def fnc_vcf_to_haplotype(args):
+@time_memory_track
+def fnc_vcf_to_haplotype(input_vcf, out_filename, header_name, pi_tag, pg_tag, include_unphased, gtbase):
 
     print("Creating Haplotype file from VCF file")
     start_time01 = time.time()
-    pi_tag = args.PI
-    pg_tag = args.PG
-    
-    if args.includeUnphased == '0' or args.includeUnphased == 'no':
-        include_unphased = 'no'
-    else: include_unphased = 'yes'
-    
-    #update default argument for VCF to haplotype
-    if args.GTbase == ['GT:numeric']: 
-        args.GTbase = ['PG:iupac']
-
     # extract metadata and raw header from the input VCF
-    metadata, only_header, record_keys = VcfReadMetaData(args.inVCF).read_metadata()
+    metadata, only_header, record_keys = VcfReadMetaData(input_vcf).read_metadata()
     sample_ids = [x["name"] for x in metadata["samples"]]
 
     print("%i samples found" % len(sample_ids))
     print()
 
     # method to write raw header to user provided filename
-    if args.outHeaderName:
+    if header_name:
         print("Writing the header to a separate output file.")
-        with open(args.outHeaderName, "w") as vcfheader:
+        with open(header_name, "w") as vcfheader:
             # vcfheader.write(vcf_file.raw_header)
             vcfheader.write(only_header)
     else:
@@ -51,11 +37,11 @@ def fnc_vcf_to_haplotype(args):
     print()
     
     # find the requested output format for the genotypes of interest 
-    gtbase = parse_genotypes_format(args.GTbase)    
+    gtbase = parse_genotypes_format(gtbase)    
     for gts in gtbase:
         print("sample genotypes tag '%s' are written as '%s' bases" % (gts[0], gts[1]))
 
-    with open(args.outFile, "w") as write_block, open(args.inVCF) as invcf:
+    with open(out_filename, "w") as write_block, open(input_vcf) as invcf:
 
         ## write the columns names for the haplotype file
         column_names = ["CHROM", "POS", "RefAndAlts"]
