@@ -49,8 +49,8 @@ sudo apt-get install python3
 1. **Clone this repo**
 
 ``` bash
-git clone https://github.com/everestial/VCF-SimplifyDev
-cd VCF-SimplifyDev
+git clone https://github.com/everestial/VCF-Simplify
+cd VCF-Simplify
 
 # call the "VCF-Simplify" application
 python3 VcfSimplify.py -h
