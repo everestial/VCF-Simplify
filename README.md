@@ -1,4 +1,4 @@
-# VCF-Simplify &ensp;&ensp;&ensp; v2.3
+# VCF-Simplify &ensp;&ensp;&ensp; v3.0.1
 
 **A python parser to parse metadata and records information from VCF file.** 
 
@@ -14,12 +14,10 @@ There are several tools available to manipulate and parse VCF file. But, a simpl
 
 This application is not designed to merge, compare or compute statistics from VCF files. Tools like [vcflib](https://github.com/vcflib/vcflib) and [bcftools](https://github.com/samtools/bcftools) are the ones better suited for those purpose.
 
-<hr>
+## Table of contents
 
-###  Table of contents
-
-
-- [VCF-Simplify](#vcf-simplify--v23)
+- [VCF-Simplify &ensp;&ensp;&ensp; v3.0.1](#vcf-simplify-enspenspensp-v301)
+  - [Table of contents](#table-of-contents)
   - [Tutorial](#tutorial)
     - [Prerequisites](#prerequisites)
     - [Installation and setup](#installation-and-setup)
@@ -27,10 +25,8 @@ This application is not designed to merge, compare or compute statistics from VC
     - [ViewVCF](#viewvcf)
     - [SimplifyVCF](#simplifyvcf)
     - [BuildVCF](#buildvcf)
-- [Upcoming features](#upcoming-features)
-- [Citation](#citation)
-
-<br>
+  - [Upcoming features:](#upcoming-features)
+    - [Citation:](#citation)
 
 ## Tutorial
 
@@ -119,7 +115,6 @@ optional arguments:
 ### ViewVCF
 
 - Help on **ViewVCF**:
-
 
 ```html
 $ python3 VcfSimplify.py ViewVCF -h
@@ -360,15 +355,11 @@ Additional arguments for "Haplotype To VCF":
                         Default = iupac
 ```
 
-<br>
-
 **example:** Table to VCF
 
   ```python3 VcfSimplify.py BuildVCF -fromType table -inFile exampleOutput/simple_table.txt -outVCF exampleOutput/tableToVcf.vcf -vcfHeader exampleOutput/vcf_header02.txt```
 
   This converts the input table [***simple_table.txt***](exampleOutput/simple_table.txt) to vcf file [***tableToVcf.vcf***](exampleOutput/tableToVCF.vcf) and adds [***vcf_header02.txt***](exampleOutput/vcf_header02.txt) as metadata header.
-
-<br>
 
 **example:** haplotype to VCF
 
@@ -376,8 +367,7 @@ Additional arguments for "Haplotype To VCF":
 
   This converts the haplotype file [***simple_haplotype.txt***](exampleOutput/simple_haplotype.txt) created using simplify vcf into its original vcf file [***hapToVCF.vcf***](exampleOutput/hapToVCF.vcf) along with header file.
 
-
-##  Upcoming features:
+## Upcoming features:
 
   - Ability to add `genotype bases` for fields other than ***"GT"*** .
   - Ability to handle ***symbolic alleles***.
@@ -386,6 +376,6 @@ Additional arguments for "Haplotype To VCF":
     - prepare custom GTF, GFF files.
   - Extract gene sequence using ref genome and VCF files for phylogenetic analyses.
 
-
 ### Citation:
+
   &ensp; ***Giri, B.K, (2018). VCF-simplify: Tool to build and simplify VCF (variant call format) files.***
