@@ -1,4 +1,4 @@
-# VCF-Simplify &ensp;&ensp;&ensp; v2.2
+# VCF-Simplify &ensp;&ensp;&ensp; v2.3
 
 **A python parser to parse metadata and records information from VCF file.** 
 
@@ -19,7 +19,7 @@ This application is not designed to merge, compare or compute statistics from VC
 ###  Table of contents
 
 
-- [VCF-Simplify](#vcf-simplify--v22)
+- [VCF-Simplify](#vcf-simplify--v23)
   - [Tutorial](#tutorial)
     - [Prerequisites](#prerequisites)
     - [Installation and setup](#installation-and-setup)
