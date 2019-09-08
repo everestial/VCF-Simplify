@@ -367,6 +367,8 @@ Additional arguments for "Haplotype To VCF":
 
   This converts the haplotype file [***simple_haplotype.txt***](exampleOutput/simple_haplotype.txt) created using simplify vcf into its original vcf file [***hapToVCF.vcf***](exampleOutput/hapToVCF.vcf) along with header file.
 
+#### Several other useful examples/scripts can be found in `TestScripts.sh` file. 
+
 ## Upcoming features:
 
   - Ability to add `genotype bases` for fields other than ***"GT"*** .
