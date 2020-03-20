@@ -1,7 +1,14 @@
 import os
 import time
 
-import resource
+
+_has_resource = True
+
+try:
+    import resource
+except ModuleNotFoundError as err:
+    _has_resource = False
+    print('Resource module not available. Disabling memory usage functionality.\n')
 
 
 def elapsed_since(start):
@@ -9,7 +16,7 @@ def elapsed_since(start):
 
 
 def get_process_memory():
-    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss if _has_resource else float("nan")
 
 
 def time_memory_track(func):
