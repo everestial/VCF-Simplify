@@ -1,10 +1,7 @@
-
 import argparse
 from . import simplify_arg, build_arg
 
-
-
-## *to do: add gt base as numeric vs IUPAC, 
+## TODO: add gt base as numeric vs IUPAC, 
     # control sample names (prefix, suffix, match)?? 
     # add INFO:tag in table output file 
     # write unit test
@@ -174,8 +171,6 @@ def build_argparser(subparsers):
      
     build_arg.parse_table_to_vcf(table_to_vcf)
     build_arg.parse_haplotype_to_vcf(haplotype_to_vcf)
-    
-    
     
     
     
