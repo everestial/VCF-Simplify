@@ -6,8 +6,6 @@ import re
 import warnings
 
 
-
-
 class _RecordParser:
     def __init__(self, line):
         self.lines = line
